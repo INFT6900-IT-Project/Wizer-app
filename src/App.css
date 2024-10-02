@@ -6,7 +6,6 @@
 }
 
 .home,
-.modules,
 .profile,
 .sign-up {
   display: flex;
@@ -15,16 +14,41 @@
   justify-content: center;
   font-size: 3rem;
 }
-/*
-.modules {
-  background-image: url('/images/img-2.jpg');
+
+.features {
+  /*background-image: url('./ImageVideo/feature.jpg');
   background-position: center;
   background-size: cover;
-  background-repeat: no-repeat;
-  color: #fff;
-  font-size: 100px;
+  background-repeat: no-repeat;*/
+  color: #302626;
+  margin-top: 10px;
+  text-align: center;
+  
 }
 
+.features h1 {
+  font-size: 40px;
+  padding: 10px 40px;
+  
+}
+
+.features img{
+  width: 50%;
+  margin-bottom: 30px;
+}
+
+.features span{
+  color: #eb8556f8;
+}
+
+.features p{
+  padding: 20px 70px;
+  font-size: 15px;
+  line-height: 1.5;
+  text-align: center;
+  color: rgb(108, 105, 105);
+}
+/*
 .profile {
   background-image: url('/images/img-1.jpg');
   background-position: center;
