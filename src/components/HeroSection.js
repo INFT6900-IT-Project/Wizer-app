@@ -1,11 +1,12 @@
 import React from 'react';
 import '../App.css';
 import './HeroSection.css';
-import img1 from '../ImageVideo/img1.jpg';
+import home from '../ImageVideo/home_element.png';
 import { Link } from 'react-router-dom';
 import facebook from '../ImageVideo/facebook.png';
 import instagram from '../ImageVideo/instagram.png';
 import twitter from '../ImageVideo/twitter.png';
+
 
 
 function HeroSection() {
@@ -13,10 +14,16 @@ function HeroSection() {
     <div>
       <div className='banner'>
         <div className='left-column'>
+         
           <h1>ADVENTURE <span>AWAITS</span></h1>
           <Link to='/sign-in' className='btn-cta'>
-            <i class="fa-solid fa-splotch fa-spin"></i> Start your training today
+           GET STARTED <i class="fa-solid fa-chevron-right"></i>
           </Link>
+          <Link to='/features' className='btn-cta-ft'>
+          VIEW FEATURES <i class="fa-solid fa-chevron-right"></i>
+          </Link>
+         
+          
 
           <p>"The platform
             that makes learning simple and engaging. Organizations can easily customize training or awareness modules,
@@ -26,16 +33,16 @@ function HeroSection() {
 
 
         <div className='right-column'>
-          <img src={img1} />
+          <img src={home} />
         </div>
 
 
       </div>
       <div className='social-media-menu'>
 
-        <img src={facebook}/>
-        <img src={instagram}/>
-        <img src={twitter}/>
+        <img src={facebook} alt='fb'/>
+        <img src={instagram} alt='ins'/>
+        <img src={twitter} alt='tw'/>
       </div>
     </div>
 

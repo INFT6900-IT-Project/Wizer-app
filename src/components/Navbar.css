@@ -58,13 +58,14 @@
     text-decoration: none;
     padding: 0.5rem 1rem;
     height: 100%;
+    font-size: 15px;
   }
   
   .nav-links:hover {
-    border-bottom: 2px solid #fff;
-    transition: all 0.4s ease-out;
-    text-decoration: underline;
-    text-underline-position: under;
+    padding-top: 0.5px;
+    transition-duration: 0.2s;
+    border-bottom-color: currentColor;
+
   }
   
   .fa-bars {
@@ -114,6 +115,8 @@
     .nav-links:hover {
       background-color: #fff;
       color: #242424;
+      padding-top: 25px;
+      transition-duration: 0.5s;
       border-radius: 0;
     }
   
@@ -127,10 +130,11 @@
     .menu-icon {
       display: block;
       position: absolute;
-      top: 0;
+      top: 5px;
       right: 0;
+      bottom: 36px;
       transform: translate(-100%, 60%);
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       cursor: pointer;
     }
   

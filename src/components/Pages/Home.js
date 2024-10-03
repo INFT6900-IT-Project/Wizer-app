@@ -1,12 +1,14 @@
 import React from 'react';
-import '../../App.css';
+import './Home.css';
 import HeroSection from '../HeroSection';
+import Footer from '../Footer';
 
 
 function Home() {
   return (
-    <div>
+    <div className='home'>
       <HeroSection/>
+     
     </div>
   )
 }
