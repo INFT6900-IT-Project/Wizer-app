@@ -25,9 +25,9 @@ function HeroSection() {
          
           
 
-          <p>"The platform
+          <p>The platform
             that makes learning simple and engaging. Organizations can easily customize training or awareness modules,
-            track progress, and empower their teams. Your journey begins now!"</p>
+            track progress, and empower their teams. Your journey begins now!</p>
 
         </div>
 
@@ -38,12 +38,12 @@ function HeroSection() {
 
 
       </div>
-      <div className='social-media-menu'>
+      {/* <div className='social-media-menu'>
 
         <img src={facebook} alt='fb'/>
         <img src={instagram} alt='ins'/>
         <img src={twitter} alt='tw'/>
-      </div>
+      </div> */}
     </div>
 
 
