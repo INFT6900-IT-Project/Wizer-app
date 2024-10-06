@@ -57,10 +57,14 @@ function Footer() {
       <section className='social-media'>
         <div className='social-media-wrap'>
           <div className='footer-logo'>
-          WIZER      
+          <Link to='/' className='social-logo'>
+          WIZER
           <i class="fa-solid fa-splotch"></i>
+            </Link>
+          
+          
           </div>
-        </div>
+        
         <small class='website-rights'>WIZER © 2024</small>
         <div class='social-icons'>
             <Link
@@ -103,6 +107,7 @@ function Footer() {
             >
               <i class='fab fa-linkedin' />
             </Link>
+          </div>
           </div>
       </section>
 
