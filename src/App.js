@@ -5,7 +5,7 @@ import Home from './components/Pages/Home';
 import Features from './components/Pages/Features';
 function App() {
   return (
-    
+
   <div>
     <Router>
       <Navbar/>
