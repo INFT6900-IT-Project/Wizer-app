@@ -1,30 +1,36 @@
-from fastapi import APIRouter, UploadFile, File, HTTPException, Depends, status
-from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
-from fastapi.middleware.cors import CORSMiddleware
+import os
 from datetime import datetime, timedelta
+
+from db_conn import get_db
+from dotenv import load_dotenv
+from fastapi import APIRouter, HTTPException, Depends, status
+from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from jose import JWTError, jwt
 from passlib.context import CryptContext
-from database import get_db
-
-import uvicorn
 from pydantic import BaseModel
 
-SECRET_KEY = "072f83dff5ee9184575d62849124c01d97b967a2aef0b9a1a03a3eb761c39ed2" #openssl rand -hex 32
-ALGORITHM = "HS256"
-ACCESS_TOKEN_EXPIRE_MINUTES = 30
+db_connection = get_db()
+from pathlib import Path
+env_path = Path('.') / '.env'
+load_dotenv(dotenv_path=env_path)
+
+class Settings:
+    SECRET_KEY : str = os.getenv("SECRET_KEY")
+    ALGORITHM : str = os.getenv("ALGORITHM")
+    ACCESS_TOKEN_EXPIRE_MINUTES : int = os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES")
 
 
 router = APIRouter()
 
-db = {
-    "tim": {
-        "username": "tim",
-        "full_name": "Tim Ruscica",
-        "email": "tim@gmail.com",
-        "hashed_password": "$2b$12$HxWHkvMuL7WrZad6lcCfluNFj1/Zp63lvP5aUrKlSTYtoFzPXHOtu",
-        "disabled": False
-    }
-}
+# db = {
+#     "tim": {
+#         "username": "test",
+#         "full_name": "Test",
+#         "email": "test@gmail.com",
+#         "hashed_password": "$2b$12$HxWHkvMuL7WrZad6lcCfluNFj1/Zp63lvP5aUrKlSTYtoFzPXHOtu",
+#         "disabled": False
+#     }
+# }
 
 
 class Token(BaseModel):
@@ -84,15 +90,14 @@ def create_access_token(data: dict, expires_delta: timedelta or None = None):
         expire = datetime.utcnow() + timedelta(minutes=15)
 
     to_encode.update({"exp": expire})
-    encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
+    encoded_jwt = jwt.encode(to_encode, Settings.SECRET_KEY, algorithm=Settings.ALGORITHM)
     return encoded_jwt
 
 
 async def get_current_user(token: str = Depends(oauth2_scheme)):
-    credential_exception = HTTPException(status_code=status.HTTP_401_UNAUTHORIZED,
-                                         detail="Could not validate credentials", headers={"WWW-Authenticate": "Bearer"})
+    credential_exception = HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Could not validate credentials", headers={"WWW-Authenticate": "Bearer"})
     try:
-        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+        payload = jwt.decode(token, Settings.SECRET_KEY, algorithms=[Settings.ALGORITHM])
         username: str = payload.get("sub")
         if username is None:
             raise credential_exception
@@ -121,7 +126,7 @@ async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(
     if not user:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED,
                             detail="Incorrect username or password", headers={"WWW-Authenticate": "Bearer"})
-    access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
+    access_token_expires = timedelta(minutes=Settings.ACCESS_TOKEN_EXPIRE_MINUTES)
     access_token = create_access_token(
         data={"sub": user.username}, expires_delta=access_token_expires)
     return {"access_token": access_token, "token_type": "bearer"}
