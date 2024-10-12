@@ -24,3 +24,7 @@ yarn-debug.log*
 yarn-error.log*
 
 /wizer-db
+
+__pycache__/
+backend/__pycache__/
+.idea/
