@@ -1,94 +1,14 @@
-// !function() {
-//     "use strict";
-//     function e(e) {
-//         try {
-//             if ("undefined" == typeof console)
-//                 return;
-//             "error"in console ? console.error(e) : console.log(e)
-//         } catch (e) {}
-//     }
-//     function t(e) {
-//         return d.innerHTML = '<a href="' + e.replace(/"/g, "&quot;") + '"></a>',
-//         d.childNodes[0].getAttribute("href") || ""
-//     }
-//     function r(e, t) {
-//         var r = e.substr(t, 2);
-//         return parseInt(r, 16)
-//     }
-//     function n(n, c) {
-//         for (var o = "", a = r(n, c), i = c + 2; i < n.length; i += 2) {
-//             var l = r(n, i) ^ a;
-//             o += String.fromCharCode(l)
-//         }
-//         try {
-//             o = decodeURIComponent(escape(o))
-//         } catch (u) {
-//             e(u)
-//         }
-//         return t(o)
-//     }
-//     function c(t) {
-//         for (var r = t.querySelectorAll("a"), c = 0; c < r.length; c++)
-//             try {
-//                 var o = r[c]
-//                   , a = o.href.indexOf(l);
-//                 a > -1 && (o.href = "mailto:" + n(o.href, a + l.length))
-//             } catch (i) {
-//                 e(i)
-//             }
-//     }
-//     function o(t) {
-//         for (var r = t.querySelectorAll(u), c = 0; c < r.length; c++)
-//             try {
-//                 var o = r[c]
-//                   , a = o.parentNode
-//                   , i = o.getAttribute(f);
-//                 if (i) {
-//                     var l = n(i, 0)
-//                       , d = document.createTextNode(l);
-//                     a.replaceChild(d, o)
-//                 }
-//             } catch (h) {
-//                 e(h)
-//             }
-//     }
-//     function a(t) {
-//         for (var r = t.querySelectorAll("template"), n = 0; n < r.length; n++)
-//             try {
-//                 i(r[n].content)
-//             } catch (c) {
-//                 e(c)
-//             }
-//     }
-//     function i(t) {
-//         try {
-//             c(t),
-//             o(t),
-//             a(t)
-//         } catch (r) {
-//             e(r)
-//         }
-//     }
-//     var l = "/cdn-cgi/l/email-protection#"
-//       , u = ".__cf_email__"
-//       , f = "data-cfemail"
-//       , d = document.createElement("div");
-//     i(document),
-//     function() {
-//         var e = document.currentScript || document.scripts[document.scripts.length - 1];
-//         e.parentNode.removeChild(e)
-//     }()
-// }();
-
 import React, { useState } from 'react';
 import './Courses.css';
+import courseImage1 from '../../ImageVideo/courseImage1.jpg'; // Replace with actual path
+import courseImage2 from '../../ImageVideo/courseImage2.jpg'; // Replace with actual path
+import courseImage3 from '../../ImageVideo/courseImage3.jpg'; // Add your other images
+import courseImage4 from '../../ImageVideo/courseImage4.jpg'; // Add your other images
+import courseImage5 from '../../ImageVideo/courseImage5.jpg'; // Add your other images
 
-
-import HeroSection from '../HeroSection';
-import Footer from '../Footer';
+import Footer from '../Footer';  // Footer is imported but not used, let's use it now.
 
 function Courses() {
-    // Mock course data
     const [courses] = useState([
         {
             id: 1,
@@ -96,7 +16,7 @@ function Courses() {
             category: 'Photography',
             title: 'Create An LMS Website With LearnPress',
             duration: '2 Weeks',
-            students: 156,
+            students: 25,
             level: 'All levels',
             lessons: 20,
             price: 'Free',
@@ -107,12 +27,44 @@ function Courses() {
             category: 'Photography',
             title: 'Amazing Themes by Thimpress',
             duration: '2 Weeks',
-            students: 156,
+            students: 30,
             level: 'All levels',
             lessons: 20,
             price: 'Free',
         },
-        // Add more course objects here...
+        {
+            id: 3,
+            image: courseImage3,
+            category: 'Photography',
+            title: 'Learn Photography',
+            duration: '2 Weeks',
+            students: 33,
+            level: 'All levels',
+            lessons: 20,
+            price: 'Free',
+        },
+        {
+            id: 4,
+            image: courseImage4,
+            category: 'Technology',
+            title: 'Introduction to Technology',
+            duration: '3 Weeks',
+            students: 45,
+            level: 'Beginner',
+            lessons: 30,
+            price: 'Free',
+        },
+        {
+            id: 5,
+            image: courseImage5,
+            category: 'Design',
+            title: 'Learn Web Design',
+            duration: '4 Weeks',
+            students: 26,
+            level: 'Advanced',
+            lessons: 40,
+            price: 'Free',
+        },
     ]);
 
     return (
@@ -148,6 +100,9 @@ function Courses() {
                 <span className="page-number">2</span>
                 <span className="page-number">3</span>
             </div>
+
+            {/* Add Footer here */}
+            <Footer />
         </div>
     );
 }
