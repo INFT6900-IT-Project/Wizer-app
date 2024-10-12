@@ -13,12 +13,11 @@ function Courses() {
         {
             id: 1,
             image: courseImage1,
-            category: 'Photography',
-            title: 'Create An LMS Website With LearnPress',
+            category: 'Language',
+            title: 'Basic Japanese',
             duration: '2 Weeks',
             students: 25,
-            level: 'All levels',
-            lessons: 20,
+            level: 'Basic',
             price: 'Free',
         },
         {
@@ -29,7 +28,6 @@ function Courses() {
             duration: '2 Weeks',
             students: 30,
             level: 'All levels',
-            lessons: 20,
             price: 'Free',
         },
         {
@@ -40,7 +38,6 @@ function Courses() {
             duration: '2 Weeks',
             students: 33,
             level: 'All levels',
-            lessons: 20,
             price: 'Free',
         },
         {
@@ -51,7 +48,6 @@ function Courses() {
             duration: '3 Weeks',
             students: 45,
             level: 'Beginner',
-            lessons: 30,
             price: 'Free',
         },
         {
@@ -62,7 +58,6 @@ function Courses() {
             duration: '4 Weeks',
             students: 26,
             level: 'Advanced',
-            lessons: 40,
             price: 'Free',
         },
     ]);
