@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import './Courses.css';
-import courseImage1 from '../../ImageVideo/courseImage1.jpg'; // Replace with actual path
-import courseImage2 from '../../ImageVideo/courseImage2.jpg'; // Replace with actual path
-import courseImage3 from '../../ImageVideo/courseImage3.jpg'; // Add your other images
-import courseImage4 from '../../ImageVideo/courseImage4.jpg'; // Add your other images
-import courseImage5 from '../../ImageVideo/courseImage5.jpg'; // Add your other images
+import courseImage1 from '../../ImageVideo/courseImage1.jpg'; 
+import courseImage2 from '../../ImageVideo/courseImage2.jpg'; 
+import courseImage3 from '../../ImageVideo/courseImage3.jpg'; 
+import courseImage4 from '../../ImageVideo/courseImage4.jpg'; 
+import courseImage5 from '../../ImageVideo/courseImage5.jpg'; 
 
-import Footer from '../Footer';  // Footer is imported and now used.
+import Footer from '../Footer';  
 
 function Courses() {
     const [courses] = useState([
