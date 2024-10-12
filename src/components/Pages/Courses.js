@@ -6,7 +6,7 @@ import courseImage3 from '../../ImageVideo/courseImage3.jpg'; // Add your other 
 import courseImage4 from '../../ImageVideo/courseImage4.jpg'; // Add your other images
 import courseImage5 from '../../ImageVideo/courseImage5.jpg'; // Add your other images
 
-import Footer from '../Footer';  // Footer is imported but not used, let's use it now.
+import Footer from '../Footer';  // Footer is imported and now used.
 
 function Courses() {
     const [courses] = useState([
@@ -77,15 +77,18 @@ function Courses() {
             <div className="courses-grid">
                 {courses.map((course) => (
                     <div className="course-card" key={course.id}>
-                        <img src={course.image} alt={course.title} />
-                        <div className="course-info">
-                            <p className="course-category">{course.category}</p>
-                            <h3>{course.title}</h3>
+                        <div className="course-image-wrapper">
+                            <img src={course.image} alt={course.title} className="course-image" />
+                            <span className="course-category">{course.category}</span>
+                        </div>
+                        <div className="course-content">
+                            <p className="course-author">by Gemma Nguyen</p>
+                            <h3 className="course-title">{course.title}</h3>
                             <div className="course-meta">
-                                <span>{course.duration}</span>
-                                <span>{course.students} Students</span>
-                                <span>{course.level}</span>
-                                <span>{course.lessons} Lessons</span>
+                                <span><i className="fas fa-clock"></i> {course.duration}</span>
+                                <span><i className="fas fa-users"></i> {course.students} Students</span>
+                                <span><i className="fas fa-signal"></i> {course.level}</span>
+                                <span><i className="fas fa-book"></i> {course.lessons} Lessons</span>
                             </div>
                             <div className="course-footer">
                                 <span className="course-price">{course.price}</span>
@@ -97,11 +100,9 @@ function Courses() {
             </div>
             <div className="pagination">
                 <span className="page-number active">1</span>
-                <span className="page-number">2</span>
-                <span className="page-number">3</span>
             </div>
 
-            {/* Add Footer here */}
+            {/* Render Footer */}
             <Footer />
         </div>
     );
