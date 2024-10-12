@@ -10,3 +10,4 @@ uvicorn
 passlib
 jose
 psycopg2
+pyotp

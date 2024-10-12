@@ -1,6 +1,7 @@
 import uvicorn
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 
 # from .dependencies import
 from routers import user_handling
@@ -8,19 +9,20 @@ from routers import user_handling
 # app = FastAPI(dependencies=[Depends()])
 app = FastAPI()
 
-app.include_router(user_handling.router)
-
-origins = [
-    "",
-]
-
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,  # Allows all origins from the list
+    allow_origins=["*"],
     allow_credentials=True,
-    allow_methods=["*"],  # Allows all methods
-    allow_headers=["*"],  # Allows all headers
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
+
+@app.exception_handler(HTTPException)
+async def http_exception_handler(request: Request, exc: HTTPException):
+    return JSONResponse(status_code=exc.status_code, content={"message": exc.detail})
+
+
+app.include_router(user_handling.router)
 if __name__ == "__main__":
     uvicorn.run(app, host="localhost", port=3000, reload=True)
