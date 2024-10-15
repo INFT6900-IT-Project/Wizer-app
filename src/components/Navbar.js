@@ -31,7 +31,7 @@ function Navbar() {
         <div className="navbar-container">
             
             <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
-            <i class="fa-solid fa-w"></i>izer      
+            Wizer      
             <i class="fa-solid fa-splotch"></i>
             </Link>
             
@@ -55,6 +55,11 @@ function Navbar() {
                 <li className='nav-item'>
                     <Link to='/pricing' className='nav-links' onClick={closeMobileMenu}>
                         Pricing
+                    </Link>
+                </li>
+                <li className='nav-item'>
+                    <Link to='/contact-us' className='nav-links' onClick={closeMobileMenu}>
+                        Contact Us
                     </Link>
                 </li>
                 <li>
