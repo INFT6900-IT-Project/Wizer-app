@@ -47,14 +47,15 @@ function ContactUs() {
         </div>
         </section>
         
-
           <iframe className='map' width="550" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" 
           src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=university%20drive,%20callaghan,%20NSW+(Wizer%20Co.)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
           <a href="https://www.gps.ie/">gps vehicle tracker</a>
           </iframe>
          
-          
+
+        
         </div>
+
 
 
     <Footer/>
