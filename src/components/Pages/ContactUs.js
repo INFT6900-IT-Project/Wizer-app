@@ -3,6 +3,9 @@ import './ContactUs.css';
 import arrow from '../../ImageVideo/arrow_icon.png';
 import msg from '../../ImageVideo/msg.png';
 import Footer from '../Footer';
+import CardItem from '../CardItem';
+import '../CardItem.css';
+import img1 from '../../ImageVideo/img1.jpg'
 
 function ContactUs() {
   return (
@@ -55,7 +58,60 @@ function ContactUs() {
 
         
         </div>
+        
 
+        <div className='contact-us-card-container'>
+          <>
+          <p className='team-title'>OUR SUPPORT TEAM</p>
+          <h1>Talk to real people</h1>
+          <p className='team-desc'>Connect with our friendly support team and get assistance from real people, 
+            ready to help you with any questions or concerns. We're here to provide personalized, 
+            prompt support every step of the way</p>
+          </>
+          
+        <div className='cards-wrap'>
+          <CardItem
+        src={img1}
+        text='Adoria Duong'
+        description='Connect '  
+        path='https://www.linkedin.com/in/thi-bao-ngoc-duong-5947491b7/'
+        />
+        <CardItem
+        src={img1}
+        text='Elias Luong'
+        description='Connect '
+        path='https://www.linkedin.com/in/hai-dang-luong-7a93a6134/'
+        />
+
+          </div>
+
+
+          <div className='cards-wrap'>
+          
+            <CardItem
+        src={img1}
+        text='Gemma Nguyen'
+        description='Connect '
+        path='https://www.linkedin.com/in/thi-bao-ngoc-duong-5947491b7/'
+        />
+        <CardItem
+        src={img1}
+        text='Danny Aburto'
+        description='Connect '
+        path='https://www.linkedin.com/in/thi-bao-ngoc-duong-5947491b7/'
+        />
+        <CardItem
+        src={img1}
+        text='Quang Hoang'
+        description='Connect '
+        path='https://www.linkedin.com/in/thi-bao-ngoc-duong-5947491b7/'
+        />
+           
+          
+          </div>
+        
+
+        </div>
 
 
     <Footer/>

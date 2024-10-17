@@ -1,0 +1,102 @@
+
+.contact-us-card-container{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    min-height: 70vh;
+    background-color: white;
+    margin-left: 130px;
+    margin-right: 130px;
+    border-radius: 10px;
+    margin-top: 40px;
+    
+}
+.contact-us-card-container h1{
+    font-size: 35px;
+}
+.team-title{
+    margin: 13px;
+    font-size: 15px;
+}
+
+.team-desc{
+    margin: 30px;
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+
+
+.cards-wrap{
+    position: relative;
+    display: flex;
+    margin: 30px 0 45px;
+}
+.card-item{
+    display: flex;
+    flex: 1;
+    margin: 0 4rem;
+    border-radius: 10px;
+}
+
+.card-item-pic-wrap {
+    position: relative;
+    width: 190px;
+    padding-top: 76%;
+    overflow: visible;
+    
+}
+
+.card-item-pic-wrap img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    align-items: center;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    transition: all 0.2s linear;
+    
+}
+
+.card-item-pic-wrap img:hover {
+    transform: scale(1.1);
+}
+
+
+  
+
+.card-item-link {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
+    -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
+    filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
+    border-radius: 30px;
+    overflow: hidden;
+    text-decoration: none;
+    align-items: center;
+  }
+
+.card-item-link h5{
+    text-align: center;
+    color: #383a3f;
+    font-size: 16px;
+    margin-top: 10px;
+    padding: 13px;
+}
+
+.card-item-link p{
+    text-align: center;
+    color: #da684b;
+    font-size: 14px;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+}
