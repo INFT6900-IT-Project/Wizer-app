@@ -70,7 +70,10 @@
 }
 
 
-  
+.fa-arrow-right{
+    margin-left: 7px;
+    align-items: center;
+}
 
 .card-item-link {
     display: flex;
@@ -95,7 +98,7 @@
 
 .card-item-link p{
     text-align: center;
-    color: #da684b;
+    color: #c5644b;
     font-size: 14px;
     margin-bottom: 20px;
     letter-spacing: 0.5px;
