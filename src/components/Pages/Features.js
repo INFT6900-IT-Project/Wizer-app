@@ -20,7 +20,7 @@ function Features() {
           <img src={customization} />
           <div className='card-content'>
             <h3>Customization</h3>
-            <p className='p-cards'>Administrators and educators can design and organize learning modules based on the users' needs</p>
+            <p className='p-cards'> Administrators and educators can design and organize learning modules based on the users' needs</p>
             <a href='' class='btn' >Read more</a>
           </div>
         </div>
