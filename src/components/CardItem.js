@@ -13,7 +13,7 @@ function CardItem(props) {
                 />
             </figure>
             <h5>{props.text}</h5>
-            <p>{props.description} <i class="fa-solid fa-arrow-right"></i></p>
+            <p>{props.description}<i class="fa-solid fa-angle-right"></i></p>
         </a>
       </li>
     </div>

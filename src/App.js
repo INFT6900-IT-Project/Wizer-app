@@ -5,12 +5,15 @@ import Home from './components/Pages/Home';
 import Features from './components/Pages/Features';
 import Pricing from './components/Pages/Pricing';
 import ContactUs from './components/Pages/ContactUs';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
+  
   return (
 
   <div>
     <Router>
+      <ScrollToTop>
       <Navbar/>
       <Switch>
         <Route exact path='/' component={Home}/>
@@ -18,6 +21,7 @@ function App() {
         <Route path='/pricing' component={Pricing}/>
         <Route path='/contact-us' component={ContactUs}/>
       </Switch>
+      </ScrollToTop>
     </Router>
     </div>
   );

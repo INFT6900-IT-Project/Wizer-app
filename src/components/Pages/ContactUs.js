@@ -5,7 +5,9 @@ import msg from '../../ImageVideo/msg.png';
 import Footer from '../Footer';
 import CardItem from '../CardItem';
 import '../CardItem.css';
-import img1 from '../../ImageVideo/img1.jpg'
+import img1 from '../../ImageVideo/img1.jpg';
+import adoria from '../../ImageVideo/adoria.png';
+import elias from '../../ImageVideo/elias.jpg';
 
 function ContactUs() {
   return (
@@ -71,18 +73,17 @@ function ContactUs() {
           
         <div className='cards-wrap'>
           <CardItem
-        src={img1}
+        src={adoria}
         text='Adoria Duong'
-        description='Connect '  
+        description='Contact '  
         path='https://www.linkedin.com/in/thi-bao-ngoc-duong-5947491b7/'
         />
         <CardItem
-        src={img1}
+        src={elias}
         text='Elias Luong'
-        description='Connect '
+        description='Contact '
         path='https://www.linkedin.com/in/hai-dang-luong-7a93a6134/'
         />
-
           </div>
 
 
@@ -91,19 +92,19 @@ function ContactUs() {
             <CardItem
         src={img1}
         text='Gemma Nguyen'
-        description='Connect '
+        description='Contact '
         path='https://www.linkedin.com/in/thi-bao-ngoc-duong-5947491b7/'
         />
         <CardItem
         src={img1}
         text='Danny Aburto'
-        description='Connect '
+        description='Contact '
         path='https://www.linkedin.com/in/thi-bao-ngoc-duong-5947491b7/'
         />
         <CardItem
         src={img1}
         text='Quang Hoang'
-        description='Connect '
+        description='Contact'
         path='https://www.linkedin.com/in/thi-bao-ngoc-duong-5947491b7/'
         />
            

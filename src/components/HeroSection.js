@@ -3,9 +3,7 @@ import '../App.css';
 import './HeroSection.css';
 import home from '../ImageVideo/home_element.png';
 import { Link } from 'react-router-dom';
-import facebook from '../ImageVideo/facebook.png';
-import instagram from '../ImageVideo/instagram.png';
-import twitter from '../ImageVideo/twitter.png';
+
 
 
 
