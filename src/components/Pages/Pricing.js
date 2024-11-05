@@ -41,6 +41,57 @@ function Pricing() {
                 </ul>
             </div>
         </div>
+
+        <div className='pric-compare-wrap'>
+            <h1 className="wrap-title">Find the perfect fit!</h1>
+           
+
+            <table cellPadding={0} className="plan-table">
+                <thead className="plan-table-header">
+                <tr>
+                    <th>World-Class Content</th>
+                    <th>
+                        <div>
+                            <h1>Team</h1>
+                            <p>5-125 users</p>
+                            <div>
+                                <a href='#'>Get Started</a>
+                            </div>
+                        </div>
+                    </th>
+                    <th>
+                        <div>
+                            <h1>Enterpirse</h1>
+                            <p>125+ users</p>
+                            <div>
+                                <a href='#'>Contact Sales</a>
+                            </div>
+                        </div>
+                    </th>
+                </tr>
+                </thead>
+
+                <tbody className="plan-table-body">
+                <tr>
+                    <td>Catalog of 6,755+ courses from top universities and companies</td>
+                    <td><i class="fa-solid fa-check" style={{color: '#d67a3d'}}></i></td>
+                    <td><i class="fa-solid fa-check" style={{color: '#d67a3d'}}></i></td>
+                </tr>
+                <tr>
+                    <td>Verified Certificates upon course completion</td>
+                    <td><i class="fa-solid fa-check" style={{color: '#d67a3d'}}></i></td>
+                    <td><i class="fa-solid fa-check" style={{color: '#d67a3d'}}></i></td>
+                </tr>
+                <tr>
+                    <td>Catalog of 3,500+ hands-on Guided Projects</td>
+                    <td><i class="fa-solid fa-check" style={{color: '#d67a3d'}}></i></td>
+                    <td><i class="fa-solid fa-check" style={{color: '#d67a3d'}}></i></td>
+                </tr>
+                </tbody>
+                
+            </table>
+        </div>
+
         <Footer/>
     </div>
   )
