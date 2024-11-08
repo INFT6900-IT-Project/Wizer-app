@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Courses.css';
-import courseImage1 from '../../ImageVideo/courseImage1.jpg'; 
-import courseImage2 from '../../ImageVideo/courseImage2.jpg'; 
-import courseImage3 from '../../ImageVideo/courseImage3.jpg'; 
-import courseImage4 from '../../ImageVideo/courseImage4.jpg'; 
-import courseImage5 from '../../ImageVideo/courseImage5.jpg'; 
+import courseImage1 from '../../../ImageVideo/courseImage1.jpg';
+import courseImage2 from '../../../ImageVideo/courseImage2.jpg';
+import courseImage3 from '../../../ImageVideo/courseImage3.jpg';
+import courseImage4 from '../../../ImageVideo/courseImage4.jpg';
+import courseImage5 from '../../../ImageVideo/courseImage5.jpg';
 
-import Footer from '../Footer';  
+
+import Footer from '../../Footer';
+
+
 
 function Courses() {
     const [courses] = useState([
@@ -24,7 +28,7 @@ function Courses() {
             id: 2,
             image: courseImage2,
             category: 'Photography',
-            title: 'Amazing Themes by Thimpress',
+            title: 'Amazing Themes for Photography',
             duration: '2 Weeks',
             students: 30,
             level: 'All levels',
@@ -87,7 +91,9 @@ function Courses() {
                             </div>
                             <div className="course-footer">
                                 <span className="course-price">{course.price}</span>
-                                <button className="view-more-btn">View More</button>
+                                <button className="view-more-btn">
+                                     <Link to={`/course-detail/${course.id}`}>View More</Link>
+                                </button>
                             </div>
                         </div>
                     </div>

@@ -31,7 +31,7 @@ function Navbar() {
         <div className="navbar-container">
             
             <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
-            <i class="fa-solid fa-w"></i>izer      
+            <i class="fa-solid fa-w"></i>wizer      
             <i class="fa-solid fa-splotch"></i>
             </Link>
             
@@ -77,4 +77,4 @@ function Navbar() {
   )
 }
 
-export default Navbar
+export default Navbar;
