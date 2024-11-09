@@ -3,9 +3,7 @@ import '../App.css';
 import './HeroSection.css';
 import home from '../ImageVideo/home_element.png';
 import { Link } from 'react-router-dom';
-import facebook from '../ImageVideo/facebook.png';
-import instagram from '../ImageVideo/instagram.png';
-import twitter from '../ImageVideo/twitter.png';
+
 
 
 
@@ -35,15 +33,68 @@ function HeroSection() {
         <div className='right-column'>
           <img src={home} />
         </div>
-
-
       </div>
-      {/* <div className='social-media-menu'>
 
-        <img src={facebook} alt='fb'/>
-        <img src={instagram} alt='ins'/>
-        <img src={twitter} alt='tw'/>
-      </div> */}
+      <div className='ad-overview'>
+        <div className='ad-top-category'>
+          <div className='ad-category-head'>
+          <h2>Top Categories</h2>
+          <p>Explore our popular categories</p>
+          </div>
+          
+          <div className='ad-card-container'>
+
+          <div className='ad-card'>
+            <Link href='' style={{ textDecoration: 'none' }} className='ad-btn'>
+            <i class="fa-solid fa-language" style={{color: '#d67a3d'}}></i>
+            <h3>Languages</h3>
+            <p>31 Courses</p>
+            </Link>       
+          </div>
+
+          <div className='ad-card'>
+            <Link href='' style={{ textDecoration: 'none' }} className='ad-btn'>
+            <i class="fa-solid fa-file-code" style={{color: '#d67a3d'}}/>
+            <h3>Development</h3>
+            <p>23 Courses</p>
+            </Link>       
+          </div>
+
+          <div className='ad-card'>
+            <Link href='' style={{ textDecoration: 'none' }} className='ad-btn'>
+            <i class="fa-solid fa-chart-simple" style={{color: '#d67a3d'}}/>
+            <h3>Marketing</h3>
+            <p>62 Courses</p>
+            </Link>       
+          </div>
+
+          <div className='ad-card'>
+            <Link href='' style={{ textDecoration: 'none' }} className='ad-btn'>
+            <i class="fa-solid fa-pen-to-square" style={{color: '#d67a3d'}}/>
+            <h3>Content Writing</h3>
+            <p>79 Courses</p>
+            </Link>       
+          </div>
+
+          <div className='ad-card'>
+            <Link href='' style={{ textDecoration: 'none' }} className='ad-btn'>
+            <i class="fa-solid fa-flask" style={{color: '#d67a3d'}}/>
+            <h3>Science</h3>
+            <p>19 Courses</p>
+            </Link>       
+          </div>
+
+          </div>
+        
+        </div>
+        <div className='ad-featured-course'>
+        <div className='ad-course-head'>
+          <h2>Featured Courses</h2>
+          <p>Discover popular courses</p>
+          </div>
+        </div>
+      </div>
+      
     </div>
 
 

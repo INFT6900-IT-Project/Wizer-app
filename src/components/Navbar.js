@@ -25,13 +25,14 @@ function Navbar() {
     window.addEventListener('resize', showButton);
 
 
+
   return (
     <>
     <nav className="navbar">
         <div className="navbar-container">
             
             <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
-            <i class="fa-solid fa-w"></i>izer      
+            Wizer      
             <i class="fa-solid fa-splotch"></i>
             </Link>
             
@@ -50,6 +51,11 @@ function Navbar() {
                 <li className='nav-item'>
                     <Link to='/features' className='nav-links' onClick={closeMobileMenu}>
                         Features
+                    </Link>
+                </li>
+                <li className='nav-item'>
+                    <Link to='/pricing' className='nav-links' onClick={closeMobileMenu}>
+                        Pricing
                     </Link>
                 </li>
                 <li className='nav-item'>

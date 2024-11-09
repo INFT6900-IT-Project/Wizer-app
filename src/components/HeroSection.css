@@ -115,6 +115,62 @@
     left: -220px;
 } */
 
+.ad-overview{
+    background-color: white;
+    padding: 60px;
+}
+
+.ad-top-category, .ad-featured-course{
+    margin-top: 50px;
+}
+
+.ad-category-head h2, .ad-featured-course h2{
+    margin: 20px 20px 10px; /*top right-left bottom*/
+}
+.ad-category-head p, .ad-course-head p{
+    margin-left: 20px;
+    margin-bottom: 20px;
+    color: gray;
+}
+
+.ad-card-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.ad-card{
+    width: 180px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0px 2px 4px #a2b8bb;
+    margin: 22px;
+    padding: 20px 16px;
+    line-height: 2.2rem;
+}
+
+.ad-card:hover .ad-btn h3{
+    color: #d67a3d;
+}
+
+.ad-card:hover{
+    transform: scale(1.1);
+    transition: all 0.24s linear;
+}
+
+.ad-btn p{
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.fa-language, .fa-file-code, .fa-chart-simple, .fa-pen-to-square, .fa-flask{
+    font-size: 2rem;
+    margin-top: 15px;
+}
+
 @media screen and (min-width: 1500px) {
     .right-column img{
         width: 50%; 
