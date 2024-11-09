@@ -4,13 +4,11 @@ import './CourseDetail.css';
 const PriceCourseCard = ({ course, onGetNow }) => {
   if (!course) return null;
 
-  const { img = '', price = 'Original Price', sale = 'Discounted Price' } = course;
+  // Setting default values for price and sale
+  const { price = '$25', sale = 'Free (0$)' } = course;
 
   return (
     <div className="promo-card">
-      <div className="promo-image">
-        <img src={img} alt="Course Thumbnail" />
-      </div>
       <div className="promo-content">
         <div className="promo-pricing">
           <span className="original-price">{price}</span>

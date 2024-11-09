@@ -17,12 +17,12 @@ const coursesData = [
       duration: '2 Weeks',
       students: 25,
       level: 'Basic',
-      price: 'Free',
+      price: '25$',
       sale: 'Discounted Price',
       overview: "This 2-week beginner's course introduces students to the basics of the Japanese language...",
-      // Add additional fields as needed
+  
     },
-    // Add more courses if needed
+   
   ];
   
   const CourseDetail = () => {
@@ -40,7 +40,7 @@ const coursesData = [
         const fetchedCourse = coursesData.find(course => course.id === parseInt(id));
         setSelectedCourse(fetchedCourse);
       } else {
-        console.log("Course data:", selectedCourse); // Verify data here
+        console.log("Course data:", selectedCourse); 
       }
     }, [id, selectedCourse]);
   

@@ -20,7 +20,7 @@ function Courses() {
             duration: '2 Weeks',
             students: 25,
             level: 'Basic',
-            price: 'Free',
+            price: '25$',
             lessons: 12,
         },
         {
@@ -31,7 +31,7 @@ function Courses() {
             duration: '2 Weeks',
             students: 30,
             level: 'All levels',
-            price: 'Free',
+            price: '25$',
             lessons: 10,
         },
         {
@@ -42,7 +42,7 @@ function Courses() {
             duration: '2 Weeks',
             students: 33,
             level: 'All levels',
-            price: 'Free',
+            price: '25$',
             lessons: 8,
         },
         {
@@ -53,7 +53,7 @@ function Courses() {
             duration: '3 Weeks',
             students: 45,
             level: 'Beginner',
-            price: 'Free',
+            price: '25$',
             lessons: 9,
         },
         {
@@ -64,7 +64,7 @@ function Courses() {
             duration: '4 Weeks',
             students: 26,
             level: 'Advanced',
-            price: 'Free',
+            price: '25$',
             lessons: 15,
         },
     ]);
