@@ -2,7 +2,6 @@ import React from 'react';
 import './ContactUs.css';
 import arrow from '../../ImageVideo/arrow_icon.png';
 import msg from '../../ImageVideo/msg.png';
-import Footer from '../Footer';
 import CardItem from '../CardItem';
 import '../CardItem.css';
 import img1 from '../../ImageVideo/img1.jpg';
@@ -64,6 +63,7 @@ function ContactUs() {
 
         <div className='contact-us-card-container'>
           <>
+          <i class="fa-solid fa-headset"></i>
           <p className='team-title'>OUR SUPPORT TEAM</p>
           <h1>Talk to real people</h1>
           <p className='team-desc'>Connect with our friendly support team and get assistance from real people, 
@@ -88,7 +88,6 @@ function ContactUs() {
 
 
           <div className='cards-wrap'>
-          
             <CardItem
         src={img1}
         text='Gemma Nguyen'
@@ -115,7 +114,6 @@ function ContactUs() {
         </div>
 
 
-    <Footer/>
     </div>
   )
 }

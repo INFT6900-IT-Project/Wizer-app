@@ -4,7 +4,6 @@ import secure from '../../ImageVideo/secure.jpg';
 import customization from '../../ImageVideo/customization.jpg';
 import quiz from '../../ImageVideo/quiz.jpg';
 import explore from '../../ImageVideo/explore.mp4';
-import Footer from '../Footer';
 
 function Features() {
   return (
@@ -70,8 +69,6 @@ function Features() {
 
       </div>
 
-
-      <Footer/>
     </div>
   )
 }

@@ -132,19 +132,19 @@
     }
 
     .footer-input {
-        font-size: 16px;
+        font-size: 14px;
     }
 
     .column-link-items {  
-        margin: 120px; 
-        width: 190px;
+        margin: 100px; 
+        width: 160px;
     }
 
     .column-link-items h2 {
-        font-size: 30px;
+        font-size: 26px;
     }
     
     .column-link-items a {
-        font-size: 20px;
+        font-size: 17px;
     }
 }

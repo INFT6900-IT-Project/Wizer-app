@@ -1,13 +1,13 @@
 import React from "react";
 import './Pricing.css';
-import Footer from '../Footer';
 import person from '../../ImageVideo/person.jpg';
 
 function Pricing() {
   return (
     <div>
         <header className="pric-header">
-            Learn more, spend less: Explore our plans
+        <i class="fa-solid fa-bell" style={{color: '#d67a3d'}}></i>
+        Learn more, spend less: Explore our plans
         </header>
 
         <div className="pric-plans-wrap">
@@ -204,7 +204,6 @@ function Pricing() {
             
             <h2>Already</h2>
         </div> 
-        <Footer/>
     </div>
   )
 }

@@ -76,12 +76,12 @@
     font-weight: 700;
 }
 
-.fa-check{
+.fa-check, .fa-xmark{
     margin-right: 10px;
 }
 
-.fa-xmark{
-    margin-right: 10px;
+.fa-bell{
+    margin-right: 20px;
 }
 
 .best-value {

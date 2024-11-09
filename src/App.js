@@ -6,6 +6,7 @@ import Features from './components/Pages/Features';
 import Pricing from './components/Pages/Pricing';
 import ContactUs from './components/Pages/ContactUs';
 import ScrollToTop from './components/ScrollToTop';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path='/contact-us' component={ContactUs}/>
       </Switch>
       </ScrollToTop>
+      <Footer/>
     </Router>
     </div>
   );
