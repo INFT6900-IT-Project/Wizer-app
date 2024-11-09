@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import Curriculum from './Curriculum';
 import Instructor from './Instructor';

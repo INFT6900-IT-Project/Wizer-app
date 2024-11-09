@@ -1,4 +1,3 @@
-// FAQs.js
 import React, { useState } from 'react';
 import './FAQs.css';
 import DownIcon from './image/downicon2.png';
@@ -27,16 +26,16 @@ const FAQItem = ({ question, answer }) => {
 const FAQs = () => {
   const faqData = [
     {
-      question: "What Does Royalty Free Mean?",
-      answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras facilisis faucibus odio arcu duis dui, adipiscing facilisis. Urna, donec turpis egestas volutpat. Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in."
+      question: "Can I modify royalty-free content?",
+      answer: "Yes, most of the time, you can make specific edits and revisions to royalty-free content to suit your purposes. Of course, you may want to check out the licensing terms associated with the content, as some are not modifiable."
     },
     {
-      question: "Can I use the content for commercial purposes?",
-      answer: "Yes, you may use royalty-free content for commercial purposes, depending on the licensing terms. However, it’s best to double-check individual content licenses to ensure compliance."
+      question: "Do I need to give credit when using royalty-free content?",
+      answer: "Most of the time, royalty-free does not need any form of attribution. On the other hand, some licenses may ask for credit to come in, so it's better to check the license details first before using the content."
     },
     {
-      question: "Are there any hidden fees with royalty-free content?",
-      answer: "Royalty-free content usually comes with a one-time fee, allowing you to use it repeatedly without additional charges. Ensure to review licensing terms for any specific limitations."
+      question: "Is royalty-free content the same as free content?",
+      answer: "No, royalty-free does not necessarily mean free. There is usually some one-time fee paid for the content; after that, it's free to use with no recurring royalties. Free content has no purchase attached but may have limitations on its usage."
     }
   ];
 
