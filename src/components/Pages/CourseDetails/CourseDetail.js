@@ -3,8 +3,7 @@ import HeaderCourseDetail from "./HeaderCourseDetail";
 import PriceCourseCard from "./PriceCourseCard";
 import TabNavigation from "./TabNavigation";
 import CommentForm from "./CommentForm";
-import Header from "../Components/HomePage/Header";
-import Footer from "../Components/HomePage/Footer";
+import Footer from '../../Footer';
 import RegisterCourse from "./RegisterCourse"; 
 import { useLocation } from "react-router-dom";
 import "./CourseDetail.css";
@@ -16,18 +15,15 @@ const CourseDetail = () => {
   const [showRegistrationForm, setShowRegistrationForm] = useState(false);
   const registrationFormRef = useRef(null);
 
- 
   useEffect(() => {
     const savedComments = JSON.parse(localStorage.getItem("comments")) || [];
     setReviewsData(savedComments);
   }, []);
 
- 
   const addComment = (newReview) => {
     setReviewsData((prevReviews) => [...prevReviews, newReview]);
     localStorage.setItem("comments", JSON.stringify([...reviewsData, newReview]));
   };
-
 
   const handleGetNowClick = () => {
     setShowRegistrationForm(true);
@@ -38,7 +34,7 @@ const CourseDetail = () => {
 
   return (
     <>
-      <Header />
+    
       <HeaderCourseDetail course={selectedCourse} />
       <PriceCourseCard course={selectedCourse} onGetNow={handleGetNowClick} />
       <TabNavigation reviewsData={reviewsData} />

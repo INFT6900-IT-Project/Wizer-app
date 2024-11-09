@@ -1,9 +1,9 @@
 import React from "react";
-import Levels from "../../image/alllevels.png";
-import Student from "../../image/student.png";
-import Time from "../../image/time.png";
-import Lesson from "../../image/lesson.png";
-import Quizz from "../../image/quizz.png";
+import Levels from '../../../ImageVideo/alllevels.png';
+import Student from '../../../ImageVideo/student.png';
+import Time from '../../../ImageVideo/time.png';
+import Lesson from '../../../ImageVideo/lesson.png';
+import Quizz from '../../../ImageVideo/quizz.png';
 import "./CourseDetail.css";
 
 const HeaderCourseDetail = ({ course }) => {
@@ -28,16 +28,13 @@ const HeaderCourseDetail = ({ course }) => {
           <img src={Time} alt="Time icon" /> {course.duration || "2"} Weeks
         </span>
         <span className="info-item student">
-          <img src={Student} alt="Student icon" /> {course.students || "30"} Students
-        </span>
-        <span className="info-item levels">
-          <img src={Levels} alt="Levels icon" /> {course.level || "All levels"}
+          <img src={Student} alt="Student icon" /> {course.students || "25"} Students
         </span>
         <span className="info-item lesson">
-          <img src={Lesson} alt="Lesson icon" /> {course.lessons || "12"} Lessons
+          <img src={Lesson} alt="Lesson icon" /> {course.lessons || "20"} Lessons
         </span>
         <span className="info-item quizz">
-          <img src={Quizz} alt="Quiz icon" /> {course.quizzes || "30"} Quizzes
+          <img src={Quizz} alt="Quizz icon" /> {course.quizzes || "5"} Quizzes
         </span>
       </div>
     </div>
@@ -45,4 +42,3 @@ const HeaderCourseDetail = ({ course }) => {
 };
 
 export default HeaderCourseDetail;
-
