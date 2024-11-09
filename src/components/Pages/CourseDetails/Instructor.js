@@ -18,9 +18,10 @@ const Instructor = () => {
           alt="Wizer Logo"
         />
         <div className="instructor-info">
-          <h2>Basic Japanese Language Course</h2>
+          <h2>Instructor</h2>
           <p>
-          This 2-week beginner's course introduces students to the basics of the Japanese language, focusing on essential grammar, vocabulary, pronunciation, and cultural context. By the end of this course, students will be able to engage in simple conversations, read and write basic hiragana and katakana, and understand simple sentence structures. 
+          Gemma Nguyen 
+          <p>Expert in Japanese Language</p>
           </p>
           <div className="instructor-meta">
             <div className="meta-item">
@@ -36,7 +37,7 @@ const Instructor = () => {
       </div>
 
       <p className="instructor-description">
-      This 2-week beginner's course introduces students to the basics of the Japanese language, focusing on essential grammar, vocabulary, pronunciation, and cultural context. By the end of this course, students will be able to engage in simple conversations, read and write basic hiragana and katakana, and understand simple sentence structures. 
+      Graduate at the Hanoi University of Japanese Language Studies, Gemma Nguyen has been teaching Japanese for 3 years. She has a passion for teaching and has helped many students achieve their goals in learning Japanese. Gemma is also a certified Japanese language teacher and has a deep understanding of the language and culture. 
       </p>
       <div className="instructor-social">
         <span>Follow:</span>

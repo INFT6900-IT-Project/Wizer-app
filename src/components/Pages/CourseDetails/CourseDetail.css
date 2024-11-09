@@ -27,6 +27,7 @@
 .course-title {
     font-size: 24px;
     margin: 20px 0;
+    color:#e65c00
 }
 
 .course-info {
@@ -162,3 +163,26 @@
     line-height: 1.5;
     color: #333;
 }
+.module h2, .lesson h3, .quiz h4 {
+    cursor: pointer;
+    color: #333;
+    margin: 10px 0;
+  }
+  
+  .lesson-content {
+    padding-left: 20px;
+  }
+  
+  .quiz .question {
+    margin-bottom: 15px;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  ul li {
+    padding: 5px;
+  }
+  

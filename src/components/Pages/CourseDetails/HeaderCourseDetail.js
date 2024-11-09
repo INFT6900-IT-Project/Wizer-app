@@ -6,13 +6,14 @@ import Lesson from '../../../ImageVideo/lesson.png';
 import Quizz from '../../../ImageVideo/quizz.png';
 import "./CourseDetail.css";
 
-const HeaderCourseDetail = ({ course }) => {
-  if (!course) {
-    return null;
-  }
+  const HeaderCourseDetail = ({ course }) => {
+    if (!course) {
+      return <p>Loading course details...</p>; // Fallback if course data isn't available yet
+    }
 
   return (
-    <div className="course-detail">
+  
+  <div className="course-detail">
       <div className="course-header">
         <span className="badge">{course.category || "Photography"}</span>
         <span className="author">
@@ -22,7 +23,7 @@ const HeaderCourseDetail = ({ course }) => {
           </span>
         </span>
       </div>
-      <h1 className="course-title">{course.courseName || "Course Title"}</h1>
+      <h1 className="course-title">{course.title || course.courseName || "Course Title"}</h1>
       <div className="course-info">
         <span className="info-item time">
           <img src={Time} alt="Time icon" /> {course.duration || "2"} Weeks

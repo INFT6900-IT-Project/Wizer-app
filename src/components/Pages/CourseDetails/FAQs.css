@@ -1,6 +1,6 @@
 .faq-container {
     margin: 20px;
-    font-family: Arial, sans-serif;
+    font-family: Arial, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .faq-item {
@@ -40,7 +40,7 @@
 .faq-answer {
     margin-top: 10px;
     color: #666;
-    font-family: 'Jost', sans-serif;
+    font-family: Arial, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana;
     font-size: 14px;
     line-height: 1.6;
 }

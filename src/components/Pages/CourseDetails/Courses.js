@@ -1,3 +1,4 @@
+// Courses.js
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Courses.css';
@@ -7,10 +8,7 @@ import courseImage3 from '../../../ImageVideo/courseImage3.jpg';
 import courseImage4 from '../../../ImageVideo/courseImage4.jpg';
 import courseImage5 from '../../../ImageVideo/courseImage5.jpg';
 
-
 import Footer from '../../Footer';
-
-
 
 function Courses() {
     const [courses] = useState([
@@ -23,6 +21,7 @@ function Courses() {
             students: 25,
             level: 'Basic',
             price: 'Free',
+            lessons: 12,
         },
         {
             id: 2,
@@ -33,6 +32,7 @@ function Courses() {
             students: 30,
             level: 'All levels',
             price: 'Free',
+            lessons: 10,
         },
         {
             id: 3,
@@ -43,6 +43,7 @@ function Courses() {
             students: 33,
             level: 'All levels',
             price: 'Free',
+            lessons: 8,
         },
         {
             id: 4,
@@ -53,6 +54,7 @@ function Courses() {
             students: 45,
             level: 'Beginner',
             price: 'Free',
+            lessons: 9,
         },
         {
             id: 5,
@@ -63,6 +65,7 @@ function Courses() {
             students: 26,
             level: 'Advanced',
             price: 'Free',
+            lessons: 15,
         },
     ]);
 
@@ -92,7 +95,9 @@ function Courses() {
                             <div className="course-footer">
                                 <span className="course-price">{course.price}</span>
                                 <button className="view-more-btn">
-                                     <Link to={`/course-detail/${course.id}`}>View More</Link>
+                                     <Link to={`/course-detail/${course.id}`} state={{ course }}>
+                                        View More
+                                     </Link>
                                 </button>
                             </div>
                         </div>
@@ -102,8 +107,6 @@ function Courses() {
             <div className="pagination">
                 <span className="page-number active">1</span>
             </div>
-
-            {/* Render Footer */}
             <Footer />
         </div>
     );
