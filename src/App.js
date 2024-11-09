@@ -1,5 +1,5 @@
 import Navbar from './components/Navbar';
-import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import './App.css';
 import Home from './components/Pages/Home';
 import Features from './components/Pages/Features';
@@ -16,12 +16,12 @@ function App() {
     <Router>
       <ScrollToTop>
       <Navbar/>
-      <Switch>
-        <Route exact path='/' component={Home}/>
-        <Route path='/features' component={Features}/>
-        <Route path='/pricing' component={Pricing}/>
-        <Route path='/contact-us' component={ContactUs}/>
-      </Switch>
+      <Routes>
+        <Route exact path='/' element={<Home/>}/>
+        <Route path='/features' element={<Features/>}/>
+        <Route path='/pricing' element={<Pricing/>}/>
+        <Route path='/contact-us' element={<ContactUs/>}/>
+      </Routes>
       </ScrollToTop>
     </Router>
     </div>
