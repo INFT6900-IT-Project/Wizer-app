@@ -7,6 +7,7 @@ import Pricing from './components/Pages/Pricing';
 import ContactUs from './components/Pages/ContactUs';
 import ScrollToTop from './components/ScrollToTop';
 
+
 function App() {
   
   return (

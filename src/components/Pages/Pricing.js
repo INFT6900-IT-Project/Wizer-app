@@ -1,6 +1,7 @@
 import React from "react";
 import './Pricing.css';
 import Footer from '../Footer';
+import person from '../../ImageVideo/person.jpg';
 
 function Pricing() {
   return (
@@ -197,6 +198,10 @@ function Pricing() {
 
 
         <div className="ad-feedback">
+            <div className="ad-circle-image">
+            <img src={person} alt=''/>
+            </div>
+            
             <h2>Already</h2>
         </div> 
         <Footer/>

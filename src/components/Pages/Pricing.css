@@ -251,3 +251,20 @@ table td:not(:first-child), table th:not(:first-child) {
 .ad-feedback{
     padding: 70px;
 }
+
+.ad-circle-image{
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 50%;
+    display:inline-block;
+    position: relative;
+    margin-left: 10px;
+    margin-top: 40px;
+}
+
+.ad-circle-image img{
+    width: 150%; 
+    
+    margin-left: -25%;
+}
