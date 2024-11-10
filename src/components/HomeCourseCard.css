@@ -4,15 +4,17 @@
     position: relative;
     display: flex;
     justify-content: center;
-    margin: 30px 0 45px;
+    flex-wrap: wrap;
+    margin: 30px 10px 45px;
+    align-items: center;
     
 }
 .ad-card-item{
     display: flex;
     flex: 1;
-    margin: 0 2rem;
+    margin: 35px;
     border-radius: 10px;
-    width: 300px;  /* width and height of the card*/
+    width: 290px;  /* width and height of the card*/
     height: 350px;
 }
 
@@ -52,6 +54,7 @@
 
 .ad-card-item-link h5, p, p1, p3{
     margin-left: 20px;
+    margin-right: 20px;
 }
 .ad-card-item-link h5{
     color: #383a3f;

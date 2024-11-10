@@ -61,16 +61,17 @@ function ContactUs() {
         </div>
         
 
-        <div className='contact-us-card-container'>
-          <>
-          <i class="fa-solid fa-headset"></i>
-          <p className='team-title'>OUR SUPPORT TEAM</p>
+        <div>
+          <div className='ad-ct-title'>
+          
+          <p className='team-title'><i class="fa-solid fa-headset" style={{color: '#d67a3d'}}></i>OUR SUPPORT TEAM<i class="fa-solid fa-headset" style={{color: '#d67a3d'}}></i></p>
           <h1>Talk to real people</h1>
           <p className='team-desc'>Connect with our friendly support team and get assistance from real people, 
             ready to help you with any questions or concerns. We're here to provide personalized, 
             prompt support every step of the way</p>
-          </>
-          
+            <i class="fa-solid fa-angle-down"></i>
+          </div>
+        <div className='contact-us-card-container'>
         <div className='cards-wrap'>
           <CardItem
         src={adoria}
@@ -109,7 +110,7 @@ function ContactUs() {
            
           
           </div>
-        
+          </div>
 
         </div>
 

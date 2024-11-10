@@ -198,11 +198,24 @@ function Pricing() {
 
 
         <div className="ad-feedback">
-            <div className="ad-circle-image">
+            <div className="ad-circle-image" >
             <img src={person} alt=''/>
             </div>
             
-            <h2>Already</h2>
+            <div className="ad-circle-comment">
+            <h2><i class="fa-solid fa-quote-left"></i> Using Wizer, we've achieved impressive 
+                engagement with 72% of our employees actively 
+                involved in training. The platform has 
+                fostered meaningful upskilling and knowledge 
+                sharing, and we’re impressed by our team's 
+                dedication to learning. This investment in 
+                development is already strengthening our 
+                client services and will support our revenue
+                 targets in the years ahead. <i class="fa-solid fa-quote-right"></i></h2>
+            <p><b>Emily R</b>.</p>
+            <p1>Training Coordinator (FutureTech Innovations)</p1>
+            </div>
+            
         </div> 
     </div>
   )

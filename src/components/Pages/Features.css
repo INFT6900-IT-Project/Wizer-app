@@ -1,20 +1,24 @@
 
   
-.title {
-    font-size: 40px;
+.ad-feature-title {
+    font-size: 44px;
     padding: 10px 40px;
     margin-top: 50px;
-    letter-spacing: 8px;
+    letter-spacing: 13px;
     text-align: center;
     margin-bottom: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
 
-.description {
+.ad-feature-description {
     font-size: 26px;
-    padding: 10px 68px;
+    padding: 10px 158px;
+    line-height: 1.5;
     font-weight: 400;
     text-align: center;
     margin-bottom: 20px;
+    
+    color: rgb(108, 105, 105);
 }
   
 
@@ -44,7 +48,7 @@
     margin-bottom: 40px;
 }
 
-.card{
+.ad-ft-card{
     width: 280px;
     background-color: #ffffff;
     border-radius: 50px;
@@ -53,25 +57,28 @@
     margin: 22px;
 }
 
-.card img{
+.ad-ft-card img{
     width: 280px;
     height: 200px;
     object-fit: cover;
 }
 
-.card-content h3{
+.ad-ft-card-content h3{
     font-size: 22px;
     margin-left: 13px;
     margin-right: 13px;
     margin-top: 16px;
 }
 
+.ad-ft-card:hover img{
+    transition: all 0.2s linear;
+    transform: scale(1.1);
+}
 
-
-.card-content .btn{
+.ad-ft-card-content .btn{
     display: inline-block;
     padding: 8px 16px;
-    background-color: #52738a;
+    background-color: #668eaa;
     text-decoration: none;
     border-radius: 20px;
     margin-bottom: 20px;
@@ -79,6 +86,9 @@
     font-size: 12px;
 }
 
+.ad-ft-card-content a:hover{
+    background-color: #668eaacb;
+}
 .video-tour{
     background-image:  linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.6)), url('../../ImageVideo/img3.jpg');
     background-position: center;

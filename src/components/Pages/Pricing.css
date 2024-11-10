@@ -249,22 +249,57 @@ table td:not(:first-child), table th:not(:first-child) {
 }
 
 .ad-feedback{
-    padding: 70px;
+    padding: 70px 200px;
+    display: flex;
+}
+.ad-circle-image {
+    flex-basis:20%;
 }
 
-.ad-circle-image{
-    width: 200px;
-    height: 200px;
+.ad-circle-comment{
+    flex-basis: 80%;
+    
+}
+
+.ad-circle-comment h2{
+    margin: 60px;
+    font-size: 24px;
+    font-weight: 200;
+    line-height: 1.5;
+    font-style: italic;
+    color: rgb(92, 91, 91);
+}
+
+.ad-circle-comment p{
+    font-size: 20px;
+    font-weight: 200;
+    margin-left: 60px;
+    margin-bottom: 17px;
+}
+.ad-circle-comment p1{
+    font-size: 18px;
+    font-weight: 200;
+    margin-left: 60px;
+}
+
+.fa-quote-right, .fa-quote-left{
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 30px;
+}
+
+
+.ad-circle-image img{
+    width: 200px; /* Ensure the image fills the entire circle */
+    height: 200px; /* Make sure it also takes up the full height */
+    margin-left: 0px;
+    object-fit: cover; /* Ensures the image maintains aspect ratio while covering the circle */
     overflow: hidden;
     border-radius: 50%;
     display:inline-block;
     position: relative;
-    margin-left: 10px;
-    margin-top: 40px;
-}
-
-.ad-circle-image img{
-    width: 150%; 
-    
-    margin-left: -25%;
+    margin-left: 60px;
+    margin-right: 90px;
+    margin-top: 100px;
+    border: 4px solid #e5c4b2d0; /* Optional: Adds a border to the circular frame */
 }
