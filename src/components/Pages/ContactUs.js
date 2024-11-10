@@ -2,7 +2,6 @@ import React from 'react';
 import './ContactUs.css';
 import arrow from '../../ImageVideo/arrow_icon.png';
 import msg from '../../ImageVideo/msg.png';
-import Footer from '../Footer';
 import CardItem from '../CardItem';
 import '../CardItem.css';
 import img1 from '../../ImageVideo/img1.jpg';
@@ -115,7 +114,7 @@ function ContactUs() {
         </div>
 
 
-    <Footer/>
+
     </div>
   )
 }

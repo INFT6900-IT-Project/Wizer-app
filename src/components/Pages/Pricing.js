@@ -1,6 +1,6 @@
 import React from "react";
 import './Pricing.css';
-import Footer from '../Footer';
+
 import person from '../../ImageVideo/person.jpg';
 
 function Pricing() {
@@ -204,7 +204,7 @@ function Pricing() {
             
             <h2>Already</h2>
         </div> 
-        <Footer/>
+    
     </div>
   )
 }
