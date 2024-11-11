@@ -8,6 +8,7 @@ import ContactUs from './components/Pages/ContactUs';
 import ScrollToTop from './components/ScrollToTop';
 import Footer from './components/Footer';
 import SignIn from './components/Pages/SignUpIn/SignIn'
+import SignUp from './components/Pages/SignUpIn/SignUp';
 
 function App() {
   
@@ -23,6 +24,7 @@ function App() {
         <Route path='/pricing' element={<Pricing/>}/>
         <Route path='/contact-us' element={<ContactUs/>}/>
         <Route path='/sign-in' element={<SignIn/>}/>
+        <Route path='/sign-up' element={<SignUp/>}/>
       </Routes>
       </ScrollToTop>
       <Footer/>

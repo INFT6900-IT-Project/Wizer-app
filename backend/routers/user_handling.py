@@ -1,7 +1,7 @@
 import os
 from datetime import datetime, timedelta
 from pathlib import Path
-
+from datetime import datetime
 from database import get_db
 from dotenv import load_dotenv
 from fastapi import APIRouter, HTTPException, Depends, status
@@ -11,6 +11,7 @@ from schemas.users import User
 from passlib.context import CryptContext
 from pydantic import BaseModel, SecretStr
 from sqlalchemy.orm import Session
+
 
 db_connection = get_db()
 
@@ -37,7 +38,7 @@ class UserCreate(BaseModel):
     first_name: str
     last_name: str
     email: str
-    created_at: datetime
+
 
 
 def get_user_by_username(db: Session, username: str):
@@ -47,7 +48,7 @@ def get_user_by_username(db: Session, username: str):
 def create_user_account(db: Session, user: UserCreate):
     hashed_password = pwd_context.hash(user.password)
     db_user = User(username=user.username, passwordhash=hashed_password, email=user.email, firstname=user.first_name,
-                   lastname=user.last_name, createdat=user.created_at)
+                   lastname=user.last_name, createdat=datetime.now())
     db.add(db_user)
     db.commit()
     return "complete"
