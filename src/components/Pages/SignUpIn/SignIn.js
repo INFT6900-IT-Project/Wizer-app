@@ -28,7 +28,7 @@ function SignIn() {
       });
       console.log(response.data)
       localStorage.setItem("token", response.data.access_token);
-			window.location = "/";
+			window.location = "/courses";
       
     } catch (error) {
       console.error(error)

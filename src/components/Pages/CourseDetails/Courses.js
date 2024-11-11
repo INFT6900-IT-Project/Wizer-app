@@ -8,7 +8,7 @@ import courseImage3 from '../../../ImageVideo/courseImage3.jpg';
 import courseImage4 from '../../../ImageVideo/courseImage4.jpg';
 import courseImage5 from '../../../ImageVideo/courseImage5.jpg';
 
-import Footer from '../../Footer';
+
 
 function Courses() {
     const [courses] = useState([
@@ -107,7 +107,7 @@ function Courses() {
             <div className="pagination">
                 <span className="page-number active">1</span>
             </div>
-            <Footer />
+            
         </div>
     );
 }
