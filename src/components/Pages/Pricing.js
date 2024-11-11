@@ -179,7 +179,7 @@ function Pricing() {
         </div>
         <div className="ad-reflect">
                 <div className="ad-reflect-left">
-                    <h1>Join <span>5,000+</span> companies and <span>80%</span> of the Fortune 1000 who use DataCamp for their employee training</h1>
+                    <h1>Join <span>5,000+</span> companies and <span>80%</span> of the Fortune 1000 who use Wizer for their employee training</h1>
                 </div>
 
                 <div className="ad-reflect-right">
@@ -189,7 +189,7 @@ function Pricing() {
                     </div>
                     <div className="ad-rr-2">
                         <h1>200+</h1>
-                        <p>Nations and organizations leverage DataCamp to foster skills and drive digital transformation.</p>
+                        <p>Nations and organizations leverage Wizer to foster skills and drive digital transformation.</p>
                     </div>
                     
 
