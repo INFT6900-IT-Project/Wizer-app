@@ -4,11 +4,12 @@ import secure from '../../ImageVideo/secure.jpg';
 import customization from '../../ImageVideo/customization.jpg';
 import quiz from '../../ImageVideo/quiz.jpg';
 import explore from '../../ImageVideo/explore.mp4';
+import QaA from '../QaA.js'
 function Features() {
   return (
 
 
-    <div className>
+    <div>
       <h1 className='ad-feature-title'>WIZER</h1>
       <h2 className='ad-feature-description'>Our platform elevates educational and training experiences with customizable, user-friendly modules. It empowers users to create personalized learning paths, delivering innovative solutions that engage and enable learners to achieve their full potential</h2>
 
@@ -66,8 +67,10 @@ function Features() {
         </section>
 
       </div>
-
+      
+      <QaA/>
     </div>
+    
   )
 }
 

@@ -69,7 +69,7 @@ function ContactUs() {
           <p className='team-desc'>Connect with our friendly support team and get assistance from real people, 
             ready to help you with any questions or concerns. We're here to provide personalized, 
             prompt support every step of the way</p>
-            <i class="fa-solid fa-angle-down"></i>
+            <i class="fa-solid fa-chevron-down"></i>
           </div>
         <div className='contact-us-card-container'>
         <div className='cards-wrap'>
