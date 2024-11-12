@@ -1,6 +1,5 @@
-// src/components/Pages/CourseDetails/KatakanaLesson.js
 import React from 'react';
-import QuizComponent from './QuizComponent';
+import QuizComponent1 from './QuizComponent1'; // Import QuizComponent1 for the Katakana quiz
 import './LessonDetail.css';
 
 const katakanaContent = `
@@ -14,12 +13,18 @@ const KatakanaLesson = () => {
       <h2>Japanese Alphabets – Katakana</h2>
       <p className="lesson-content">{katakanaContent}</p>
 
+      {/* Use process.env.PUBLIC_URL for image paths in the public folder */}
       <div className="image-container">
-        <img src="/ImageVideo/katakana.png" alt="Katakana Characters" className="katakana-image" />
+        <img 
+          src={`${process.env.PUBLIC_URL}/ImageVideo/katakana.png`} 
+          alt="Katakana Characters" 
+          className="katakana-image" 
+        />
       </div>
 
       <h3>Quiz: Test Your Knowledge of Katakana</h3>
-      <QuizComponent />
+      {/* Render the Katakana quiz component */}
+      <QuizComponent1 />
     </div>
   );
 };
