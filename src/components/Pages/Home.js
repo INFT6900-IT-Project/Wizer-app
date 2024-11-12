@@ -1,7 +1,10 @@
 import React from 'react';
 import './Home.css';
 import HeroSection from '../HeroSection';
+<<<<<<< HEAD
 
+=======
+>>>>>>> Adoria-test
 
 
 function Home() {

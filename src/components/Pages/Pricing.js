@@ -1,13 +1,13 @@
 import React from "react";
 import './Pricing.css';
-
 import person from '../../ImageVideo/person.jpg';
 
 function Pricing() {
   return (
     <div>
         <header className="pric-header">
-            Learn more, spend less: Explore our plans
+        <i class="fa-solid fa-bell" style={{color: '#d67a3d'}}></i>
+        Learn more, spend less: Explore our plans
         </header>
 
         <div className="pric-plans-wrap">
@@ -17,7 +17,7 @@ function Pricing() {
                 <p>For 5-125 users</p>
                 <h1>$120 <span className="pric-plan-header">per user annually</span></h1>
                 <p>14-day money back guarantee</p>
-                <a href='#'>Get Started</a>
+                <a href='/payment'>Get Started</a>
                 <ul>
                     <li><i class="fa-solid fa-check" style={{color: '#d67a3d'}}></i> Access catalog of 6,755+ from top universities and companies</li>
                     <li><i class="fa-solid fa-check" style={{color: '#d67a3d'}}></i> 130+ Professional Certificates and recognized credentials</li>
@@ -179,7 +179,7 @@ function Pricing() {
         </div>
         <div className="ad-reflect">
                 <div className="ad-reflect-left">
-                    <h1>Join <span>5,000+</span> companies and <span>80%</span> of the Fortune 1000 who use DataCamp for their employee training</h1>
+                    <h1>Join <span>5,000+</span> companies and <span>80%</span> of the Fortune 1000 who use Wizer for their employee training</h1>
                 </div>
 
                 <div className="ad-reflect-right">
@@ -189,7 +189,7 @@ function Pricing() {
                     </div>
                     <div className="ad-rr-2">
                         <h1>200+</h1>
-                        <p>Nations and organizations leverage DataCamp to foster skills and drive digital transformation.</p>
+                        <p>Nations and organizations leverage Wizer to foster skills and drive digital transformation.</p>
                     </div>
                     
 
@@ -198,13 +198,29 @@ function Pricing() {
 
 
         <div className="ad-feedback">
-            <div className="ad-circle-image">
+            <div className="ad-circle-image" >
             <img src={person} alt=''/>
             </div>
             
-            <h2>Already</h2>
+            <div className="ad-circle-comment">
+            <h2><i class="fa-solid fa-quote-left"></i> Using Wizer, we've achieved impressive 
+                engagement with 72% of our employees actively 
+                involved in training. The platform has 
+                fostered meaningful upskilling and knowledge 
+                sharing, and we’re impressed by our team's 
+                dedication to learning. This investment in 
+                development is already strengthening our 
+                client services and will support our revenue
+                 targets in the years ahead. <i class="fa-solid fa-quote-right"></i></h2>
+            <p><b>Emily R</b>.</p>
+            <p1>Training Coordinator (FutureTech Innovations)</p1>
+            </div>
+            
         </div> 
+<<<<<<< HEAD
     
+=======
+>>>>>>> Adoria-test
     </div>
   )
 }

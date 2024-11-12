@@ -88,7 +88,7 @@
 }
 
 .fa-chevron-right  {
-    font-size: 0.8rem;
+    font-size: 1rem;
     margin-left: 0.2rem;
 }
 
@@ -147,9 +147,18 @@
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0px 2px 4px #a2b8bb;
-    margin: 22px;
-    padding: 20px 16px;
+    margin: 18px;
+    padding: 15px 10px;
     line-height: 2.2rem;
+}
+
+.ad-btn h3{
+    font-size: 17px;
+}
+
+.ad-btn p{
+    margin-bottom: 15px;
+    font-size: 13px;
 }
 
 .ad-card:hover .ad-btn h3{
@@ -161,14 +170,71 @@
     transition: all 0.24s linear;
 }
 
-.ad-btn p{
-    margin-bottom: 15px;
-    font-size: 14px;
-}
 
-.fa-language, .fa-file-code, .fa-chart-simple, .fa-pen-to-square, .fa-flask{
+
+.fa-language, .fa-palette, .fa-file-code, .fa-chart-simple, .fa-heart-pulse, .fa-flask{
     font-size: 2rem;
     margin-top: 15px;
+}
+.ad-sum-up{
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+}
+.ad-sum-up-content{
+    border-radius: 15px;
+    background-color:#e7e1dc46 ;
+    width: 200px;
+    height: 170px;
+    margin: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.ad-sum-up-content span{
+    color: #8baad3;
+}
+
+.ad-sum-up-content h1{
+    color: #d67a3d;
+}
+
+.ad-sum-up-content p{
+    margin-top: 20px;
+    color: rgb(94, 92, 92);
+}
+
+.ad-student-feedback{
+    padding: 30px;
+}
+
+.ad-feedback-container{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 40px;
+}
+
+.ad-feedback-content{
+    border-radius: 30px;
+    border: 3px solid #e7e1dca9;
+    width: 420px;
+    height: 210px;
+    margin: 30px;
+    line-height: 1.5;
+    padding: 20px
+}
+
+.ad-feedback-content p1{
+    margin-bottom: 10px;
+}
+
+.fa-comments{
+    font-size: 2.5rem;
+    margin-right: 10px;
 }
 
 @media screen and (min-width: 1500px) {
