@@ -25,7 +25,7 @@ async def http_exception_handler(request: Request, exc: HTTPException):
 
 # app.include_router(user_handling.router)
 app.include_router(auth.router)
-app.include_router(modules_handling.router)
+# app.include_router(modules_handling.router)
 # app.include_router(mfa.router)
 
 
