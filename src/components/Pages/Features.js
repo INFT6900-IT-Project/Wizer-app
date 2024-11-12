@@ -4,12 +4,7 @@ import secure from '../../ImageVideo/secure.jpg';
 import customization from '../../ImageVideo/customization.jpg';
 import quiz from '../../ImageVideo/quiz.jpg';
 import explore from '../../ImageVideo/explore.mp4';
-<<<<<<< HEAD
-
-
-=======
 import QaA from '../QaA.js'
->>>>>>> Adoria-test
 function Features() {
   return (
 
@@ -72,13 +67,8 @@ function Features() {
         </section>
 
       </div>
-<<<<<<< HEAD
-
-
-=======
       
       <QaA/>
->>>>>>> Adoria-test
     </div>
     
   )

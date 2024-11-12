@@ -217,10 +217,6 @@ function Pricing() {
             </div>
             
         </div> 
-<<<<<<< HEAD
-    
-=======
->>>>>>> Adoria-test
     </div>
   )
 }

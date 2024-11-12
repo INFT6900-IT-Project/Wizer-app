@@ -115,10 +115,6 @@ function ContactUs() {
       </div>
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> Adoria-test
     </div>
   )
 }

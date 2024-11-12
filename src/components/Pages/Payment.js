@@ -1,7 +1,7 @@
 import React from 'react';
 import './Payment.css';
 import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function Payment() {
 
@@ -37,7 +37,7 @@ export default function Payment() {
         setShowModal(false); // Hide the modal
     };
      
-    const history= useHistory()
+    const history= useNavigate()
     const handleFinishPurchase=()=>{
         history.push('/')
     }
