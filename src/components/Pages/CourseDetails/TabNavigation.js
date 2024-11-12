@@ -10,11 +10,11 @@ const curriculumData = [
     {
         title: "Module 1: Introduction to Japanese",
         lessons: [
-            { name: "Japanese Alphabets – Hiragana", time: "12:30", preview: true },
-            { name: "Japanese Alphabets – Katakana", time: "10:05", preview: true }
+            { name: "Japanese Alphabets – Hiragana",  preview: true },
+            { name: "Japanese Alphabets – Katakana",  preview: true }
         ],
         totalLessons: 2,
-        totalTime: "22:35 Mins",
+        
         quizzes: [
             {
                 title: "Quiz: Japanese Alphabets – Hiragana",
@@ -45,7 +45,7 @@ const curriculumData = [
             { name: "Numbers and Counting", time: "20:00", preview: true }
         ],
         totalLessons: 2,
-        totalTime: "35:00 Mins",
+       
         quizzes: [
             {
                 title: "Quiz: Basic Greetings",

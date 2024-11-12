@@ -26,8 +26,8 @@ function Courses() {
         {
             id: 2,
             image: courseImage2,
-            category: 'Photography',
-            title: 'Amazing Themes for Photography',
+            category: 'Business',
+            title: 'Introduction to Business',
             duration: '2 Weeks',
             students: 30,
             level: 'All levels',

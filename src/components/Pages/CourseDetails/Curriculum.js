@@ -1,5 +1,6 @@
+//Basic Japanese
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Ensure Link is imported
+import { Link } from 'react-router-dom';
 import './Curriculum.css';
 import lessonsIcon from './image/lesson1.png';
 import downIcon from './image/downicon2.png';
@@ -7,24 +8,15 @@ import upIcon from './image/upicon.png';
 
 const Curriculum = ({ data }) => {
   const [expanded, setExpanded] = useState(null);
-  const [expandedLesson, setExpandedLesson] = useState(null);
 
   const toggleExpand = (index) => {
     setExpanded(expanded === index ? null : index);
   };
 
-  const toggleLesson = (sectionIndex, lessonIndex) => {
-    const currentExpanded =
-      expandedLesson &&
-      expandedLesson.sectionIndex === sectionIndex &&
-      expandedLesson.lessonIndex === lessonIndex;
-    setExpandedLesson(currentExpanded ? null : { sectionIndex, lessonIndex });
-  };
-
   return (
     <div className="curriculum-container">
       <p className="header-curriculum">
-        The two-week starter cycle will introduce the basics of grammar, vocabulary, pronunciation, and situational contexts in Japanese. By the end of the course, students should be able to conduct simple conversations, read and write basic hiragana and katakana, and comprehend simple sentence structure.
+        The two-week starter cycle will introduce the basics of grammar, vocabulary, pronunciation, and situational contexts in Japanese.
       </p>
 
       {data.map((section, sectionIndex) => (
@@ -48,26 +40,21 @@ const Curriculum = ({ data }) => {
             <div className="curriculum-lessons">
               {section.lessons.map((lesson, lessonIndex) => (
                 <div key={lessonIndex} className="lesson-item">
-                  <div
-                    onClick={() => toggleLesson(sectionIndex, lessonIndex)}
-                    style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}
-                  >
+                  <div style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}>
                     <img src={lessonsIcon} alt="Lesson" style={{ width: '12px', marginRight: '5px' }} />
                     {lesson.name === "Japanese Alphabets – Hiragana" ? (
                       <Link to="/lesson-detail/hiragana">{lesson.name}</Link>
+                    ) : lesson.name === "Japanese Alphabets – Katakana" ? (
+                      <Link to="/lesson-detail/katakana">{lesson.name}</Link>
+                    ) : lesson.name === "Basic Greetings" ? (
+                      <Link to="/lesson-detail/basic-greetings">{lesson.name}</Link>
+                    ) : lesson.name === "Numbers and Counting" ? (
+                      <Link to="/lesson-detail/numbers-and-counting">{lesson.name}</Link>
+
                     ) : (
                       <span>{lesson.name}</span>
                     )}
                   </div>
-
-                  {/* Show additional content for the expanded lesson below the title */}
-                  {expandedLesson &&
-                    expandedLesson.sectionIndex === sectionIndex &&
-                    expandedLesson.lessonIndex === lessonIndex && (
-                      <div className="lesson-content">
-                        <p>This is the content for {lesson.name}. The two-week starter cycle will introduce the basics of grammar, vocabulary, pronunciation, and situational contexts in Japanese.</p>
-                      </div>
-                    )}
                 </div>
               ))}
             </div>

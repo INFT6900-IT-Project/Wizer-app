@@ -12,7 +12,7 @@ const Reviews = ({ reviewsData }) => {
                     <h1>4.0</h1>
                     <div className="stars">
                         <span>★★★★☆</span>
-                        <p>based on 146,951 ratings</p>
+                        <p>based on 100 ratings</p>
                     </div>
                 </div>
                 <div className="rating-distribution">
@@ -55,5 +55,5 @@ const Reviews = ({ reviewsData }) => {
         </div>
     );
 };
-
+// console.log("Reviews:", Reviews);
 export default Reviews;
