@@ -7,6 +7,7 @@ import Pricing from './components/Pages/Pricing';
 import ContactUs from './components/Pages/ContactUs';
 import ScrollToTop from './components/ScrollToTop';
 import Footer from './components/Footer';
+import Payment from './components/Pages/Payment';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path='/features' component={Features}/>
         <Route path='/pricing' component={Pricing}/>
         <Route path='/contact-us' component={ContactUs}/>
+        <Route path='/payment' component={Payment}/>
       </Switch>
       </ScrollToTop>
       <Footer/>

@@ -17,7 +17,7 @@ function Pricing() {
                 <p>For 5-125 users</p>
                 <h1>$120 <span className="pric-plan-header">per user annually</span></h1>
                 <p>14-day money back guarantee</p>
-                <a href='#'>Get Started</a>
+                <a href='/payment'>Get Started</a>
                 <ul>
                     <li><i class="fa-solid fa-check" style={{color: '#d67a3d'}}></i> Access catalog of 6,755+ from top universities and companies</li>
                     <li><i class="fa-solid fa-check" style={{color: '#d67a3d'}}></i> 130+ Professional Certificates and recognized credentials</li>
