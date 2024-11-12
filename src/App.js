@@ -6,7 +6,7 @@ import Navbar from './components/Navbar';
 import Home from './components/Pages/Home';
 import Courses from './components/Pages/CourseDetails/Courses';
 import CourseDetail from './components/Pages/CourseDetails/CourseDetail';
-import CourseDetailBusiness from './components/Pages/CourseDetails/BusinessCourse/CourseDetailBusiness';
+// import CourseDetailBusiness from './components/Pages/CourseDetails/BusinessCourse/CourseDetailBusiness';
 import Features from './components/Pages/Features';
 import LessonDetail from './components/Pages/CourseDetails/LessonDetail';
 import KatakanaLesson from './components/Pages/CourseDetails/KatakanaLesson';
@@ -29,9 +29,9 @@ function App() {
                     <Route path="/lesson-detail/basic-greetings" element={<BasicGreetingsLesson />} />
                     <Route path="/lesson-detail/numbers-and-counting" element={<NumbersAndCountingLesson />} />
                     {/* <Route path="/course-detail-business/2" element={<CourseDetailBusiness />} /> */}
-                    <Route path="/course-detail/1" element={<CourseDetail />} />
-                    
-                    <Route path="/course-detail/2" element={<CourseDetailBusiness />} />
+                    <Route path="/course-detail/:id" element={<CourseDetail />} />
+                 
+                    {/* <Route path="/course-detail/2" element={<CourseDetailBusiness />} /> */}
                 </Routes>
             </Router>
         </div>
