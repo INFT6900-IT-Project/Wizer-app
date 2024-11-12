@@ -41,5 +41,5 @@ import "./CourseDetail.css";
     </div>
   );
 };
-
+console.log(HeaderCourseDetail);
 export default HeaderCourseDetail;
