@@ -6,7 +6,7 @@ import Navbar from './components/Navbar';
 import Home from './components/Pages/Home';
 import Courses from './components/Pages/CourseDetails/Courses';
 import CourseDetail from './components/Pages/CourseDetails/CourseDetail';
-// import CourseDetailBusiness from './components/Pages/CourseDetails/CourseDetailBusiness';
+import CourseDetailBusiness from './components/Pages/CourseDetails/BusinessCourse/CourseDetailBusiness';
 import Features from './components/Pages/Features';
 import LessonDetail from './components/Pages/CourseDetails/LessonDetail';
 import KatakanaLesson from './components/Pages/CourseDetails/KatakanaLesson';
@@ -15,6 +15,7 @@ import NumbersAndCountingLesson from './components/Pages/CourseDetails/NumbersAn
 import './App.css';
 
 function App() {
+  
     return (
         <div>
             <Router>
@@ -29,9 +30,8 @@ function App() {
                     <Route path="/lesson-detail/numbers-and-counting" element={<NumbersAndCountingLesson />} />
                     {/* <Route path="/course-detail-business/2" element={<CourseDetailBusiness />} /> */}
                     <Route path="/course-detail/1" element={<CourseDetail />} />
-                    {/* Define individual routes for each course detail
                     
-                    <Route path="/course-detail/2" element={<CourseDetailBusiness />} /> */}
+                    <Route path="/course-detail/2" element={<CourseDetailBusiness />} />
                 </Routes>
             </Router>
         </div>
