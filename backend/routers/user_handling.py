@@ -11,8 +11,8 @@ from schemas.users import User
 from passlib.context import CryptContext
 from pydantic import BaseModel, SecretStr
 from sqlalchemy.orm import Session
-
-
+import random
+import smtplib
 db_connection = get_db()
 
 env_path = Path('.') / '.env'
@@ -44,6 +44,8 @@ class UserCreate(BaseModel):
 def get_user_by_username(db: Session, username: str):
     return db.query(User).filter(User.username == username).first()
 
+def get_email_by_username(db:Session, username:str):
+    return db.query(User).filter(User.username == username).first().email
 
 def create_user_account(db: Session, user: UserCreate):
     hashed_password = pwd_context.hash(user.password)
@@ -115,3 +117,26 @@ def verify_token(token: str = Depends(oauth2_scheme)):
 async def verify_user_token(token: str):
     verify_token(token=token)
     return {"message": "Token is valid"}
+
+
+
+@router.get("/otp")
+async def send_otp(username):
+    otp = generate_otp()
+    send_gmail_otp(otp, username)
+    return {"otp":otp}
+
+
+def generate_otp():
+    return random.randint(100000,999999)
+
+
+def send_gmail_otp(otp,username):
+    server=smtplib.SMTP('smtp.gmail.com',587)
+    server.starttls()
+    server.login('wizer920@gmail.com','ekwj hmku uqqn kole')
+    to_mail= get_email_by_username(username)
+    body = "dear "+username+","+"\n"+"\n"+"your OTP is "+str(otp)+"."
+    subject = "Wizer OTP verification" 
+    message = f'subject:{subject}\n\n{body}'
+    server.sendmail("wizer920@gmail.com",to_mail,message)

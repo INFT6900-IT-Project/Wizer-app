@@ -17,7 +17,6 @@ const ProtectedRoute =()=> {
         checkAuth();
     }, []);
 
-    if (auth === null) return <div>Loading...</div>;
   return auth ? <Outlet/> : <Navigate to = '/sign-in'/>;
 
 }
