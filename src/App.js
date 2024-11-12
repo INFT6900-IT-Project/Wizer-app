@@ -7,6 +7,7 @@ import Home from './components/Pages/Home';
 import Courses from './components/Pages/CourseDetails/Courses';
 import CourseDetail from './components/Pages/CourseDetails/CourseDetail'; //Básico de Japonés
 import CourseDetail1 from './components/Pages/CourseDetails/CourseDetail1';// Introduction to Business
+import CourseDetail2 from './components/Pages/CourseDetails/CourseDetail2';// Learn Photography
 import Features from './components/Pages/Features';
 import LessonDetail from './components/Pages/CourseDetails/LessonDetail';
 import KatakanaLesson from './components/Pages/CourseDetails/KatakanaLesson';
@@ -30,9 +31,9 @@ function App() {
                     <Route path="/lesson-detail/basic-greetings" element={<BasicGreetingsLesson />} />
                     <Route path="/lesson-detail/numbers-and-counting" element={<NumbersAndCountingLesson />} />
                     {/* <Route path="/course-detail-business/2" element={<CourseDetailBusiness />} /> */}
-                    <Route path="/course-detail/:id" element={<CourseDetail />} />
-                 
-                    <Route path="/course-detail/2" element={<CourseDetail1 />} />
+                    <Route path="/course-detail/:id" element={<CourseDetail />} /> //Básico de Japonés
+                    <Route path="/course-detail/3" element={<CourseDetail2 />} /> //Learn Photography
+                    <Route path="/course-detail/2" element={<CourseDetail1 />} /> //Introduction to Business
                 </Routes>
             </Router>
         </div>

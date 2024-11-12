@@ -58,7 +58,6 @@ const curriculumData = [
 // Define the Overview component inline within TabNavigation1
 const Overview = () => (
     <div>
-        <h2></h2>
         <p>
             This 2-week course introduces students to the fundamental concepts of business, providing a foundation for understanding the key components of business operations, management, and entrepreneurship. The course covers topics such as business structures, marketing, finance, human resource management, and business ethics. By the end of the course, students will have a basic understanding of how businesses operate and the role they play in the economy.
         </p>
