@@ -11,7 +11,7 @@ from sqlalchemy.orm import Session
 
 db_connection = get_db()
 
-env_path = Path('../../../../Downloads/update2/routers') / '.env'
+env_path = Path('.') / '.env'
 load_dotenv(dotenv_path=env_path)
 
 router = APIRouter()
@@ -19,20 +19,18 @@ router = APIRouter()
 
 class TestQuestionsCreate(BaseModel):
     moduleid: int
-
-
-questiontext: str
-createdat: datetime
-updatedat: Optional[datetime] = None
+    questiontext: str
+    createdat: datetime
+    updatedat: Optional[datetime] = None
 
 
 @router.post("/testquestions")
 def create_testquestions(questions: TestQuestionsCreate, db: Session = Depends(get_db)):
-    db_test_question = TestQuestions(moduleid=question.moduleid, questiontext=question.questiontext,
-                                     createdat=question.createdat)
+    db_test_question = TestQuestions(moduleid=questions.moduleid, questiontext=questions.questiontext,
+                                     createdat=questions.createdat)
     db.add(db_test_question)
     db.commit()
-    return complete
+    return "complete"
 
 
 class TestQuestionUpdate(BaseModel):

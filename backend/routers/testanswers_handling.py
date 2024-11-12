@@ -10,7 +10,7 @@ from sqlalchemy.orm import Session
 
 db_connection = get_db()
 
-env_path = Path('../../../../Downloads/update2/routers') / '.env'
+env_path = Path('.') / '.env'
 load_dotenv(dotenv_path=env_path)
 
 router = APIRouter()
@@ -18,10 +18,8 @@ router = APIRouter()
 
 class TestAnswersCreate(BaseModel):
     questionid: int
-
-
-answertext: str
-iscorrect: Optional[bool] = False
+    answertext: str
+    iscorrect: Optional[bool] = False
 
 
 @router.post("/testanswers")
@@ -29,10 +27,10 @@ def create_test_answer(answer: TestAnswersCreate, db: Session = Depends(get_db))
     db_test_answer = TestAnswers(questionid=answer.questionid, answertext=answer.answertext, iscorrect=answer.iscorrect)
     db.add(db_test_answer)
     db.commit()
-    return complete
+    return "complete"
 
 
-class TestAnswerUpdate(Basemodel):
+class TestAnswerUpdate(BaseModel):
     answertext: Optional[str] = None
     iscorrect: Optional[bool] = None
 

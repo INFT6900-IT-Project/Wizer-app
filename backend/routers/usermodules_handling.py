@@ -1,5 +1,4 @@
 from datetime import datetime
-from datetime import datetime
 from pathlib import Path
 from typing import Optional
 
@@ -12,7 +11,7 @@ from sqlalchemy.orm import Session
 
 db_connection = get_db()
 
-env_path = Path('../../../../Downloads/update2/routers') / '.env'
+env_path = Path('.') / '.env'
 load_dotenv(dotenv_path=env_path)
 
 router = APIRouter()

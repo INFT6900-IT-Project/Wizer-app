@@ -1,5 +1,5 @@
 from database import Base
-from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy import Column, Integer, String, ForeignKey, DateTime
 
 
 class ModuleContent(Base):
@@ -8,5 +8,5 @@ class ModuleContent(Base):
     moduleid = Column(Integer, ForeignKey("modules.moduleid"), nullable=False)
     contenttype = Column(String)
     contenturl = Column(String, nullable=False)
-    createdat = Column(data_type="timestamp")
-    updatedat = Column(data_type="timestamp")
+    createdat = Column(DateTime)
+    updatedat = Column(DateTime)

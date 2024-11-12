@@ -11,7 +11,7 @@ from sqlalchemy.orm import Session
 
 db_connection = get_db()
 
-env_path = Path('../../../../Downloads/update2/routers') / '.env'
+env_path = Path('.') / '.env'
 load_dotenv(dotenv_path=env_path)
 
 router = APIRouter()
@@ -28,7 +28,7 @@ def create_test_attempt(attempt: TestAttemptCreate, db: Session = Depends(get_db
     db_test_attempt = TestAttempts(userid=attempt.userid, moduleid=attempt.moduleid, attemptdate=attempt.attemptdate)
     db.add(db_test_attempt)
     db.commit()
-    return complete
+    return "complete"
 
 
 class TestAttemptUpdate(BaseModel):

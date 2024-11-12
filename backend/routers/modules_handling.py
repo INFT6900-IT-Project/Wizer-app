@@ -1,14 +1,12 @@
 from datetime import datetime
 from pathlib import Path
+from typing import Optional
 
 from database import get_db
 from dotenv import load_dotenv
 from fastapi import APIRouter, HTTPException, Depends, status
-
-from schemas.modules import Modules
-
 from pydantic import BaseModel
-from typing import Optional
+from schemas.modules import Modules
 from sqlalchemy.orm import Session
 
 db_connection = get_db()

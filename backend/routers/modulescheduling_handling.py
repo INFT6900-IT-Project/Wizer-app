@@ -1,5 +1,4 @@
 from datetime import datetime
-from datetime import datetime
 from pathlib import Path
 from typing import Optional
 
@@ -32,6 +31,7 @@ def create_module_schedule(moduleschedule: ModuleScheduleCreate, db: Session = D
                                          frequencydays=moduleschedule.frequencydays)
     db.add(db_moduleschedule)
     db.commit()
+    db.refresh(db_moduleschedule)
     return "complete"
 
 
@@ -43,18 +43,19 @@ class ModuleScheduleUpdate(BaseModel):
 
 @router.put("/schedule/{schedule_id}")
 def update_module_schedule(moduleschedule_id: int, moduleschedule: ModuleScheduleUpdate, db: Session = Depends(get_db)):
-    db_moduleschedule = db.query(ModuleScheduling).filter(Modulescheduling.scheduleid == moduleschedule_id).first()
+    db_moduleschedule = db.query(ModuleScheduling).filter(ModuleScheduling.scheduleid == moduleschedule_id).first()
     if not db_moduleschedule:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail="Module schedule not found")
 
-    if schedule.startdate is not None:
+    if moduleschedule.startdate is not None:
         db_moduleschedule.startdate = moduleschedule.startdate
-    if schedule.enddate is not None:
+    if moduleschedule.enddate is not None:
         db_moduleschedule.enddate = moduleschedule.enddate
-    if schedule.frequencydays is not None:
+    if moduleschedule.frequencydays is not None:
         db_moduleschedule.frequencydays = moduleschedule.frequencydays
 
     db.commit()
+    db.refresh(db_moduleschedule)
     return {"detail": "Module schedule updated successfully"}

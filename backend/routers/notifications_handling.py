@@ -29,27 +29,25 @@ def create_notification(notification: NotificationCreate, db: Session = Depends(
                                     createdat=notification.createdat)
     db.add(db_notification)
     db.commit()
-    return 'complete'
+    return "complete"
 
 
 class NotificationUpdate(BaseModel):
-    isread: Optional[Boolean] = False
+    isread: Optional[bool] = False
 
 
 @router.put("/notifications/{notification_id}")
 def update_notification(notification_id: int, notification: NotificationUpdate, db: Session = Depends(get_db)):
     db_notification = db.query(Notifications).filter(Notifications.notificationid == notification_id).first()
     if not db_notification:
-
-
-    raise HTTPException(
-        status_code=status.HTTP_404_NOT_FOUND,
-        detail="Notification not found")
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Notification not found")
 
     if notification.isread is not None:
         db_notification.isread = notification.isread
     db.commit()
-    return complete
+    return "complete"
 
 
 class NotificationGet(BaseModel):
@@ -59,9 +57,8 @@ class NotificationGet(BaseModel):
     isread: bool
     createdat: datetime
 
-    @router.get("/notifications/user/{user_id}")
-    def get_user_notifications(user_id: int, db: Session = Depends(get_db)):
 
-
-notifications = db.query(Notifications).filter(Notifications.userid == user_id).all()
-return notifications
+@router.get("/notifications/user/{user_id}")
+def get_user_notifications(user_id: int, db: Session = Depends(get_db)):
+    notifications = db.query(Notifications).filter(Notifications.userid == user_id).all()
+    return notifications

@@ -1,5 +1,5 @@
 from database import Base
-from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy import Column, Integer, String, ForeignKey, DateTime
 
 
 class TestQuestions(Base):
@@ -7,5 +7,5 @@ class TestQuestions(Base):
     questionid = Column(Integer, primary_key=True, index=True)
     moduleid = Column(Integer, ForeignKey("modules.moduleid"), nullable=False)
     questiontext = Column(String, nullable=False)
-    createdat = Column(data_type="timestamp")
-    updatedat = Column(data_type="timestamp")
+    createdat = Column(DateTime)
+    updatedat = Column(DateTime)

@@ -1,5 +1,5 @@
 from database import Base
-from sqlalchemy import Column, Integer, String, Boolean, ForeignKey
+from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, DateTime
 
 
 class Modules(Base):
@@ -9,5 +9,5 @@ class Modules(Base):
     moduledescription = Column(String)
     ownerid = Column(Integer, ForeignKey("user.userid"), nullable=False)
     isactive = Column(Boolean)
-    createdat = Column(data_type="timestamp")
-    updatedat = Column(data_type="timestamp")
+    createdat = Column(DateTime)
+    updatedat = Column(DateTime)

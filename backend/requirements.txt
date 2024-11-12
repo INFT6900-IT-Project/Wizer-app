@@ -13,3 +13,4 @@ jose
 psycopg2
 pyotp
 Pillow
+azure-storage-blob

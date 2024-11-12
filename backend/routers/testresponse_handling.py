@@ -9,7 +9,7 @@ from sqlalchemy.orm import Session
 
 db_connection = get_db()
 
-env_path = Path('../../../../Downloads/update2/routers') / '.env'
+env_path = Path('.') / '.env'
 load_dotenv(dotenv_path=env_path)
 
 router = APIRouter()
@@ -27,7 +27,7 @@ def create_test_response(response: TestResponseCreate, db: Session = Depends(get
                                      answerid=response.answerid)
     db.add(db_test_response)
     db.commit()
-    return complete
+    return "complete"
 
 
 class TestResponseGet(BaseModel):

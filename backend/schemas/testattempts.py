@@ -1,5 +1,5 @@
 from database import Base
-from sqlalchemy import Column, Integer, Boolean, ForeignKey
+from sqlalchemy import Column, Integer, Boolean, ForeignKey, Numeric, DateTime
 
 
 class TestAttempts(Base):
@@ -7,6 +7,6 @@ class TestAttempts(Base):
     attemptid = Column(Integer, primary_key=True, index=True)
     userid = Column(Integer, ForeignKey("users.userid"), nullable=False)
     moduleid = Column(Integer, ForeignKey("modules.moduleid"), nullable=False)
-    attemptdate = Column(data_type="timestamp")
-    score = Column(Numeric, nullable=True)
+    attemptdate = Column(DateTime)
+    score = Column(Numeric(5, 2))
     ispassed = Column(Boolean)
