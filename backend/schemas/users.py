@@ -1,5 +1,7 @@
+from datetime import datetime
+
 from database import Base
-from sqlalchemy import Column, Integer, String, Boolean
+from sqlalchemy import Column, Integer, String, Boolean, DateTime
 
 
 class User(Base):
@@ -12,7 +14,6 @@ class User(Base):
     email = Column(String)
     phonenumber = Column(String)
     role = Column(String)
-    istwofactorenabled = Column(Boolean)
-    twofactorsecret = Column(String)
-    createdat = Column(data_type="timestamp")
-    lastlogin = Column(data_type="timestamp")
+    istwofactorenabled = Column(Boolean, default=False)
+    twofactorsecret = Column(String, nullable=True)
+    createdat = Column(DateTime, default=datetime.utcnow)

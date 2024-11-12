@@ -4,7 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
 # from .dependencies import
-from routers import user_handling
+from routers import auth, modules_handling
 
 # app = FastAPI(dependencies=[Depends()])
 app = FastAPI()
@@ -23,6 +23,11 @@ async def http_exception_handler(request: Request, exc: HTTPException):
     return JSONResponse(status_code=exc.status_code, content={"message": exc.detail})
 
 
-app.include_router(user_handling.router)
+# app.include_router(user_handling.router)
+app.include_router(auth.router)
+app.include_router(modules_handling.router)
+# app.include_router(mfa.router)
+
+
 if __name__ == "__main__":
     uvicorn.run(app, host="localhost", port=3000, reload=True)

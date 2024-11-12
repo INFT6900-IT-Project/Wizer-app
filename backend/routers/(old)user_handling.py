@@ -7,9 +7,9 @@ from dotenv import load_dotenv
 from fastapi import APIRouter, HTTPException, Depends, status
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from jose import JWTError, jwt
-from schemas.users import User
 from passlib.context import CryptContext
-from pydantic import BaseModel, SecretStr
+from pydantic import BaseModel
+from schemas.users import User
 from sqlalchemy.orm import Session
 
 db_connection = get_db()
