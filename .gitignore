@@ -31,6 +31,7 @@ backend/__pycache__
 .idea/
 .vs/
 .vscode/
+.venv/
 
 backend/__pycache__/database.cpython-311.pyc
 backend/__pycache__/main.cpython-311.pyc
