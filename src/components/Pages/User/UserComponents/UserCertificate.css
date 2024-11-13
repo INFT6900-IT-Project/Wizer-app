@@ -1,6 +1,6 @@
 
 
-.ad-cards-wrap{
+.ad-user-certi-wrap{
     position: relative;
     display: flex;
     justify-content: center;
@@ -9,21 +9,21 @@
     align-items: center;
     
 }
-.ad-card-item{
+.ad-certi-item{
     display: flex;
     flex: 1;
-    margin: 35px;
+    margin: 15px;
     border-radius: 10px;
-    width: 290px;  /* width and height of the card*/
-    height: 350px;
+    width: 310px;  /* width and height of the card*/
+    height: 340px;
 }
 
-.ad-card-item-content {
+.ad-certi-item-content {
     width: 100%;
     display: inline-block;
 }
 
-.ad-card-item-content img {
+.ad-certi-item-content img {
     top: 0;
     right: 0;
     bottom: 0;
@@ -35,12 +35,12 @@
     transition: all 0.2s linear;
 }
 
-.ad-card-item:hover .ad-card-item-content img {
+.ad-certi-item:hover .ad-certi-item-content img {
     transform: scale(1.1);
 }
 
 
-.ad-card-item-link {
+.ad-certi-item-link {
     display: flex;
     flex-flow: column;
     width: 100%;
@@ -52,11 +52,11 @@
     text-decoration: none;
   }
 
-.ad-card-item-link h5, .ad-card-item-link p, .ad-card-item-link p1, .ad-card-item-link p3{
+.ad-certi-item-link h5, .ad-certi-item-link p, .ad-certi-item-link p1, .ad-certi-item-link p3{
     margin-left: 20px;
     margin-right: 20px;
 }
-.ad-card-item-link h5{
+.ad-certi-item-link h5{
     color: #383a3f;
     font-size: 15px;
     line-height: 1.2rem;
@@ -64,30 +64,43 @@
     
 }
 
-.ad-card-item-link p{
+.ad-certi-item-link p{
     color: #5f5d5d;
     font-size: 14px;
     margin-top: 20px;
     margin-bottom: 20px;
 } 
 
-.ad-card-item-link p1{
+.ad-certi-item-link p1{
     color: #5f5d5d;
     font-size: 14px;
 } 
 
-.ad-card-underline{  /*the line under duration and student*/
-    margin-top: 10px;
-    border-bottom: 1px solid #adaba35e;
-}
 
-.ad-card-item-link p3{
+.ad-certi-item-link p3{
     color: #181715;
     font-size: 18px;
     font-weight: 600;
     margin-top: 15px;
 } 
 
-.fa-user-group{
-    margin-left: 20px;
+.fa-window-maximize{
+    margin-right: 10px;
+}
+
+.ad-certi-item-link p1{
+    color: #7190c6;
+    font-size: 15px;
+}
+
+.ad-user-certi-footer{
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 10px;
+    align-items: center;
+}
+
+.fa-circle-right{
+    font-size: 28px;
+    color: #7190c6;
 }

@@ -26,7 +26,7 @@ import "./CourseDetail.css";
       <h1 className="course-title">{course.title || course.courseName || "Course Title"}</h1>
       <div className="course-info">
         <span className="info-item time">
-          <img src={Time} alt="Time icon" /> {course.duration || "2"} Weeks
+          <img src={Time} alt="Time icon" /> {course.duration || "2 Weeks"} 
         </span>
         <span className="info-item student">
           <img src={Student} alt="Student icon" /> {course.students || "25"} Students

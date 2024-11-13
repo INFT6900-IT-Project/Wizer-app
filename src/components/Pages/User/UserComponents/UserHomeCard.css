@@ -1,6 +1,6 @@
 
 
-.ad-cards-wrap{
+.ad-user-cards-wrap{
     position: relative;
     display: flex;
     justify-content: center;
@@ -9,12 +9,12 @@
     align-items: center;
     
 }
-.ad-card-item{
+.ad-user-card-item{
     display: flex;
     flex: 1;
-    margin: 35px;
+    margin: 15px;
     border-radius: 10px;
-    width: 290px;  /* width and height of the card*/
+    width: 310px;  /* width and height of the card*/
     height: 350px;
 }
 
@@ -74,6 +74,7 @@
 .ad-card-item-link p1{
     color: #5f5d5d;
     font-size: 14px;
+
 } 
 
 .ad-card-underline{  /*the line under duration and student*/

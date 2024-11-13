@@ -4,7 +4,8 @@ import secure from '../../ImageVideo/secure.jpg';
 import customization from '../../ImageVideo/customization.jpg';
 import quiz from '../../ImageVideo/quiz.jpg';
 import explore from '../../ImageVideo/explore.mp4';
-import QaA from '../QaA.js'
+import QaA from '../QaA.js';
+
 function Features() {
   return (
 

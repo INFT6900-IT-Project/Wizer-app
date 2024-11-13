@@ -16,11 +16,11 @@ const coursesData = [
       image: 'path/to/courseImage2.png',
       category: 'Business',
       title: 'Introduction to Business',
-      duration: '2 Weeks',
+      duration: '2',
       students: 25,
       level: 'Basic',
       price: '25$',
-      sale: 'Free (0$)',
+      sale: 'Free ($0)',
       overview: "TThis 2-week course introduces students to the basics of business concepts, organizational structures, marketing fundamentals, and management principles.",
   
     },

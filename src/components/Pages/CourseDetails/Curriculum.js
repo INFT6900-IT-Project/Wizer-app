@@ -43,13 +43,13 @@ const Curriculum = ({ data }) => {
                   <div style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}>
                     <img src={lessonsIcon} alt="Lesson" style={{ width: '12px', marginRight: '5px' }} />
                     {lesson.name === "Japanese Alphabets – Hiragana" ? (
-                      <Link to="/lesson-detail/hiragana">{lesson.name}</Link>
+                      <Link to="/lesson-detail/hiragana" style={{textDecoration : 'none'}}>{lesson.name}</Link>
                     ) : lesson.name === "Japanese Alphabets – Katakana" ? (
-                      <Link to="/lesson-detail/katakana">{lesson.name}</Link>
+                      <Link to="/lesson-detail/katakana" style={{textDecoration : 'none'}}>{lesson.name}</Link>
                     ) : lesson.name === "Basic Greetings" ? (
-                      <Link to="/lesson-detail/basic-greetings">{lesson.name}</Link>
+                      <Link to="/lesson-detail/basic-greetings" style={{textDecoration : 'none'}}>{lesson.name}</Link>
                     ) : lesson.name === "Numbers and Counting" ? (
-                      <Link to="/lesson-detail/numbers-and-counting">{lesson.name}</Link>
+                      <Link to="/lesson-detail/numbers-and-counting" style={{textDecoration : 'none'}}>{lesson.name}</Link>
 
                     ) : (
                       <span>{lesson.name}</span>

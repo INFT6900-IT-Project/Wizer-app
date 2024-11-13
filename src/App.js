@@ -26,6 +26,12 @@ import { useState,useEffect } from 'react';
 import verifyToken from './api/verifyToken';
 import Navbar2 from './components/NavBar2'
 import SignOut from './components/Pages/SignUpIn/SignOut';
+import UserScreen from './components/Pages/User/UserScreen';
+import UserHome from './components/Pages/User/UserComponents/UserHome';
+import NavBarUser from './components/Pages/User/UserComponents/NavBarUser';
+import UserDashboard from './components/Pages/User/UserComponents/UserDashboard';
+
+
 
 function App() {
   const [auth, setAuth] = useState(null); // Use null initially to indicate loading state
@@ -47,6 +53,7 @@ function App() {
       <Router>
         <ScrollToTop>
           <Navbar2 />
+          {/* <Navbar /> */} <NavBarUser />
           <Routes>
             <Route exact path='/' element={<Home />} />
             <Route path='/home' element={<Home />} />
@@ -56,6 +63,11 @@ function App() {
             <Route path='/contact-us' element={<ContactUs />} />
             <Route path='/payment' element={<Payment />} />
 
+
+{/* USER SCREEN */}
+            <Route path='/user-screen' element={<UserScreen />} />
+            <Route path='/user-home' element={<UserHome />} />
+            <Route path='/user-dash-board' element={<UserDashboard />} />
 
             {/* Elias */}
             {/* <protectedRoute path="/course-detail/:id" element={<CourseDetail />} /> */}

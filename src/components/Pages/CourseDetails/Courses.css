@@ -35,9 +35,11 @@
 }
 
 .courses-grid {
+    position: relative;
     display: flex;
-    flex-direction: column;
-    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 80px;
     margin-bottom: 40px;
     align-items: center; 
 }
@@ -50,6 +52,7 @@
     background-color: #fff;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
+    width: 700px;
     transition: transform 0.3s ease;
 
 }
@@ -72,7 +75,7 @@
 
 .course-card img {
     width: 100%;
-    height: 180px;
+    height: 100%;
     object-fit: cover;
 }
 
@@ -101,10 +104,10 @@
     margin-bottom: 10px;
 }
 
-.course-title {
+.ad-course-title-outside { /*Adoria*/
     font-size: 18px;
-    color: #333;
-    margin-bottom: 10px;
+    margin: 20px 0;
+    color:#e65c00
 }
 
 
@@ -116,9 +119,10 @@
 }
 
 .course-meta {
-    font-size: 14px;
+    font-size: 13px;
     color: #777;
     display: flex;
+    justify-content: space-between;
     gap: 10px;
     margin-bottom: 15px;
 }
@@ -135,11 +139,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: auto;
+    margin-top: 30px;
 }
 
 .course-price {
-    font-size: 16px;
+    font-size: 23px;
     font-weight: bold;
     color: #dd6552;
 }
@@ -150,14 +154,12 @@
 }
 
 .view-more-btn {
-    background-color: #dd6552;
-    color: white;
+    background-color: #dd6552e9;
     padding: 10px 20px;
     border: none;
     border-radius: 20px;
     cursor: pointer;
 }
-
 
 
 .view-more-btn:hover {
@@ -168,21 +170,41 @@
     display: flex;
     justify-content: center;
     gap: 10px;
-    margin-bottom: 30px;
+    margin: 40px 0px;
 }
 
 .page-number {
     padding: 10px 15px;
-    border-radius: 5px;
-    background-color: #f0f0f0;
+    border-radius: 30px;
+    background-color: #ffffff;
+    border: 1px solid #dd65523d;
+    color: rgb(53, 53, 53);
     cursor: pointer;
 }
 
-.page-number.active {
-    background-color: #dd6552;
+.page-number-current {
+    background-color: #dd6552ea;
+    padding: 10px 15px;
+    border-radius: 20px;
     color: white;
+    cursor: pointer;
 }
 
 .page-number:hover {
-    background-color: #c54b3a;
+    background-color: #dd6552ea;
+    color: white;
+}
+
+.ad-page-number-dot{
+    padding: 20px 15px 0px;
+}
+
+.ad-page-number-next{
+    padding: 10px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.ad-page-number-next:hover{
+    background-color: #f0f0f0;
 }
