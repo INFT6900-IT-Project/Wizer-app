@@ -17,7 +17,6 @@ from passlib.context import CryptContext
 from pydantic import BaseModel
 from schemas.users import User
 from sqlalchemy.orm import Session
-from sqlalchemy.sql.functions import current_user
 
 db_connection = get_db()
 
@@ -43,7 +42,6 @@ class Configs:
 
 
 router = APIRouter()
-
 
 
 class UserCreate(BaseModel):
@@ -159,7 +157,7 @@ def verify_token(token: str = Depends(oauth2_scheme)):
     except JWTError:
         raise credentials_exception
 
-from fastapi.encoders import jsonable_encoder
+
 def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
     credentials_exception = HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,
@@ -171,12 +169,22 @@ def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(
         username: str = payload.get("sub")
         if username is None:
             raise credentials_exception
-        user = db.query(User).filter(User.username == username).first()
-        if not user:
+        current_user = db.query(User).filter(User.username == username).first()
+        if not current_user:
             raise credentials_exception
-        return user
+        return {
+            "userid": current_user.userid,
+            "username": current_user.username,
+            "firstname": current_user.firstname,
+            "lastname": current_user.lastname,
+            "email": current_user.email,
+            "phonenumber": current_user.phonenumber,
+            "role": current_user.role,
+            "istwofactorenabled": current_user.istwofactorenabled
+        }
     except JWTError:
         raise credentials_exception
+
 
 @router.get("/auth/verify-token/{token}", tags=["Auth"])
 async def verify_user_token(token: str):
@@ -185,9 +193,8 @@ async def verify_user_token(token: str):
 
 
 @router.get("/users/me", tags=["Auth"])
-async def get_current_user(token: str, db: Session = Depends(get_db)):
-    current_user = await get_current_user(token=token, db=db)
-    return current_user
+async def current_user(token: str, db: Session = Depends(get_db)):
+    return get_current_user(token=token, db=db)
 
 
 class UserChangePassword(BaseModel):
@@ -195,8 +202,10 @@ class UserChangePassword(BaseModel):
     old_password: str
     new_password: str
 
+
 def verify_password(old_password, hashed_password):
     return pwd_context.verify(old_password, hashed_password)
+
 
 @router.post("/change_password", tags=["Auth"])
 def change_password(request: UserChangePassword, db: Session = Depends(get_db)):
@@ -215,6 +224,8 @@ def change_password(request: UserChangePassword, db: Session = Depends(get_db)):
         return {"message": "Password changed successfully"}
     except Exception as e:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(e))
+
+
 #
 # def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
 #     credentials_exception = HTTPException(
@@ -316,7 +327,6 @@ async def validate_totp(totp_details: TOTPValidation, db: Session = Depends(get_
 
     return {"message": "OTP is valid"}
 
-
 # def get_user(db: Session = Depends(get_db), username: str = Depends(validate_token)):
 #     user = db.query(User).filter(User.username == username.username).first()
 #     if not user:
@@ -335,5 +345,3 @@ async def validate_totp(totp_details: TOTPValidation, db: Session = Depends(get_
 # @router.get("/user/{username}")
 # async def read_users_me(current_user: User = Depends(get_current_user)):
 #     return current_user
-
-
