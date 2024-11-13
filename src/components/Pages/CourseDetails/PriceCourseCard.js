@@ -25,5 +25,5 @@ const PriceCourseCard = ({ course, onGetNow }) => {
     </div>
   );
 };
-
+// console.log("PriceCourseCard:", PriceCourseCard);
 export default PriceCourseCard;
