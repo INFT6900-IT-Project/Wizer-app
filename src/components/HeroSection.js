@@ -50,6 +50,7 @@ function HeroSection() {
             <h2>Top Categories</h2>
             <p>Explore our popular categories</p>
           </div>
+        
 
           <div className='ad-card-container'>
 
@@ -107,8 +108,13 @@ function HeroSection() {
 
         <div className='ad-featured-course'>
           <div className='ad-course-head'>
+            <div>
             <h2>Featured Courses</h2>
             <p>Discover popular courses</p>
+            </div>
+            <div>
+              
+            </div>
           </div>
 
 

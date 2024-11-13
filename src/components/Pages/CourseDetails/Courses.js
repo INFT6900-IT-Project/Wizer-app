@@ -9,7 +9,9 @@ import courseImage4 from '../../../ImageVideo/courseImage4.jpg';
 import courseImage5 from '../../../ImageVideo/courseImage5.jpg';
 import art from '../../../ImageVideo/art.jpg';
 import chinese from '../../../ImageVideo/chinese.jpg';
-
+import communication from '../../../ImageVideo/communication.jpg';
+import coding from '../../../ImageVideo/coding.jpg';
+import powerbi from '../../../ImageVideo/powerbi.jpg';
 
 function Courses() {
     const [courses] = useState([
@@ -34,10 +36,9 @@ function Courses() {
             author: 'Adoria Duong',
             students: 35,
             level: 'Beginner',
-            price: '$45',
-            newPrice: 'Free',
-            price: (<span style={{ textDecoration: 'line-through', color: 'gray' }}>$45.00</span>),
-            newPrice: (<span style={{ color: '#18a52b' }}> Free</span>),
+            oldPrice: '$45.00',
+            price: '$45.00', /* to ensure the original price will be shown after navigating inside the course info* */
+            free : 'Free',
             lessons: 15,
         },
         {
@@ -54,6 +55,31 @@ function Courses() {
         },
         {
             id: 3,
+            image: coding,
+            category: 'Coding',
+            title: 'Introduction to Coding: HTML, CSS and JavaScripts Basics',
+            duration: '8 Weeks',
+            author: 'Adoria Duong',
+            students: 14,
+            level: 'Beginner',
+            oldPrice: '$70.00',
+            price : '$39.99',
+            lessons: 20,
+        },
+        {
+            id: 3,
+            image: powerbi,
+            category: 'Science',
+            title: 'Automating Reports with Power BI: Power Query and DAX',
+            duration: '7 Weeks',
+            author: 'Adoria Duong',
+            students: 3,
+            level: 'All levels',
+            price: '$82.00',
+            lessons: 11,
+        },
+        {
+            id: 3,
             image: courseImage3,
             category: 'Photography',
             title: 'Learn Photography',
@@ -63,6 +89,20 @@ function Courses() {
             level: 'All levels',
             price: '$65',
             lessons: 8,
+        },
+        {
+            id: 2,
+            image: communication,
+            category: 'Communication',
+            title: 'Effective Communication: Unlock Your Potential',
+            duration: '8 Weeks',
+            author: 'Adoria Duong',
+            students: 5,
+            level: 'Advanced',
+            oldPrice: '$29.00',
+            price: '$29.00', /* to ensure the original price will be shown after navigating inside the course info* */
+            free : 'Free',
+            lessons: 12,
         },
         {
             id: 4,
@@ -102,6 +142,7 @@ function Courses() {
         },
     ]);
 
+
     return (
         <div className="courses-page">
             <h1>All Courses</h1>
@@ -118,7 +159,7 @@ function Courses() {
                         </div>
                         <div className="course-content">
                             <p className="course-author">{course.author}</p>
-                            <h3 className="course-title">{course.title}</h3>
+                            <h3 className="ad-course-title-outside">{course.title}</h3>
                             <div className="course-meta">
                                 <span><i className="fas fa-clock"></i> {course.duration}</span>
                                 <span><i className="fas fa-users"></i> {course.students} Students</span>
@@ -126,8 +167,21 @@ function Courses() {
                                 <span><i className="fas fa-book"></i> {course.lessons} Lessons</span>
                             </div>
                             <div className="course-footer">
-                                <span className="course-price"><span>{course.price}</span>
-                                {course.newPrice}</span>
+                            <span className="course-price">
+    {course.free ? (
+        <>
+            <span style={{ textDecoration: 'line-through', color: 'gray' }}>{course.oldPrice}</span>{" "}
+            <span style={{ color: '#18a52b' }}>{course.free}</span>
+        </>
+    ) : course.oldPrice ? (
+        <>
+            <span style={{ textDecoration: 'line-through', color: 'gray' }}>{course.oldPrice}</span>{" "}
+            <span style={{ color: '#b8973e' }}>{course.price}</span>
+        </>
+    ) : (
+        <span>{course.price}</span>
+    )}
+</span>
                                 <button className="view-more-btn">
                                      <Link to={`/course-detail/${course.id}`} state={{ course }}  style={{ textDecoration: 'none', color:'white' }}>
                                         View More
@@ -144,6 +198,9 @@ function Courses() {
                 <span className="page-number active">3</span>
                 <span className="page-number active">4</span>
                 <span className="page-number active">5</span>
+                <span className='ad-page-number-dot'><i class="fa-solid fa-ellipsis"></i></span>
+                <span className="page-number active">30</span>
+                <span className="ad-page-number-next">Next <i class="fa-solid fa-angle-right"></i></span>
             </div>
             
         </div>
