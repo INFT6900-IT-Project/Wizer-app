@@ -5,12 +5,12 @@ function UserSideBar() {
   return (
     <div>
       <div className='ad-user-sidebar-wrap'>
-      <p>Achievements</p>
-          <p>Learning Path</p>
-          <p>Progress</p>
-          <p>Discussion Forum</p>
-          <p>Help Center</p>
-          <p>Account Settings</p>
+      <p><i class="fa-solid fa-trophy"></i> Achievements</p>
+          <p><i class="fa-solid fa-chalkboard"></i> Learning Path</p>
+          <p><i class="fa-solid fa-bars-progress"></i> Progress</p>
+          <p><i class="fa-regular fa-message"></i> Discussion Forum</p>
+          <p><i class="fa-regular fa-circle-question"></i> Help Center</p>
+          <p><i class="fa-solid fa-gear"></i> Account Settings</p>
       </div>
     </div>
   )

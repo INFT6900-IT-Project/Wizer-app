@@ -2,11 +2,23 @@
 
 
 .ad-user-sidebar-wrap{
-    padding: 20px;
+    padding: 20px 0px;
 }
 
 .ad-user-sidebar-wrap p{
     margin: 50px 0px;
+    color: gray;
+    font-size: 17px;
+    transition: color 0.3s, border-left 0.3;
+    padding-left: 20px
 }
 
-.ad-user-sidebar-wrap p:hover{}
+.ad-user-sidebar-wrap p:hover{
+    color: rgba(211, 120, 75, 0.911);
+    border-left: 2px solid rgba(229, 138, 92, 0.911);/* Adds a blue line on the left on hover */
+    cursor: pointer;
+}
+
+.fa-trophy, .fa-chalkboard, .fa-bars-progress, .fa-message, .fa-circle-question, .fa-gear{
+    margin-right: 10px;
+}
