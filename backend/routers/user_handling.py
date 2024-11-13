@@ -121,9 +121,9 @@ async def verify_user_token(token: str):
 
 
 @router.get("/otp")
-async def send_otp(username):
+async def send_otp(username:str,db: Session = Depends(get_db)):
     otp = generate_otp()
-    send_gmail_otp(otp, username)
+    await send_gmail_otp(otp, username,db)
     return {"otp":otp}
 
 
@@ -131,12 +131,13 @@ def generate_otp():
     return random.randint(100000,999999)
 
 
-def send_gmail_otp(otp,username):
+async def send_gmail_otp(otp,username, db:Session):
     server=smtplib.SMTP('smtp.gmail.com',587)
     server.starttls()
     server.login('wizer920@gmail.com','ekwj hmku uqqn kole')
-    to_mail= get_email_by_username(username)
+    to_mail= get_email_by_username(db,username)
     body = "dear "+username+","+"\n"+"\n"+"your OTP is "+str(otp)+"."
     subject = "Wizer OTP verification" 
     message = f'subject:{subject}\n\n{body}'
     server.sendmail("wizer920@gmail.com",to_mail,message)
+    server.quit()
