@@ -20,7 +20,7 @@ function Courses() {
             duration: '2 Weeks',
             students: 25,
             level: 'Basic',
-            price: '25$',
+            price: '$25',
             lessons: 12,
         },
         {
@@ -31,7 +31,7 @@ function Courses() {
             duration: '2 Weeks',
             students: 30,
             level: 'All levels',
-            price: '25$',
+            price: '$75',
             lessons: 10,
         },
         {
@@ -42,7 +42,7 @@ function Courses() {
             duration: '2 Weeks',
             students: 33,
             level: 'All levels',
-            price: '25$',
+            price: '$65',
             lessons: 8,
         },
         {
@@ -53,7 +53,7 @@ function Courses() {
             duration: '3 Weeks',
             students: 45,
             level: 'Beginner',
-            price: '25$',
+            price: '$70',
             lessons: 9,
         },
         {
@@ -64,7 +64,7 @@ function Courses() {
             duration: '4 Weeks',
             students: 26,
             level: 'Advanced',
-            price: '25$',
+            price: '$85',
             lessons: 15,
         },
     ]);
@@ -95,7 +95,7 @@ function Courses() {
                             <div className="course-footer">
                                 <span className="course-price">{course.price}</span>
                                 <button className="view-more-btn">
-                                     <Link to={`/course-detail/${course.id}`} state={{ course }}>
+                                     <Link to={`/course-detail/${course.id}`} state={{ course }}  style={{ textDecoration: 'none', color:'white' }}>
                                         View More
                                      </Link>
                                 </button>

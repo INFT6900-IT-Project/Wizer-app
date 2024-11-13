@@ -52,7 +52,7 @@
     text-decoration: none;
   }
 
-.ad-card-item-link h5, p, p1, p3{
+.ad-card-item-link h5, .ad-card-item-link p, .ad-card-item-link p1, .ad-card-item-link p3{
     margin-left: 20px;
     margin-right: 20px;
 }

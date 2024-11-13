@@ -11,7 +11,7 @@ const KatakanaLesson = () => {
   return (
     <div className="lesson-detail-container">
       <h2>Japanese Alphabets – Katakana</h2>
-      <p className="lesson-content">{katakanaContent}</p>
+      <p>{katakanaContent}</p>
 
       {/* Use process.env.PUBLIC_URL for image paths in the public folder */}
       <div className="image-container">
@@ -22,7 +22,7 @@ const KatakanaLesson = () => {
         />
       </div>
 
-      <h3>Quiz: Test Your Knowledge of Katakana</h3>
+      <h3><i class="fa-solid fa-flag-checkered"></i>Quiz Section</h3>
       {/* Render the Katakana quiz component */}
       <QuizComponent1 />
     </div>

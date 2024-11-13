@@ -6,7 +6,7 @@
 .header-curriculum {
     color: #555;
     font-family: 'Jost', sans-serif;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 }
 
 .curriculum-section {
@@ -47,6 +47,7 @@
     padding: 8px 0;
     border-bottom: 1px solid #eee;
 }
+
 
 .preview-button {
     background-color: #2580D5;

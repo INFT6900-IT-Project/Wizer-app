@@ -13,7 +13,7 @@ const LessonDetail = () => {
   return (
     <div className="lesson-detail-container">
       <h2>Japanese Alphabets – Hiragana</h2>
-      <p className="lesson-content">{lessonContent}</p>
+      <p>{lessonContent}</p>
 
       <div className="image-container">
       <img
@@ -23,7 +23,7 @@ const LessonDetail = () => {
       />
       </div>    
 
-      <h3>Quiz: Test Your Knowledge of Hiragana</h3>
+      <h3> <i class="fa-solid fa-flag-checkered"></i>Quiz Section</h3>
       <QuizComponent />
     </div>
   );
