@@ -8,3 +8,5 @@
 .ad-user-sidebar-wrap p{
     margin: 50px 0px;
 }
+
+.ad-user-sidebar-wrap p:hover{}
