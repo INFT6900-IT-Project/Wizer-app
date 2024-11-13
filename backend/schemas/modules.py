@@ -7,7 +7,7 @@ class Modules(Base):
     moduleid = Column(Integer, primary_key=True, index=True)
     modulename = Column(String, nullable=False)
     moduledescription = Column(String)
-    ownerid = Column(Integer, ForeignKey("user.userid"), nullable=False)
+    ownerid = Column(Integer, ForeignKey("users.userid"), nullable=False)
     isactive = Column(Boolean)
     createdat = Column(DateTime)
     updatedat = Column(DateTime)

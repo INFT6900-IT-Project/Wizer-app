@@ -20,7 +20,7 @@ router = APIRouter()
 class NotificationCreate(BaseModel):
     userid: int
     message: str
-    createdat: datetime
+    createdat: datetime = datetime.utcnow()
 
 
 @router.post("/notifications")
@@ -62,3 +62,16 @@ class NotificationGet(BaseModel):
 def get_user_notifications(user_id: int, db: Session = Depends(get_db)):
     notifications = db.query(Notifications).filter(Notifications.userid == user_id).all()
     return notifications
+
+
+@router.delete("/notifications/user/{user_id}")
+def delete_notifications(notification_id: int, db: Session = Depends(get_db)):
+    db_notification = db.query(Notifications).filter(Notifications.notificationid == notification_id).first()
+    if db_notification is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Notification not found")
+
+    db.delete(db_notification)
+    db.commit()
+    return {"detail": "Notification deleted successfully"}

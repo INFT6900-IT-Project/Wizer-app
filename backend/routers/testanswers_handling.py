@@ -51,6 +51,18 @@ def update_test_answer(answer_id: int, answer: TestAnswerUpdate, db: Session = D
     db.commit()
     return {"detail": "Answer updated successfully"}
 
+@router.delete("/testanswers/{answer_id}")
+def delete_test_answer(answer_id: int, db: Session = Depends(get_db)):
+    db_test_answer = db.query(TestAnswers).filter(TestAnswers.answerid == answer_id).first()
+    if db_test_answer is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Test Answer not found")
+
+    db.delete(db_test_answer)
+    db.commit()
+    return {"detail": "Test Answer deleted successfully"}
+
 
 class TestAnswerGet(BaseModel):
     answerid: int

@@ -14,7 +14,7 @@ from passlib.context import CryptContext
 from pydantic import BaseModel
 from schemas.users import User
 from sqlalchemy.orm import Session
-from utils.jwt import create_access_token, verify_token
+from jose import JWTError, jwt
 
 db_connection = get_db()
 
@@ -43,7 +43,7 @@ class UserCreate(BaseModel):
     email: str
     phone_number: str
     role: str
-    created_at: datetime
+    created_at: datetime = datetime.now()
 
 
 class MFACreate(BaseModel):
@@ -78,13 +78,14 @@ def create_user(db: Session, user_data: UserCreate):
         db.add(new_user)
         db.commit()
         db.refresh(new_user)
-        return new_user
+        # return new_user
+        return {"message": "User registered successfully"}
     except Exception as e:
         db.rollback()
         raise HTTPException(status_code=500, detail=f"Failed to complete registration: {str(e)}")
 
 
-@router.post("/register")
+@router.post("/auth/register")
 def register_user(user: UserCreate, db: Session = Depends(get_db)):
     db_user = get_user_by_username(db, username=user.username)
     if db_user:
@@ -117,11 +118,79 @@ def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(), db:
     )
     return {"access_token": access_token, "token_type": "bearer"}
 
+import os
+from datetime import datetime, timedelta
+from pathlib import Path
 
-@router.get("/auth/verify-token/{token}")
-async def verify_user_token(token: str):
-    verify_token(token=token)
-    return {"message": "Token is valid"}
+from dotenv import load_dotenv
+from fastapi import HTTPException, Depends
+from fastapi.security import OAuth2PasswordBearer
+from jose import JWTError, jwt
+from passlib.context import CryptContext
+
+env_path = Path('.') / '.env'
+load_dotenv(dotenv_path=env_path)
+
+
+# JWT config
+class Configs:
+    SECRET_KEY: str = os.getenv("SECRET_KEY")
+    ALGORITHM: str = os.getenv("ALGORITHM")
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES")
+
+
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+
+
+def create_access_token(data: dict, expires_delta: timedelta | None = None):
+    to_encode = data.copy()
+    if expires_delta:
+        expire = datetime.utcnow() + expires_delta
+    else:
+        expire = datetime.utcnow() + timedelta(minutes=15)
+    to_encode.update({"exp": expire})
+    encoded_jwt = jwt.encode(to_encode, Configs.SECRET_KEY, algorithm=Configs.ALGORITHM)
+    return encoded_jwt
+
+
+def verify_token(token: str = Depends(oauth2_scheme)):
+    try:
+        payload = jwt.decode(token, Configs.SECRET_KEY, algorithms=[Configs.ALGORITHM])
+        username: str = payload.get("sub")
+        if username is None:
+            raise HTTPException(status_code=403, detail="Token is invalid or expired")
+        return payload
+    except JWTError:
+        raise HTTPException(status_code=403, detail="Token is invalid or expired")
+
+
+
+
+# @router.get("/auth/verify-token/{token}")
+# async def verify_user_token(token: str):
+#     verify_token(token=token)
+#     return {"message": "Token is valid"}
+
+@router.get("/auth/validate-token")
+def validate_token(token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
+    credentials_exception = HTTPException(
+        status_code=status.HTTP_401_UNAUTHORIZED,
+        detail="Could not validate credentials",
+        headers={"WWW-Authenticate": "Bearer"},
+    )
+    try:
+        payload = jwt.decode(token, Configs.SECRET_KEY, algorithms=[Configs.ALGORITHM])
+        username: str = payload.get("sub")
+        if username is None:
+            raise credentials_exception
+    except JWTError:
+        raise credentials_exception
+    user = get_user(db, username=username)
+    if user is None:
+        raise credentials_exception
+    return {"username": user.username}
 
 
 def add_2fa_to_user(db: Session, user_data: User):
@@ -147,7 +216,7 @@ def add_2fa_to_user(db: Session, user_data: User):
         raise HTTPException(status_code=500, detail=f"Failed to add 2FA: {str(e)}")
 
 
-@router.post('/mfa/otp-register/')
+@router.post("/mfa/otp-register/")
 async def mfa_otp_register(user_data: MFACreate, db: Session = Depends(get_db)):
     user = db.query(User).filter(User.username == user_data.username).first()
     if not user:
@@ -156,7 +225,7 @@ async def mfa_otp_register(user_data: MFACreate, db: Session = Depends(get_db)):
     return StreamingResponse(buf, media_type="image/png")
 
 
-@router.post('/mfa/validate-totp/')
+@router.post("/mfa/validate-totp/")
 async def validate_totp(totp_details: TOTPValidation, db: Session = Depends(get_db)):
     user = db.query(User).filter(User.username == totp_details.username).first()
 
@@ -170,3 +239,23 @@ async def validate_totp(totp_details: TOTPValidation, db: Session = Depends(get_
         raise HTTPException(status_code=403, detail="Wrong TOTP entered.")
 
     return {"message": "OTP is valid"}
+
+
+def get_user(db: Session = Depends(get_db), username: str = Depends(validate_token)):
+    user = db.query(User).filter(User.username == username.username).first()
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+    return {
+        "userid": user.userid,
+        "username": user.username,
+        "firstname": user.firstname,
+        "lastname": user.lastname,
+        "email": user.email,
+        "phonenumber": user.phonenumber,
+        "role": user.role,
+        "istwofactorenabled": user.istwofactorenabled
+    }
+
+# @router.get("/user/{username}")
+# async def read_users_me(current_user: User = Depends(get_current_user)):
+#     return current_user

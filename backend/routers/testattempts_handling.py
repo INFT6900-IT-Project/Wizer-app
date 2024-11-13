@@ -20,7 +20,7 @@ router = APIRouter()
 class TestAttemptCreate(BaseModel):
     userid: int
     moduleid: int
-    attemptdate: datetime
+    attemptdate: datetime = datetime.utcnow()
 
 
 @router.post("/testattempts")

@@ -29,7 +29,7 @@ def create_user_module(user_module: UserModuleCreate, db: Session = Depends(get_
                                  registrationdate=user_module.registrationdate)
     db.add(db_user_module)
     db.commit()
-    return complete
+    return "complete"
 
 
 class UserModuleGet(BaseModel):
@@ -47,7 +47,7 @@ def get_module_users(module_id: int, db: Session = Depends(get_db)):
 
 
 # Get all modules a user is registered for
-@router.get("/users/{user_id}/modules")
+@router.get("/users/{username}/modules")
 def get_user_modules(user_id: int, db: Session = Depends(get_db)):
     user_modules = db.query(UserModules).filter(UserModules.userid == user_id).all()
     return user_modules

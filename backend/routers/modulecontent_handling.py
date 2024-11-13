@@ -6,7 +6,7 @@ from typing import Optional
 from azurestorage import AzureFileStorage
 from database import get_db
 from dotenv import load_dotenv
-from fastapi import APIRouter, HTTPException, Depends, status, UploadFile
+from fastapi import APIRouter, HTTPException, Depends, status, File, UploadFile
 from pydantic import BaseModel, HttpUrl
 from schemas.modulecontent import ModuleContent
 from sqlalchemy.orm import Session
@@ -24,13 +24,13 @@ router = APIRouter()
 class ModuleContentCreate(BaseModel):
     moduleid: int
     contenttype: str
-    contenturl: HttpUrl
-    createdat: datetime
-    updatedat: Optional[datetime] = None
+    createdat: datetime = datetime.now()
+    file: UploadFile = File(...)
 
 
 @router.post("/content")
-async def create_module_content(modulecontent: ModuleContentCreate, file: UploadFile,
+async def create_module_content(modulecontent: ModuleContentCreate = Depends(),
+                                file: UploadFile = File(...),
                                 db: Session = Depends(get_db)):
     try:
         # Save file to a temp location
@@ -46,10 +46,10 @@ async def create_module_content(modulecontent: ModuleContentCreate, file: Upload
 
             db_modulecontent = ModuleContent(moduleid=modulecontent.moduleid, contenttype=modulecontent.contenttype,
                                              contenturl=file_url,
-                                             createdat=modulecontent.createdat, updatedat=modulecontent.updatedat)
+                                             createdat=modulecontent.createdat)
             db.add(db_modulecontent)
             db.commit()
-        return "complete"
+        return {"message": "Module content added successfully"}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"File upload failed: {str(e)}")
 
@@ -71,9 +71,9 @@ async def update_module_content(content_id: int, modulecontent: ModuleContentUpd
     if modulecontent.contenturl is not None:
         db_modulecontent.contenturl = modulecontent.contenturl
 
-    db_modulecontent.updatedat = datetime.now()
+    db_modulecontent.updatedat = datetime.utcnow()
     db.commit()
-    return {"detail": "Module content updated successfully"}
+    return {"message": "Module content updated successfully"}
 
 
 # Get module content by contentID
@@ -86,3 +86,15 @@ def get_module_content(content_id: int, db: Session = Depends(get_db)):
             detail="Module content not found")
 
     return db_modulecontent
+
+@router.delete("/content/{content_id}")
+def delete_module_content(content_id: int, db: Session = Depends(get_db)):
+    db_modulecontent = db.query(ModuleContent).filter(ModuleContent.contentid == content_id).first()
+    if db_modulecontent is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Content not found")
+
+    db.delete(db_modulecontent)
+    db.commit()
+    return {"detail": "Content deleted successfully"}

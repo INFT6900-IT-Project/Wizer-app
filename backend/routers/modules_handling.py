@@ -22,18 +22,21 @@ class ModuleCreate(BaseModel):
     moduledescription: Optional[str] = None
     ownerid: int
     isactive: bool = False
-    createdat: datetime
+    createdat: datetime = datetime.utcnow()
     updatedat: Optional[datetime] = None
 
 
 @router.post("/modules")
 def create_module(module: ModuleCreate, db: Session = Depends(get_db)):
-    db_module = Modules(modulename=module.modulename, moduledescription=module.moduledescription,
-                        ownerid=module.ownerid,
-                        isactive=module.isactive, createdat=module.createdat, updatedat=module.updatedat)
-    db.add(db_module)
-    db.commit()
-    return 'complete'
+    try:
+        db_module = Modules(modulename=module.modulename, moduledescription=module.moduledescription,
+                            ownerid=module.ownerid,
+                            isactive=module.isactive, createdat=module.createdat, updatedat=module.updatedat)
+        db.add(db_module)
+        db.commit()
+        return {"message": "Module created"}
+    except Exception as e:
+        return {"message": str(e)}
 
 
 class ModuleUpdate(BaseModel):
@@ -45,23 +48,26 @@ class ModuleUpdate(BaseModel):
 
 @router.put("/modules/{module_id}")
 def update_module(module_id: int, module: ModuleUpdate, db: Session = Depends(get_db)):
-    db_module = db.query(Modules).filter(Modules.moduleid == module_id).first()
-    if not db_module:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail="Module not found")
+    try:
+        db_module = db.query(Modules).filter(Modules.moduleid == module_id).first()
+        if not db_module:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail="Module not found")
 
-    if module.modulename is not None:
-        db_module.modulename = module.modulename
-    if module.moduledescription is not None:
-        db_module.moduledescription = module.moduledescription
-    if module.isactive is not None:
-        db_module.isactive = module.isactive
+        if module.modulename is not None:
+            db_module.modulename = module.modulename
+        if module.moduledescription is not None:
+            db_module.moduledescription = module.moduledescription
+        if module.isactive is not None:
+            db_module.isactive = module.isactive
 
-    db_module.updatedat = module.updatedat
+        db_module.updatedat = module.updatedat
 
-    db.commit()
-    return {"detail": "Module updated successfully"}
+        db.commit()
+        return {"detail": "Module updated successfully"}
+    except Exception as e:
+        return {"message": str(e)}
 
 
 @router.delete("/modules/{module_id}")

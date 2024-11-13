@@ -59,3 +59,15 @@ def update_module_schedule(moduleschedule_id: int, moduleschedule: ModuleSchedul
     db.commit()
     db.refresh(db_moduleschedule)
     return {"detail": "Module schedule updated successfully"}
+
+@router.delete("/schedule/{schedule_id}")
+def delete_module_schedule(moduleschedule_id: int, db: Session = Depends(get_db)):
+    db_moduleschedule = db.query(ModuleScheduling).filter(ModuleScheduling.scheduleid == moduleschedule_id).first()
+    if db_moduleschedule is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Schedule not found")
+
+    db.delete(db_moduleschedule)
+    db.commit()
+    return {"detail": "Schedule deleted successfully"}

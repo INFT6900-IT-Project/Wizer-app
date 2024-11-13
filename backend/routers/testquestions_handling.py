@@ -20,7 +20,7 @@ router = APIRouter()
 class TestQuestionsCreate(BaseModel):
     moduleid: int
     questiontext: str
-    createdat: datetime
+    createdat: datetime = datetime.utcnow()
     updatedat: Optional[datetime] = None
 
 
@@ -48,17 +48,29 @@ def update_test_question(question_id: int, question: TestQuestionUpdate, db: Ses
     if question.questiontext is not None:
         db_test_question.questiontext = question.questiontext
 
-    db_test_question.updatedat = datetime.now()
+    db_test_question.updatedat = datetime.utcnow()
 
     db.commit()
     return {"detail": "Question updated successfully"}
+
+@router.delete("/testquestions/{question_id}")
+def delete_test_question(question_id: int, db: Session = Depends(get_db)):
+    db_test_question = db.query(TestQuestions).filter(TestQuestions.questionid == question_id).first()
+    if db_test_question is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Question not found")
+
+    db.delete(db_test_question)
+    db.commit()
+    return {"detail": "Question deleted successfully"}
 
 
 class TestQuestionGet(BaseModel):
     questionid: int
     moduleid: int
     questiontext: str
-    createdat: datetime
+    createdat: datetime = datetime.utcnow()
     updatedat: datetime
 
 
