@@ -7,12 +7,11 @@ import '../CardItem.css';
 import img1 from '../../ImageVideo/img1.jpg';
 import adoria from '../../ImageVideo/adoria.png';
 import elias from '../../ImageVideo/elias.jpg';
-import Navbar from '../../components/Navbar';
+
 
 function ContactUs() {
   return (
     <div>
-      <Navbar />
       <div className='contact-us'>
 
 

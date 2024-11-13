@@ -24,7 +24,6 @@ import SignUp from './components/Pages/SignUpIn/SignUp';
 import Payment from './components/Pages/Payment';
 import { useState,useEffect } from 'react';
 import verifyToken from './api/verifyToken';
-import Navbar2 from './components/NavBar2'
 import SignOut from './components/Pages/SignUpIn/SignOut';
 import UserScreen from './components/Pages/User/UserScreen';
 import UserHome from './components/Pages/User/UserComponents/UserHome';
@@ -52,8 +51,7 @@ function App() {
       {auth?
       <Router>
         <ScrollToTop>
-          <Navbar2 />
-          {/* <Navbar /> */} <NavBarUser />
+         <NavBarUser />
           <Routes>
             <Route exact path='/' element={<Home />} />
             <Route path='/home' element={<Home />} />

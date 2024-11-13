@@ -31,7 +31,7 @@ function SignIn() {
       });
       console.log(response.data)
       localStorage.setItem("token", response.data.access_token);
-			window.location = "/courses";
+			window.location = "/user-screen";
       
     } catch (error) {
       console.error(error)
