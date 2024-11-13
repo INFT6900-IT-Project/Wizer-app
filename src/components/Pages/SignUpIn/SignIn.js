@@ -21,7 +21,7 @@ function SignIn() {
     e.preventDefault();
     setLoading(true)
     try {
-      const response = await axios.post('http://127.0.0.1:8000/token',new URLSearchParams({
+      const response = await axios.post('http://127.0.0.1:8000/auth/login',new URLSearchParams({
         'username': signInInfo.username,
         'password': signInInfo.password
       }), {

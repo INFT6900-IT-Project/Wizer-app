@@ -52,7 +52,7 @@ class UserCreate(BaseModel):
     email: str
     phone_number: str
     role: str
-    created_at: datetime = datetime.now()
+ 
 
 
 class MFACreate(BaseModel):
@@ -83,7 +83,7 @@ def create_user(db: Session, user_data: UserCreate):
                         lastname=user_data.last_name,
                         phonenumber=user_data.phone_number,
                         role=user_data.role,
-                        createdat=user_data.created_at)
+                        createdat=datetime.now())
         db.add(new_user)
         db.commit()
         db.refresh(new_user)

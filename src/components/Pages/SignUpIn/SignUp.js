@@ -21,7 +21,9 @@ function SignUp() {
       password: "",
       first_name: "",
       last_name: "",
-      email: ""
+      email: "",
+      phone_number: "",
+      role: "User"
 
     }
   );
@@ -40,7 +42,7 @@ function SignUp() {
   const handleSubmit = async(e)=> {
     e.preventDefault();
     setLoading(true)
-  try{const response= await axios.post('http://127.0.0.1:8000/register',signUpInfo)
+  try{const response= await axios.post('http://127.0.0.1:8000/auth/register',signUpInfo)
     console.log(response.data)
     navigateToSignIn()
   }catch(error){

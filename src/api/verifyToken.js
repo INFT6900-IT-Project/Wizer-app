@@ -4,7 +4,7 @@ async function verifyToken() {
   const token= localStorage.getItem("token")
   if (!token) return false
   try {
-    const response= await axios.get(`http://127.0.0.1:8000/verify-token/${token}`) 
+    const response= await axios.get(`http://127.0.0.1:8000/auth/verify-token/${token}`) 
     console.log(response.data)
     return true
 
