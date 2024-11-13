@@ -20,12 +20,21 @@ const basicGreetingsContent = `
 const BasicGreetingsLesson = () => {
   console.log("BasicGreetingsLesson component rendered"); // Debugging line
 
+
+  const greetingsLines = basicGreetingsContent
+    .split('\n') // Split by line
+    .map(line => line.trim()) // Remove any extra whitespace
+    .filter(line => line.startsWith('- ')) // Filter out non-list lines
+    .map(line => line.substring(2).trim()); // Remove the '- ' from each line
+    
   return (
     <div className="lesson-detail-container">
       <h2>Basic Greetings in Japanese</h2>
-      <p className="lesson-content">{basicGreetingsContent}</p>
+      <p>{greetingsLines.map((greeting, index) => (
+          <li key={index}>{greeting}</li>
+        ))}</p>
 
-      <h3>Quiz: Test Your Knowledge of Basic Greetings</h3>
+      <h3><i class="fa-solid fa-flag-checkered"></i> Quiz Section</h3>
       <BasicGreetingsQuiz /> {/* Using the BasicGreetingsQuiz component */}
     </div>
   );

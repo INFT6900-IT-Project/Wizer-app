@@ -34,7 +34,7 @@
     margin: 20px 0; 
   }
   
-  .hiragana-image, .katakana-image {
+  .hiragana-image, .katakana-image, .lesson-image {
     max-width: 100%;
     height: auto;
   }

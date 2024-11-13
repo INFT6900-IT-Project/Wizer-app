@@ -16,11 +16,11 @@ const coursesData = [
       image: 'path/to/courseImage3.png',
       category: 'Photography',
       title: 'Learn Photography ',
-      duration: '2 Weeks',
+      duration: '2',
       students: 100,
       level: 'Basic',
       price: '25$',
-      sale: 'Free (0$)',
+      sale: 'Free ($0)',
       overview: "This 2-week course introduces students to the basics of business concepts, organizational structures, marketing fundamentals, and management principles.",
   
     },

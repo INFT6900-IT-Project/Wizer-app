@@ -17,7 +17,7 @@ const coursesData = [
       duration: '2 Weeks',
       students: 25,
       level: 'Basic',
-      price: '25$',
+      price: '$25',
       sale: 'Discounted Price',
       overview: "This 2-week beginner's course introduces students to the basics of the Japanese language...",
   

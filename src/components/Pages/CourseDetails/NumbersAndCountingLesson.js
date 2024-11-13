@@ -13,7 +13,7 @@ const NumbersAndCountingLesson = () => {
   return (
     <div className="lesson-detail-container">
       <h2>Numbers and Counting in Japanese</h2>
-      <p className="lesson-content">{numbersAndCountingContent}</p>
+      <p>{numbersAndCountingContent}</p>
 
       <div className="image-container">
         <img
@@ -23,7 +23,7 @@ const NumbersAndCountingLesson = () => {
         />
       </div>
 
-      <h3>Quiz: Test Your Knowledge of Numbers and Counting</h3>
+      <h3><i class="fa-solid fa-flag-checkered"></i>Quiz Section</h3>
       <NumbersAndCountingQuiz />
     </div>
   );

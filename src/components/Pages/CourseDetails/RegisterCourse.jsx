@@ -58,7 +58,7 @@ const RegisterCourse = ({ course }) => {
         )}
 
         <button type="submit" className="submit-btn">
-          Prceddddddddddddd to Payment
+          Proceed to Payment
         </button>
       </form>
     </div>
