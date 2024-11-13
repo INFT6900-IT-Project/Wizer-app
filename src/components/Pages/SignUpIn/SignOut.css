@@ -1,0 +1,47 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; /* Ensure it appears on top */
+}
+
+/* Dialog box styling */
+.dialog-box {
+    background-color: white;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 400px;
+    width: 90%; /* Responsive width */
+}
+
+.dialog-box p {
+    margin-bottom: 20px;
+    font-size: 1.2em;
+}
+
+.dialog-box button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.dialog-box button:first-of-type {
+    background-color: #4CAF50; /* Yes button color */
+    color: white;
+}
+
+.dialog-box button:last-of-type {
+    background-color: #f44336; /* No button color */
+    color: white;
+}
