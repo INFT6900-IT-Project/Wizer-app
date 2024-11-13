@@ -1,0 +1,14 @@
+
+.ad-user-screen-wrap{
+    display: flex;
+    padding: 70px;
+    margin-left: 50px;
+}
+
+.ad-user-left{
+    flex-basis: 15%;
+}
+
+.ad-user-right{
+    flex-basis: 85%;
+}

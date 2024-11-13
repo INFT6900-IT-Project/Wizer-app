@@ -13,6 +13,7 @@ import communication from '../../../ImageVideo/communication.jpg';
 import coding from '../../../ImageVideo/coding.jpg';
 import powerbi from '../../../ImageVideo/powerbi.jpg';
 
+
 function Courses() {
     const [courses] = useState([
         {
@@ -193,13 +194,13 @@ function Courses() {
                 ))}
             </div>
             <div className="pagination">
-                <span className="page-number active">1</span>
-                <span className="page-number active">2</span>
-                <span className="page-number active">3</span>
-                <span className="page-number active">4</span>
-                <span className="page-number active">5</span>
+                <span className="page-number-current">1</span>
+                <span className="page-number">2</span>
+                <span className="page-number">3</span>
+                <span className="page-number">4</span>
+                <span className="page-number">5</span>
                 <span className='ad-page-number-dot'><i class="fa-solid fa-ellipsis"></i></span>
-                <span className="page-number active">30</span>
+                <span className="page-number">30</span>
                 <span className="ad-page-number-next">Next <i class="fa-solid fa-angle-right"></i></span>
             </div>
             

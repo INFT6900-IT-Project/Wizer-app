@@ -2,6 +2,7 @@ import React from "react";
 import './Pricing.css';
 import person from '../../ImageVideo/person.jpg';
 
+
 function Pricing() {
   return (
     <div>

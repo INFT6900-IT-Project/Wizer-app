@@ -23,6 +23,10 @@ import SignIn from './components/Pages/SignUpIn/SignIn'
 import SignUp from './components/Pages/SignUpIn/SignUp';
 import ProtectedRoute from './ProtectedRoute';
 import Payment from './components/Pages/Payment';
+import UserScreen from './components/Pages/User/UserScreen';
+import UserHome from './components/Pages/User/UserComponents/UserHome';
+import NavBarUser from './components/Pages/User/UserComponents/NavBarUser';
+import UserDashboard from './components/Pages/User/UserComponents/UserDashboard';
 
 
 
@@ -34,7 +38,7 @@ function App() {
     <div>
       <Router>
         <ScrollToTop>
-          <Navbar />
+          {/* <Navbar /> */} <NavBarUser />
           <Routes>
             <Route exact path='/' element={<Home />} />
             <Route path='/features' element={<Features />} />
@@ -44,6 +48,11 @@ function App() {
             <Route path='/sign-up' element={<SignUp />} />
             <Route path='/payment' element={<Payment />} />
 
+
+{/* USER SCREEN */}
+            <Route path='/user-screen' element={<UserScreen />} />
+            <Route path='/user-home' element={<UserHome />} />
+            <Route path='/user-dash-board' element={<UserDashboard />} />
 
             {/* Elias */}
             {/* <protectedRoute path="/course-detail/:id" element={<CourseDetail />} /> */}
