@@ -23,7 +23,7 @@ class TestAttemptCreate(BaseModel):
     attemptdate: datetime = datetime.utcnow()
 
 
-@router.post("/testattempts")
+@router.post("/testattempts", tags=["TestAttempt"])
 def create_test_attempt(attempt: TestAttemptCreate, db: Session = Depends(get_db)):
     db_test_attempt = TestAttempts(userid=attempt.userid, moduleid=attempt.moduleid, attemptdate=attempt.attemptdate)
     db.add(db_test_attempt)
@@ -33,10 +33,10 @@ def create_test_attempt(attempt: TestAttemptCreate, db: Session = Depends(get_db
 
 class TestAttemptUpdate(BaseModel):
     score: Optional[float] = None
-    ispasseed: Optional[bool] = None
+    ispassed: Optional[bool] = None
 
 
-@router.put("/testattempts/{attempt_id}")
+@router.put("/testattempts/{attempt_id}", tags=["TestAttempt"])
 def update_test_attempt(attempt_id: int, attempt: TestAttemptUpdate, db: Session = Depends(get_db)):
     db_test_attempt = db.query(TestAttempts).filter(TestAttempts.attemptid == attempt_id).first()
     if not db_test_attempt:
@@ -62,7 +62,7 @@ class TestAttemptsGet(BaseModel):
     ispassed: bool
 
 
-@router.get("/testattempts/{attempt_id}")
+@router.get("/testattempts/{attempt_id}", tags=["TestAttempt"])
 def get_test_attempt(attempt_id: int, db: Session = Depends(get_db)):
     attempt = db.query(TestAttempts).filter(TestAttempts.attemptid == attempt_id).first()
     if not attempt:

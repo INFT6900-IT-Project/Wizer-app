@@ -24,7 +24,7 @@ class TestQuestionsCreate(BaseModel):
     updatedat: Optional[datetime] = None
 
 
-@router.post("/testquestions")
+@router.post("/testquestions", tags=["TestQuestion"])
 def create_testquestions(questions: TestQuestionsCreate, db: Session = Depends(get_db)):
     db_test_question = TestQuestions(moduleid=questions.moduleid, questiontext=questions.questiontext,
                                      createdat=questions.createdat)
@@ -37,7 +37,7 @@ class TestQuestionUpdate(BaseModel):
     questiontext: Optional[str] = None
 
 
-@router.put("/testquestions/{question_id}")
+@router.put("/testquestions/{question_id}", tags=["TestQuestion"])
 def update_test_question(question_id: int, question: TestQuestionUpdate, db: Session = Depends(get_db)):
     db_test_question = db.query(TestQuestions).filter(TestQuestions.questionid == question_id).first()
     if not db_test_question:
@@ -54,7 +54,7 @@ def update_test_question(question_id: int, question: TestQuestionUpdate, db: Ses
     return {"detail": "Question updated successfully"}
 
 
-@router.delete("/testquestions/{question_id}")
+@router.delete("/testquestions/{question_id}", tags=["TestQuestion"])
 def delete_test_question(question_id: int, db: Session = Depends(get_db)):
     db_test_question = db.query(TestQuestions).filter(TestQuestions.questionid == question_id).first()
     if db_test_question is None:
@@ -76,14 +76,14 @@ class TestQuestionGet(BaseModel):
 
 
 # get questions for a specific module
-@router.get("/modules/{module_id}/testquestions")
+@router.get("/modules/{module_id}/testquestions", tags=["TestQuestion"])
 def get_module_test_questions(module_id: int, db: Session = Depends(get_db)):
     questions = db.query(TestQuestions).filter(TestQuestions.moduleid == module_id).all()
     return questions
 
 
 # get a specific question by question ID
-@router.get("/testquestions/{question_id}")
+@router.get("/testquestions/{question_id}", tags=["TestQuestion"])
 def get_test_question(question_id: int, db: Session = Depends(get_db)):
     question = db.query(TestQuestions).filter(TestQuestions.questionid == question_id).first()
     if not question:

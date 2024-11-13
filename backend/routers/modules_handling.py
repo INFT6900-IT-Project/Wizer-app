@@ -26,7 +26,7 @@ class ModuleCreate(BaseModel):
     updatedat: Optional[datetime] = None
 
 
-@router.post("/modules")
+@router.post("/modules", tags=['Module'])
 def create_module(module: ModuleCreate, db: Session = Depends(get_db)):
     try:
         db_module = Modules(modulename=module.modulename, moduledescription=module.moduledescription,
@@ -46,7 +46,7 @@ class ModuleUpdate(BaseModel):
     updatedat: datetime = datetime.now()
 
 
-@router.put("/modules/{module_id}")
+@router.put("/modules/{module_id}", tags=['Module'])
 def update_module(module_id: int, module: ModuleUpdate, db: Session = Depends(get_db)):
     try:
         db_module = db.query(Modules).filter(Modules.moduleid == module_id).first()
@@ -70,7 +70,7 @@ def update_module(module_id: int, module: ModuleUpdate, db: Session = Depends(ge
         return {"message": str(e)}
 
 
-@router.delete("/modules/{module_id}")
+@router.delete("/modules/{module_id}", tags=['Module'])
 def delete_module(module_id: int, db: Session = Depends(get_db)):
     db_module = db.query(Modules).filter(Modules.moduleid == module_id).first()
     if db_module is None:

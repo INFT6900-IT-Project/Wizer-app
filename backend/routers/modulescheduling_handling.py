@@ -21,10 +21,10 @@ class ModuleScheduleCreate(BaseModel):
     moduleid: int
     startdate: datetime
     enddate: Optional[datetime] = None
-    frecuencydays: int = Field(gt=0)
+    frequencydays: int = Field(gt=0)
 
 
-@router.post("/schedule")
+@router.post("/schedule", tags=["ModuleScheduling"])
 def create_module_schedule(moduleschedule: ModuleScheduleCreate, db: Session = Depends(get_db)):
     db_moduleschedule = ModuleScheduling(moduleid=moduleschedule.moduleid, startdate=moduleschedule.startdate,
                                          enddate=moduleschedule.enddate,
@@ -41,7 +41,7 @@ class ModuleScheduleUpdate(BaseModel):
     frequencydays: Optional[int] = Field(gt=0)
 
 
-@router.put("/schedule/{schedule_id}")
+@router.put("/schedule/{schedule_id}", tags=["ModuleScheduling"])
 def update_module_schedule(moduleschedule_id: int, moduleschedule: ModuleScheduleUpdate, db: Session = Depends(get_db)):
     db_moduleschedule = db.query(ModuleScheduling).filter(ModuleScheduling.scheduleid == moduleschedule_id).first()
     if not db_moduleschedule:
@@ -61,7 +61,7 @@ def update_module_schedule(moduleschedule_id: int, moduleschedule: ModuleSchedul
     return {"detail": "Module schedule updated successfully"}
 
 
-@router.delete("/schedule/{schedule_id}")
+@router.delete("/schedule/{schedule_id}", tags=["ModuleScheduling"])
 def delete_module_schedule(moduleschedule_id: int, db: Session = Depends(get_db)):
     db_moduleschedule = db.query(ModuleScheduling).filter(ModuleScheduling.scheduleid == moduleschedule_id).first()
     if db_moduleschedule is None:
