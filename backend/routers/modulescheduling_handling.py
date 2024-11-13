@@ -60,6 +60,7 @@ def update_module_schedule(moduleschedule_id: int, moduleschedule: ModuleSchedul
     db.refresh(db_moduleschedule)
     return {"detail": "Module schedule updated successfully"}
 
+
 @router.delete("/schedule/{schedule_id}")
 def delete_module_schedule(moduleschedule_id: int, db: Session = Depends(get_db)):
     db_moduleschedule = db.query(ModuleScheduling).filter(ModuleScheduling.scheduleid == moduleschedule_id).first()

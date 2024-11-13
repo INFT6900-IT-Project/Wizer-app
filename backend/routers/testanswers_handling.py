@@ -51,6 +51,7 @@ def update_test_answer(answer_id: int, answer: TestAnswerUpdate, db: Session = D
     db.commit()
     return {"detail": "Answer updated successfully"}
 
+
 @router.delete("/testanswers/{answer_id}")
 def delete_test_answer(answer_id: int, db: Session = Depends(get_db)):
     db_test_answer = db.query(TestAnswers).filter(TestAnswers.answerid == answer_id).first()

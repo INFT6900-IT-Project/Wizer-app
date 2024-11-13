@@ -87,6 +87,7 @@ def get_module_content(content_id: int, db: Session = Depends(get_db)):
 
     return db_modulecontent
 
+
 @router.delete("/content/{content_id}")
 def delete_module_content(content_id: int, db: Session = Depends(get_db)):
     db_modulecontent = db.query(ModuleContent).filter(ModuleContent.contentid == content_id).first()
