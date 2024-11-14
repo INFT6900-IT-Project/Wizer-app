@@ -34,9 +34,13 @@ function SignIn() {
 			window.location = "/user-screen";
       
     } catch (error) {
-      console.error(error)
-      console.log(signInInfo)
+      if ((error.response && error.response.status === 500)|| error.code=='ERR_NETWORK') {
+        alert("An error has been occured while processing you request. Please try again!")
+      } else {
+        console.error(error)
+        console.log(error.code)
       setwrongID(true)
+      }
       
     }finally{
       setLoading(false)
