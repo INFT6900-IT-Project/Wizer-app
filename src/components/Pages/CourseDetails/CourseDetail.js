@@ -8,6 +8,19 @@ import RegisterCourse from "./RegisterCourse";
 import { useLocation, useParams } from "react-router-dom";
 import "./CourseDetail.css";
 
+function fetchCourseData(courseId) {
+  fetch(`http://127.0.0.1:8000/items/${courseId}`)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      // Handle the data from the FastAPI endpoint
+    })
+    .catch(error => {
+      console.error('Error fetching course data:', error);
+    });
+}
+fetchCourseData(2)
+
 const coursesData = [
     {
       id: 1,

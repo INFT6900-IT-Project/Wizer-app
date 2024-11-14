@@ -39,6 +39,12 @@ class ModuleScheduleUpdate(BaseModel):
     startdate: Optional[datetime] = None
     enddate: Optional[datetime] = None
     frequencydays: Optional[int] = Field(gt=0)
+    
+
+@router.get("/schedule", tags=["ModuleScheduling"])
+async def get_module_schedules(db: Session = Depends(get_db)):
+    schedules = db.query(ModuleScheduling).all()
+    return schedules
 
 
 @router.put("/schedule/{schedule_id}", tags=["ModuleScheduling"])

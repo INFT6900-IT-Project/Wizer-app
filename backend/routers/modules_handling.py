@@ -46,6 +46,20 @@ class ModuleUpdate(BaseModel):
     updatedat: datetime = datetime.now()
 
 
+@router.get("/modules", tags=['Module'])
+def get_modules(db: Session = Depends(get_db)):
+    modules = db.query(Modules).all()
+    return modules
+
+@router.get("/modules/{module_id}", tags=['Module'])
+def get_module(module_id: int, db: Session = Depends(get_db)):
+    db_module = db.query(Modules).filter(Modules.moduleid == module_id).first()
+    if db_module is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Module not found")
+    return db_module
+
 @router.put("/modules/{module_id}", tags=['Module'])
 def update_module(module_id: int, module: ModuleUpdate, db: Session = Depends(get_db)):
     try:
