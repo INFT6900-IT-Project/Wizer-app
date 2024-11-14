@@ -1,6 +1,4 @@
 # pip install -r requirements.txt
-smtlib
-random
 bcrypt
 cryptography
 fastapi
@@ -15,3 +13,4 @@ psycopg2
 pyotp
 Pillow
 azure-storage-blob
+qrcode

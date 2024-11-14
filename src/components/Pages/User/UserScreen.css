@@ -2,7 +2,6 @@
 .ad-user-screen-wrap{
     display: flex;
     padding: 70px;
-    margin-left: 50px;
     flex-wrap: wrap;
 }
 
