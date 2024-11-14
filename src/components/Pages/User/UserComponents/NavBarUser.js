@@ -49,7 +49,7 @@ function NavBarUser() {
                     </Link>
                 </li>
                 <li className='nav-item'>
-                    <Link to='user-screen/user-courses' className='nav-links' onClick={closeMobileMenu}>
+                    <Link to='/user-screen/user-courses' className='nav-links' onClick={closeMobileMenu}>
                     Courses
                     </Link>
                 </li>

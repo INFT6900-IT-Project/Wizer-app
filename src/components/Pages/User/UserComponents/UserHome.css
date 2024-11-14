@@ -1,4 +1,9 @@
 
+.ad-user-home-welcome span{
+    font-size: 25px;
+    font-weight: 200;
+    color: rgb(119, 161, 201);
+}
 
 .ad-user-home{
     margin-top: 40px;

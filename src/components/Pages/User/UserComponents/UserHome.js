@@ -16,6 +16,7 @@ import { Link } from 'react-router-dom';
 function UserHome() {
     return (
         <div>
+            <h1 className='ad-user-home-welcome'>Welcome back, Cua! <span>Time to dive back in</span></h1>
             <div className='ad-user-home'>
                 <div>
                     <h2>Recently Viewed Courses</h2>

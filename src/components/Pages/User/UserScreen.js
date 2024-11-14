@@ -23,6 +23,7 @@ function UserScreen() {
           <Routes>
             <Route exact path='/' element={<UserHome />} />
             <Route exact path='user-courses' element={<Courses />} />
+            <Route exact path='my-learning' element={<MyLearning />} />
             <Route exact path='achievement' element={<UserAchievement />} />
             <Route path='reminder' element={<UserReminder />} />
             <Route path='saved-courses' element={<UserSavedCourses />} />

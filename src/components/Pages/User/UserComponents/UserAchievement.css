@@ -1,0 +1,80 @@
+
+.ad-user-pages-title{
+    color: rgb(224, 109, 63);
+    letter-spacing: 0.3rem;
+}
+
+
+.ad-achieve-wrap{
+    margin-top: 20px;
+    padding: 30px 30px 180px;
+    background-color: rgba(243, 232, 201, 0.228);
+}
+
+.ad-achieve-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.ad-achieve-header-left{
+    flex-basis: 60%;
+    align-items: center;
+    line-height: 1.8;
+    padding: 5%;
+}
+
+.ad-achieve-header-left span{
+    color: rgb(224, 109, 63);
+    font-weight: 600;
+    font-size: 17px;
+}
+
+.ad-achieve-header-left p{
+    margin-bottom: 40px;
+}
+
+
+
+.ad-achieve-header-left a{
+    color: rgb(224, 109, 63);
+    font-weight: 600;
+    font-size: 17px;
+    padding: 10px;
+    border: 2px solid rgb(224, 109, 63) ;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+.ad-achieve-header-left a:hover{
+    color: rgb(255, 255, 255);
+    background-color: rgba(224, 109, 63, 0.836);
+    border:none;
+
+}
+
+
+.ad-achieve-header-right{
+    flex-basis: 40%;
+    align-items: center;
+    padding-right: 5%;
+    padding-top: 5%;
+}
+
+.ad-achieve-header-right img{
+    width: 120%;
+    margin-top: 25%;
+}
+
+.ad-achieve-content h2{
+    text-align: center;
+    letter-spacing: 0.2rem;
+}
+
+.ad-badge-container{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin: 50px 10px;
+    align-items: center;
+    gap: 20px;
+}
