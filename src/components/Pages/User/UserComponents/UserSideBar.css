@@ -1,20 +1,29 @@
-
-
-
-
-.ad-user-sidebar-wrap p{
-    margin: 40px -30px ;
-    color: gray;
-    font-size: 15px;
-    padding-left: 20px
+.ad-user-sidebar-wrap p {
+  margin: 40px -30px;
+  color: gray;
+  font-size: 15px;
+  padding-left: 20px;
 }
 
-.ad-user-sidebar-wrap p:hover{
-    color: rgba(211, 120, 75, 0.911);
-    border-left: 2px solid rgba(229, 138, 92, 0.911);/* Adds a blue line on the left on hover */
-    cursor: pointer;
+.ad-user-sidebar-wrap p:hover {
+  color: rgba(211, 120, 75, 0.911);
+  border-left: 2px solid rgba(229, 138, 92, 0.911); /* Adds a blue line on the left on hover */
+  cursor: pointer;
 }
 
-.fa-trophy, .fa-chalkboard, .fa-bookmark, .fa-message, .fa-circle-question, .fa-gear, .fa-chart-line, .fa-bell{
-    margin-right: 10px;
+.fa-trophy,
+.fa-chalkboard,
+.fa-bookmark,
+.fa-message,
+.fa-circle-question,
+.fa-gear,
+.fa-chart-line,
+.fa-bell {
+  margin-right: 10px;
+}
+
+@media (max-width: 1024px) and (min-width: 600px) {
+  .sidebar {
+    display: none;
+  }
 }

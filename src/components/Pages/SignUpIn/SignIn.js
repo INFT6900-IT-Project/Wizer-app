@@ -1,49 +1,58 @@
-import React from 'react'
-import { useState } from 'react';
-import './signIn.css'
-import {Link} from 'react-router-dom';
-import axios from 'axios';
+import React from "react";
+import { useState } from "react";
+import "./signIn.css";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import { toastError } from "../../../helpers/toast";
 function SignIn() {
   const [showPassword, setShowPassword] = useState(false);
-  const[loading,setLoading]=useState(false)
-  const[wrongID,setwrongID]=useState(false)
+  const [loading, setLoading] = useState(false);
+  const [wrongID, setwrongID] = useState(false);
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
-    const [signInInfo,setsignInInfo]= useState({
-        username: "",
-        password: ""
-    })
+  const [signInInfo, setsignInInfo] = useState({
+    username: "",
+    password: "",
+  });
 
-  const handleSubmit = async(e)=>{
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true)
+    setLoading(true);
     try {
-      const response = await axios.post('http://127.0.0.1:8000/auth/login',new URLSearchParams({
-        'username': signInInfo.username,
-        'password': signInInfo.password
-      }), {
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
+      const response = await axios.post(
+        "http://127.0.0.1:8000/auth/login",
+        new URLSearchParams({
+          username: signInInfo.username,
+          password: signInInfo.password,
+        }),
+        {
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
         }
-      });
-      console.log(response.data)
+      );
+      console.log(response.data);
       localStorage.setItem("token", response.data.access_token);
-			window.location = "/user-screen";
-      
+      window.location = "/user-screen";
     } catch (error) {
-      if ((error.response && error.response.status === 500)|| error.code=='ERR_NETWORK') {
-        alert("An error has been occured while processing you request. Please try again!")
+      if (
+        (error.response && error.response.status === 500) ||
+        error.code == "ERR_NETWORK"
+      ) {
+        toastError(
+          "An error has been occured while processing you request. Please try again!"
+        );
       } else {
-        console.error(error)
-        console.log(error.code)
-      setwrongID(true)
+        console.log(error.message)
+        console.error(error);
+        toastError(error.message);
+        setwrongID(true);
       }
-      
-    }finally{
-      setLoading(false)
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -51,50 +60,62 @@ function SignIn() {
     setsignInInfo({ ...signInInfo, [input.name]: input.value });
   };
 
-
-
   return (
     <div className="login-container">
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
-      <div className="input-group">
-          <input type="text" id="username" onChange={handleChange} value={signInInfo.username} name="username" placeholder='Username' required />
+        <div className="input-group">
+          <input
+            type="text"
+            id="username"
+            onChange={handleChange}
+            value={signInInfo.username}
+            name="username"
+            placeholder="Username"
+            required
+          />
         </div>
         <div className="input-group">
           <input
-            type={showPassword ? 'text' : 'password'}
+            type={showPassword ? "text" : "password"}
             id="password"
             name="password"
             onChange={handleChange}
             value={signInInfo.password}
-            placeholder='Password'
+            placeholder="Password"
             required
           />
-          <span
-            className="toggle-password"
-            onClick={togglePasswordVisibility}
-          >
+          <span className="toggle-password" onClick={togglePasswordVisibility}>
             👁
           </span>
         </div>
-        {wrongID&&<div className='wrong-id'><i> *Wrong username or password! </i></div>}
+        {wrongID && (
+          <div className="wrong-id">
+            <i> *Wrong username or password! </i>
+          </div>
+        )}
         <div className="remember-me">
           <input type="checkbox" id="remember" name="remember" />
           <label htmlFor="remember">Remember me</label>
         </div>
-        {loading? (<div className='sign_in_loading'><i class="fa-solid fa-spinner fa-spin"></i></div>):<button type="submit" className="login-button">Sign In</button> }
-        
+        {loading ? (
+          <div className="sign_in_loading">
+            <i class="fa-solid fa-spinner fa-spin"></i>
+          </div>
+        ) : (
+          <button type="submit" className="login-button">
+            Sign In
+          </button>
+        )}
       </form>
-      <a href="#" className="forgot-password">Forgot your password?</a>
+      <a href="#" className="forgot-password">
+        Forgot your password?
+      </a>
       <p className="switch-form">
         Don't have an account? <Link to="/sign-up">Sign up now</Link>
       </p>
-
-
-
-      
     </div>
   );
 }
 
-export default SignIn
+export default SignIn;
