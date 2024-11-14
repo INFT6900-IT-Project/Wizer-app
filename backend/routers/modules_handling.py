@@ -52,7 +52,7 @@ async def get_modules(db: Session = Depends(get_db)):
     return modules
 
 @router.get("/modules/{module_id}", tags=['Module'])
-async def get_module(module_id: int, db: Session = Depends(get_db)):
+async def get_module_by_id(module_id: int, db: Session = Depends(get_db)):
     db_module = db.query(Modules).filter(Modules.moduleid == module_id).first()
     if db_module is None:
         raise HTTPException(
