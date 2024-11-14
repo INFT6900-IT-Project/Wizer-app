@@ -24,7 +24,7 @@ class TestAttemptCreate(BaseModel):
 
 
 @router.post("/testattempts", tags=["TestAttempt"])
-def create_test_attempt(attempt: TestAttemptCreate, db: Session = Depends(get_db)):
+async def create_test_attempt(attempt: TestAttemptCreate, db: Session = Depends(get_db)):
     db_test_attempt = TestAttempts(userid=attempt.userid, moduleid=attempt.moduleid, attemptdate=attempt.attemptdate)
     db.add(db_test_attempt)
     db.commit()
@@ -37,7 +37,7 @@ class TestAttemptUpdate(BaseModel):
 
 
 @router.put("/testattempts/{attempt_id}", tags=["TestAttempt"])
-def update_test_attempt(attempt_id: int, attempt: TestAttemptUpdate, db: Session = Depends(get_db)):
+async def update_test_attempt(attempt_id: int, attempt: TestAttemptUpdate, db: Session = Depends(get_db)):
     db_test_attempt = db.query(TestAttempts).filter(TestAttempts.attemptid == attempt_id).first()
     if not db_test_attempt:
         raise HTTPException(
@@ -63,7 +63,7 @@ class TestAttemptsGet(BaseModel):
 
 
 @router.get("/testattempts/{attempt_id}", tags=["TestAttempt"])
-def get_test_attempt(attempt_id: int, db: Session = Depends(get_db)):
+async def get_test_attempt(attempt_id: int, db: Session = Depends(get_db)):
     attempt = db.query(TestAttempts).filter(TestAttempts.attemptid == attempt_id).first()
     if not attempt:
         raise HTTPException(

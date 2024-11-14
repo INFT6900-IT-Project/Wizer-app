@@ -23,7 +23,7 @@ class TestAnswersCreate(BaseModel):
 
 
 @router.post("/testanswers", tags=["TestAnswers"])
-def create_test_answer(answer: TestAnswersCreate, db: Session = Depends(get_db)):
+async def create_test_answer(answer: TestAnswersCreate, db: Session = Depends(get_db)):
     db_test_answer = TestAnswers(questionid=answer.questionid, answertext=answer.answertext, iscorrect=answer.iscorrect)
     db.add(db_test_answer)
     db.commit()
@@ -36,7 +36,7 @@ class TestAnswerUpdate(BaseModel):
 
 
 @router.put("/testanswers/{answer_id}", tags=["TestAnswers"])
-def update_test_answer(answer_id: int, answer: TestAnswerUpdate, db: Session = Depends(get_db)):
+async def update_test_answer(answer_id: int, answer: TestAnswerUpdate, db: Session = Depends(get_db)):
     db_test_answer = db.query(TestAnswers).filter(TestAnswers.answerid == answer_id).first()
     if not db_test_answer:
         raise HTTPException(
@@ -53,7 +53,7 @@ def update_test_answer(answer_id: int, answer: TestAnswerUpdate, db: Session = D
 
 
 @router.delete("/testanswers/{answer_id}", tags=["TestAnswers"])
-def delete_test_answer(answer_id: int, db: Session = Depends(get_db)):
+async def delete_test_answer(answer_id: int, db: Session = Depends(get_db)):
     db_test_answer = db.query(TestAnswers).filter(TestAnswers.answerid == answer_id).first()
     if db_test_answer is None:
         raise HTTPException(
@@ -74,14 +74,14 @@ class TestAnswerGet(BaseModel):
 
 # Get answer for a specific question
 @router.get("/testquestions/{question_id}/answer", tags=["TestAnswers"])
-def get_question_answer(question_id: int, db: Session = Depends(get_db)):
+async def get_question_answer(question_id: int, db: Session = Depends(get_db)):
     answer = db.query(TestAnswers).filter(TestAnswers.questionid == question_id).all()
     return answer
 
 
 # Get a specific answer by answer ID
 @router.get("/testanswers/{answer_id}", tags=["TestAnswers"])
-def get_test_answer(answer_id: int, db: Session = Depends(get_db)):
+async def get_test_answer(answer_id: int, db: Session = Depends(get_db)):
     answer = db.query(TestAnswers).filter(TestAnswers.answerid == answer_id).first()
     if not answer:
         raise HTTPException(

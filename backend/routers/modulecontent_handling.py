@@ -89,7 +89,7 @@ async def get_module_content(content_id: int, db: Session = Depends(get_db)):
 
 
 @router.delete("/content/{content_id}", tags=['ModuleContent'])
-def delete_module_content(content_id: int, db: Session = Depends(get_db)):
+async def delete_module_content(content_id: int, db: Session = Depends(get_db)):
     db_modulecontent = db.query(ModuleContent).filter(ModuleContent.contentid == content_id).first()
     if db_modulecontent is None:
         raise HTTPException(

@@ -25,7 +25,7 @@ class ModuleScheduleCreate(BaseModel):
 
 
 @router.post("/schedule", tags=["ModuleScheduling"])
-def create_module_schedule(moduleschedule: ModuleScheduleCreate, db: Session = Depends(get_db)):
+async def create_module_schedule(moduleschedule: ModuleScheduleCreate, db: Session = Depends(get_db)):
     db_moduleschedule = ModuleScheduling(moduleid=moduleschedule.moduleid, startdate=moduleschedule.startdate,
                                          enddate=moduleschedule.enddate,
                                          frequencydays=moduleschedule.frequencydays)
@@ -48,7 +48,7 @@ async def get_module_schedules(db: Session = Depends(get_db)):
 
 
 @router.put("/schedule/{schedule_id}", tags=["ModuleScheduling"])
-def update_module_schedule(moduleschedule_id: int, moduleschedule: ModuleScheduleUpdate, db: Session = Depends(get_db)):
+async def update_module_schedule(moduleschedule_id: int, moduleschedule: ModuleScheduleUpdate, db: Session = Depends(get_db)):
     db_moduleschedule = db.query(ModuleScheduling).filter(ModuleScheduling.scheduleid == moduleschedule_id).first()
     if not db_moduleschedule:
         raise HTTPException(
@@ -68,7 +68,7 @@ def update_module_schedule(moduleschedule_id: int, moduleschedule: ModuleSchedul
 
 
 @router.delete("/schedule/{schedule_id}", tags=["ModuleScheduling"])
-def delete_module_schedule(moduleschedule_id: int, db: Session = Depends(get_db)):
+async def delete_module_schedule(moduleschedule_id: int, db: Session = Depends(get_db)):
     db_moduleschedule = db.query(ModuleScheduling).filter(ModuleScheduling.scheduleid == moduleschedule_id).first()
     if db_moduleschedule is None:
         raise HTTPException(
