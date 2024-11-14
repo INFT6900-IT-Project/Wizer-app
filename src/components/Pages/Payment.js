@@ -40,7 +40,7 @@ export default function Payment() {
      
     const history= useNavigate()
     const handleFinishPurchase=()=>{
-        history.push('/')
+        history(-1,{scroll:true})
     }
 
     return (
@@ -138,7 +138,8 @@ export default function Payment() {
                 )}
 
                 {loading && (
-                    <div className="ad-payment-confirm"> <div className="ad-success-content">
+                    <div className="ad-payment-confirm"> 
+                    <div className="ad-success-content">
                     <i class="fa-solid fa-spinner fa-spin"></i>
                     <h3>Processing...</h3> </div></div>
                 )}
