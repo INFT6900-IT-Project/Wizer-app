@@ -4,7 +4,6 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 
-import Courses from './components/Pages/CourseDetails/Courses';
 import CourseDetail from './components/Pages/CourseDetails/CourseDetail'; //Básico de Japonés
 import CourseDetail1 from './components/Pages/CourseDetails/CourseDetail1';// Introduction to Business
 import CourseDetail2 from './components/Pages/CourseDetails/CourseDetail2';// Learn Photography
@@ -26,15 +25,9 @@ import { useState,useEffect } from 'react';
 import verifyToken from './api/verifyToken';
 import SignOut from './components/Pages/SignUpIn/SignOut';
 import UserScreen from './components/Pages/User/UserScreen';
-import UserHome from './components/Pages/User/UserComponents/UserHome';
+
 import NavBarUser from './components/Pages/User/UserComponents/NavBarUser';
-import MyLearning from './components/Pages/User/UserComponents/MyLearning';
-import UserAchievement from './components/Pages/User/UserComponents/UserAchievement';
-import UserReminder from './components/Pages/User/UserComponents/UserReminder';
-import UserSavedCourses from './components/Pages/User/UserComponents/UserSavedCourses';
-import UserProgress from './components/Pages/User/UserComponents/UserProgress';
-import UserAccountSettings from './components/Pages/User/UserComponents/UserAccountSettings';
-import UserHelpCenter from './components/Pages/User/UserComponents/UserHelpCenter';
+
 
 
 
@@ -70,21 +63,8 @@ function App() {
 
 
 {/* USER SCREEN */}
-            <Route path='/user-screen' element={<UserScreen />} >
-                  <Route path='' element={<UserHome/>} />
-                  <Route path='user-courses' element={<Courses/>}/>
-                  <Route path='my-learning' element={<MyLearning/>}/>
-                  <Route path='achievement' element={<UserAchievement/>}/>
-                  <Route path='reminder' element={<UserReminder/>}/>
-                  <Route path='saved-courses' element={<UserSavedCourses/>}/>
-                  <Route path='progress' element={<UserProgress/>}/>
-                  <Route path='help-center' element={<UserHelpCenter />} />
-                  <Route path='account-settings' element={<UserAccountSettings/>}/>
-
-
-                  
-            </Route>
-
+            <Route exact path='/user-screen/*' element={<UserScreen />} />
+            
             {/* <Route path='/user-dash-board' element={<UserDashboard />} /> */}
             
 

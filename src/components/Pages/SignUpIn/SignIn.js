@@ -7,7 +7,10 @@ function SignIn() {
   const [showPassword, setShowPassword] = useState(false);
   const[loading,setLoading]=useState(false)
   const[wrongID,setwrongID]=useState(false)
-
+  const[verifyMfa,setverifyMfa]=useState(false)
+  const[token, setToken]=useState()
+  const[totp,settotp]=useState()
+  const[wrongtotp,setwrongtotp]=useState()
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
@@ -29,12 +32,17 @@ function SignIn() {
           'Content-Type': 'application/x-www-form-urlencoded'
         }
       });
-      console.log(response.data)
-      localStorage.setItem("token", response.data.access_token);
-			window.location = "/user-screen";
+      if (response.data.mfa_enabled) {
+        setToken(response.data.access_token)
+        setverifyMfa(true)
+      } else {
+        
+        localStorage.setItem("token", response.data.access_token);
+			  window.location = "/user-screen";
+      }
       
     } catch (error) {
-      if ((error.response && error.response.status === 500)|| error.code=='ERR_NETWORK') {
+      if ((error.response && error.response.status === 500)|| error.code==='ERR_NETWORK') {
         alert("An error has been occured while processing you request. Please try again!")
       } else {
         console.error(error)
@@ -51,6 +59,25 @@ function SignIn() {
     setsignInInfo({ ...signInInfo, [input.name]: input.value });
   };
 
+  const handleSubmitTotp=async (e)=>{
+    e.preventDefault()
+    try {
+      const response = await axios.post('http://127.0.0.1:8000/mfa/validate-totp', {
+        "username":signInInfo.username,
+        "totp": totp}
+      )
+      console.log({
+        "username":signInInfo.username,
+        "totp": totp})
+      localStorage.setItem("token", token);
+      window.location = "/user-screen";
+    } catch (error) {
+      setwrongtotp(true)
+      console.log({
+        "username":signInInfo.username,
+        "totp": totp})
+    }
+  };
 
 
   return (
@@ -82,15 +109,24 @@ function SignIn() {
           <input type="checkbox" id="remember" name="remember" />
           <label htmlFor="remember">Remember me</label>
         </div>
-        {loading? (<div className='sign_in_loading'><i class="fa-solid fa-spinner fa-spin"></i></div>):<button type="submit" className="login-button">Sign In</button> }
+        {loading? (<div className='sign_in_loading'><i class="fa-solid fa-spinner fa-spin"></i></div>):<button type="submit" className="login-button">Submit</button> }
         
       </form>
-      <a href="#" className="forgot-password">Forgot your password?</a>
+      <a href="/" className="forgot-password">Forgot your password?</a>
       <p className="switch-form">
         Don't have an account? <Link to="/sign-up">Sign up now</Link>
       </p>
 
-
+    {verifyMfa&& <div className='el-verifyMfa-box'><h3>Please enter the OTP in you Authenticator app.</h3>
+    {wrongtotp&& <i color='red'>*Wrong OTP</i>}
+      <form onSubmit={handleSubmitTotp}><input type='number' onChange={(e)=>settotp(e.target.value)} value={totp} ></input>
+      {loading?
+       (<div className='sign_in_loading'><i class="fa-solid fa-spinner fa-spin"></i></div>)
+       :
+       <button type="submit" className="login-button">Sign In</button> 
+       }
+       
+      </form></div>}
 
       
     </div>

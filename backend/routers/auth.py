@@ -128,7 +128,7 @@ def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(), db:
     access_token_expires = timedelta(minutes=int(Configs.ACCESS_TOKEN_EXPIRE_MINUTES))
     access_token = create_access_token(
         data={"sub": user.username}, expires_delta= access_token_expires )
-    return {"access_token": access_token, "token_type": "bearer"}
+    return {"access_token": access_token, "token_type": "bearer","mfa_enabled":user.istwofactorenabled}
 
 
 # JWT config
@@ -318,6 +318,21 @@ async def mfa_otp_register(user_data: MFACreate, db: Session = Depends(get_db)):
         raise HTTPException(status_code=400, detail="User not registered")
     buf = add_2fa_to_user(db, user)
     return StreamingResponse(buf, media_type="image/png")
+
+
+
+@router.delete("/mfa/cancel/{username}", tags=["Auth/MFA"])
+async def cancel_mfa(username:str,db: Session = Depends(get_db)):
+    user= db.query(User).filter(User.username == username).first()
+    if user is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="User not found")
+    user.istwofactorenabled = False
+    user.twofactorsecret=None
+    db.commit()
+    return{"message": f"MFA has been canceled for the user {username}"}
+
 
 
 @router.post("/mfa/validate-totp/", tags=["Auth/MFA"])

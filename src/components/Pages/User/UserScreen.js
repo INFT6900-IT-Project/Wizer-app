@@ -5,7 +5,6 @@ import UserSideBar from './UserComponents/UserSideBar';
 import { Routes, Route } from 'react-router-dom';
 import Courses from '../CourseDetails/Courses';
 import UserAchievement from './UserComponents/UserAchievement';
-import MyLearning from './UserComponents/MyLearning';
 import UserReminder from './UserComponents/UserReminder';
 import UserSavedCourses from './UserComponents/UserSavedCourses';
 import UserProgress from './UserComponents/UserProgress';

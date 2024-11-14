@@ -128,7 +128,7 @@ function SignUp() {
 
         {loading ? (<div className='sign_in_loading'><i class="fa-solid fa-spinner fa-spin"></i></div>) : <button type="submit" className="login-button">Sign Up</button>}
       </form>
-      <a href="#" className="forgot-password">Forgot your password?</a>
+      <a href="/" className="forgot-password">Forgot your password?</a>
       <p className="switch-form">
         Already have an account? <Link to="/sign-in">Sign In</Link>
       </p>

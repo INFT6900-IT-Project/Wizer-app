@@ -1,6 +1,5 @@
 import React from 'react';
 import './UserHome.css';
-import HomeCourseCard from './UserHomeCard';
 import communication from '../../../../ImageVideo/communication.jpg';
 import data from '../../../../ImageVideo/data.jpg';
 import powerbi from '../../../../ImageVideo/powerbi.jpg';
