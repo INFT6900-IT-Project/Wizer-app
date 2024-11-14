@@ -6,7 +6,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-env_path = Path('.') / '.env'
+env_path = Path('') / '.env'
 load_dotenv(dotenv_path=env_path)
 
 

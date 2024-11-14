@@ -44,13 +44,13 @@ function NavBarUser() {
 
             <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                 <li className='nav-item'>
-                    <Link to='/user-home' className='nav-links' onClick={closeMobileMenu}>
+                    <Link to='/user-screen' className='nav-links' onClick={closeMobileMenu}>
                       Home
                     </Link>
                 </li>
                 <li className='nav-item'>
                     <Link to='/courses' className='nav-links' onClick={closeMobileMenu}>
-                    My Courses
+                    Courses
                     </Link>
                 </li>
                 <li className='nav-item'>
@@ -69,7 +69,7 @@ function NavBarUser() {
                     </Link>
                 </li>
             </ul>
-            {button && <Button buttonStyle='btn--outline'>Sign Out</Button>}
+            {button && <Button link={"/sign-out"} buttonStyle='btn--outline'>Sign Out</Button>}
 
         </div>
     </nav>

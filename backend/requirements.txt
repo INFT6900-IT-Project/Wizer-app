@@ -1,13 +1,16 @@
 # pip install -r requirements.txt
-
 bcrypt
 cryptography
 fastapi
 python-jose
 python-multipart
+python-dotenv
 SQLAlchemy
 uvicorn
 passlib
 jose
 psycopg2
 pyotp
+Pillow
+azure-storage-blob
+qrcode

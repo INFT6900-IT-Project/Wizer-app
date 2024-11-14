@@ -1,10 +1,11 @@
 from database import Base
-from sqlalchemy import Column, Integer, String, Boolean
+from sqlalchemy import Column, Integer, ForeignKey, DateTime
 
-class Modulescheduling(Base):
+
+class ModuleScheduling(Base):
     __tablename__ = "modulescheduling"
     scheduleid = Column(Integer, primary_key=True, index=True)
-    moduleid = Column(Integer, nullable=False)
-    startdate = Column(data_type="timestamp")
-    enddate = Column(data_type="timestamp")
+    moduleid = Column(Integer, ForeignKey("modules.moduleid"), nullable=False)
+    startdate = Column(DateTime)
+    enddate = Column(DateTime)
     frequencydays = Column(Integer, nullable=False)

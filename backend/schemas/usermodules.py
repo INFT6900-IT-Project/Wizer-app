@@ -1,10 +1,10 @@
 from database import Base
-from sqlalchemy import Column, Integer, String, Boolean
+from sqlalchemy import Column, Integer, ForeignKey, DateTime
 
 
-class Usermodules(Base):
+class UserModules(Base):
     __tablename__ = "usermodules"
     usermoduleid = Column(Integer, primary_key=True, index=True)
-    userid = Column(Integer, nullable=False)
-    moduledeid = Column(Integer, nullable=False)
-    registrationdate = Column(data_type="timestamp")
+    userid = Column(Integer, ForeignKey("users.userid"), nullable=False)
+    moduleid = Column(Integer, ForeignKey("modules.moduleid"), nullable=False)
+    registrationdate = Column(DateTime)

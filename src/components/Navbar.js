@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import {Button} from './Button';
 import './Navbar.css';
+import verifyToken from '../api/verifyToken';
 
 function Navbar() {
     const [click, setClick] = useState(false);
@@ -25,7 +26,7 @@ function Navbar() {
     window.addEventListener('resize', showButton);
 
 
-
+    
   return (
     <>
     <nav className="navbar">
@@ -53,11 +54,7 @@ function Navbar() {
                         Features
                     </Link>
                 </li>
-                <li className='nav-item'>
-                    <Link to='/courses' className='nav-links' onClick={closeMobileMenu}>
-                        Courses
-                    </Link>
-                </li>
+            
                 <li className='nav-item'>
                     <Link to='/pricing' className='nav-links' onClick={closeMobileMenu}>
                         Pricing
@@ -69,13 +66,15 @@ function Navbar() {
                     </Link>
                 </li>
                 <li>
-                    <Link to='/sign-in' className='nav-links-mobile' onClick={closeMobileMenu}>
+                    
+                    
+                     <Link to='/sign-in' className='nav-links-mobile' onClick={closeMobileMenu}>
                         Sign In
                     </Link>
                 </li>
             </ul>
-            {button && <Button buttonStyle='btn--outline'>Sign In</Button>}
-
+            {button && <Button link="/sign-in" buttonStyle='btn--outline'>Sign In</Button>}
+            
         </div>
     </nav>
 

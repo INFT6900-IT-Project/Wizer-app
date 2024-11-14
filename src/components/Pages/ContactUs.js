@@ -8,10 +8,10 @@ import img1 from '../../ImageVideo/img1.jpg';
 import adoria from '../../ImageVideo/adoria.png';
 import elias from '../../ImageVideo/elias.jpg';
 
+
 function ContactUs() {
   return (
     <div>
-      
       <div className='contact-us'>
 
 

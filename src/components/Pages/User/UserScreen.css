@@ -2,11 +2,18 @@
 .ad-user-screen-wrap{
     display: flex;
     padding: 70px;
-    gap: 20px;
+    flex-wrap: wrap;
 }
 
 .ad-user-left{
     flex-basis: 15%;
+    position: sticky;
+    
+    float: none;
+    position: sticky;
+    top: 10%;
+    max-height: 100vh;
+    
 }
 
 .ad-user-right{
