@@ -20,8 +20,11 @@ function SignOut() {
         <div className="overlay">
         <div className="dialog-box">
             <p>Are you sure you want to sign out?</p>
+            <div className='signout-btn-wrap'>
             <button onClick={confirmSignOut}>Yes</button>
             <button onClick={cancelSignOut}>No</button>
+            </div>
+            
         </div>
     </div>
     );

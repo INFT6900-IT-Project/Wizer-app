@@ -28,7 +28,14 @@ import SignOut from './components/Pages/SignUpIn/SignOut';
 import UserScreen from './components/Pages/User/UserScreen';
 import UserHome from './components/Pages/User/UserComponents/UserHome';
 import NavBarUser from './components/Pages/User/UserComponents/NavBarUser';
-import UserDashboard from './components/Pages/User/UserComponents/UserDashboard';
+import MyLearning from './components/Pages/User/UserComponents/MyLearning';
+import UserAchievement from './components/Pages/User/UserComponents/UserAchievement';
+import UserReminder from './components/Pages/User/UserComponents/UserReminder';
+import UserSavedCourses from './components/Pages/User/UserComponents/UserSavedCourses';
+import UserProgress from './components/Pages/User/UserComponents/UserProgress';
+import UserAccountSettings from './components/Pages/User/UserComponents/UserAccountSettings';
+import UserHelpCenter from './components/Pages/User/UserComponents/UserHelpCenter';
+
 
 
 
@@ -63,9 +70,23 @@ function App() {
 
 
 {/* USER SCREEN */}
-            <Route path='/user-screen' element={<UserScreen />} />
-            <Route path='/user-home' element={<UserHome />} />
-            <Route path='/user-dash-board' element={<UserDashboard />} />
+            <Route path='/user-screen' element={<UserScreen />} >
+                  <Route path='' element={<UserHome/>} />
+                  <Route path='user-courses' element={<Courses/>}/>
+                  <Route path='my-learning' element={<MyLearning/>}/>
+                  <Route path='achievement' element={<UserAchievement/>}/>
+                  <Route path='reminder' element={<UserReminder/>}/>
+                  <Route path='saved-courses' element={<UserSavedCourses/>}/>
+                  <Route path='progress' element={<UserProgress/>}/>
+                  <Route path='help-center' element={<UserHelpCenter />} />
+                  <Route path='account-settings' element={<UserAccountSettings/>}/>
+
+
+                  
+            </Route>
+
+            {/* <Route path='/user-dash-board' element={<UserDashboard />} /> */}
+            
 
             {/* Elias */}
             {/* <protectedRoute path="/course-detail/:id" element={<CourseDetail />} /> */}
@@ -73,7 +94,7 @@ function App() {
             {/* <protectedRoute path="/lesson-detail/hiragana" element={<LessonDetail />} />
         <protectedRoute path="/lesson-detail/katakana" element={<KatakanaLesson />} /> */}
 
-            <Route path="/courses" element={<Courses />} />
+            {/* <Route path="/courses" element={<Courses />} /> */}
             <Route path="/lesson-detail/hiragana" element={<LessonDetail />} />
             <Route path="/lesson-detail/katakana" element={<KatakanaLesson />} />
             <Route path="/lesson-detail/basic-greetings" element={<BasicGreetingsLesson />} />

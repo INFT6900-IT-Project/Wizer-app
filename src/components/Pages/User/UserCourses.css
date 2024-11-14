@@ -1,11 +1,11 @@
 
-.ad-user-screen-wrap{
+.ad-user-courses-wrap{
     display: flex;
     padding: 70px;
     flex-wrap: wrap;
 }
 
-.ad-user-left{
+.ad-user-courses-left{
     flex-basis: 15%;
     position: sticky;
     float: none;
@@ -15,6 +15,6 @@
     
 }
 
-.ad-user-right{
+.ad-user-courses-right{
     flex-basis: 85%;
 }

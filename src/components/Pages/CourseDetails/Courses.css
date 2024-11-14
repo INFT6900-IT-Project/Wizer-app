@@ -1,5 +1,6 @@
 .courses-page {
-    padding: 50px 150px;
+    padding:  4%;
+    background-color: rgba(209, 208, 208, 0.228);
     text-align: left;
 }
 
@@ -39,7 +40,7 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 80px;
+    gap: 30px;
     margin-bottom: 40px;
     align-items: center; 
 }

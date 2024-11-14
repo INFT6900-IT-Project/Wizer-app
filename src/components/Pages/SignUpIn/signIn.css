@@ -140,3 +140,7 @@
   width: 430px;
   height: 200px;
 }
+
+.sign_in_loading{
+  text-align: center;
+}

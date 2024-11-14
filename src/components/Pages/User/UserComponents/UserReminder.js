@@ -1,6 +1,6 @@
 import React from 'react'
 
-function UserCourses() {
+function UserReminder() {
   return (
     <div>
       
@@ -8,4 +8,4 @@ function UserCourses() {
   )
 }
 
-export default UserCourses
+export default UserReminder
