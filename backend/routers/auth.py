@@ -2,7 +2,8 @@ import os
 from datetime import datetime, timedelta
 from io import BytesIO
 from pathlib import Path
-
+import random
+import smtplib
 import pyotp
 import qrcode
 from database import get_db
@@ -67,11 +68,11 @@ class TOTPValidation(BaseModel):
     def verify_otp(secret, otp):
         totp = pyotp.TOTP(secret)
         return totp.verify(otp)
-
+def get_email_by_username(db:Session, username:str):
+    return db.query(User).filter(User.username == username).first().email
 
 def get_user_by_username(db: Session, username: str):
     return db.query(User).filter(User.username == username).first()
-
 
 def create_user(db: Session, user_data: UserCreate):
     try:
@@ -99,8 +100,11 @@ def register_user(user: UserCreate, db: Session = Depends(get_db)):
     db_user = get_user_by_username(db, username=user.username)
     if db_user:
         raise HTTPException(status_code=400, detail="Username already registered")
-    return create_user(db=db, user_data=user)
+    return "Register certified. User is not in system"
 
+@router.post("/auth/register-accept",tags=["Auth"])
+def accept_register_user(user: UserCreate, db: Session = Depends(get_db)):
+    return create_user(db=db, user_data=user)
 
 # Authenticate the user
 def authenticate_user(username: str, password: str, db: Session):
@@ -350,3 +354,40 @@ async def validate_totp(totp_details: TOTPValidation, db: Session = Depends(get_
 # @router.get("/user/{username}")
 # async def read_users_me(current_user: User = Depends(get_current_user)):
 #     return current_user
+
+
+#Verify email address:
+@router.get("/auth/otp/{email}", tags=["Auth"])
+def send_otp(email:str):
+    otp = generate_otp()
+    send_gmail_otp(otp,email)
+    return {"otp":otp}
+
+
+def generate_otp():
+    return random.randint(100000,999999)
+
+
+def send_gmail_otp(otp,email):
+    server=smtplib.SMTP('smtp.gmail.com',587)
+    server.starttls()
+    server.login('wizer920@gmail.com','ekwj hmku uqqn kole')
+    body = "Hi there,"+"\n"+"\n"+"your OTP is "+str(otp)+"."
+    subject = "Wizer OTP verification" 
+    message = f'subject:{subject}\n\n{body}'
+    server.sendmail("wizer920@gmail.com",email,message)
+    server.quit()
+
+
+
+#Admin delete account
+@router.delete("/admin/{username}", tags=["Admin"])
+async def delete_account(username:str, db:Session = Depends(get_db)):
+    user= db.query(User).filter(User.username == username).first()
+    if user is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="User not found")
+    db.delete(user)
+    db.commit()
+    return f"User {username} has been deleted successfully"
