@@ -2,5 +2,42 @@
 .ad-my-learning-wrap{
     margin-top: 20px;
     padding: 30px 30px 180px;
-    background-color: rgba(243, 232, 201, 0.228);
+    background-color: rgba(243, 237, 201, 0.228);
+}
+
+.ad-my-learning-btn-container{
+    margin-bottom: 20px;
+}
+
+.ad-course-btn{
+    padding: 12px;
+    border-radius: 25px;
+    margin: 0px 20px 0px 0px;
+    font-size: 18px;
+    border: 1px solid;
+    font-weight: 550;
+}
+
+.ad-course-btn:first-of-type{
+    background-color: rgba(213, 243, 179, 0);
+    color: rgb(115, 185, 34);
+    
+}
+
+.ad-course-btn:first-of-type:hover{
+    background-color: rgba(114, 185, 34, 0.555);
+    color: white;
+    border: 1px solid rgb(161, 160, 160);
+    
+}
+
+.ad-course-btn:last-of-type{
+    background-color: rgba(213, 243, 179, 0);
+    color: rgb(102, 93, 40);
+}
+
+.ad-course-btn:last-of-type:hover{
+    background-color: rgba(114, 185, 34, 0.151);
+    color: rgb(102, 93, 40);
+    border: 1px solid rgb(161, 160, 160);
 }
