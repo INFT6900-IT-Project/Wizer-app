@@ -3,10 +3,18 @@
     display: flex;
     padding: 70px;
     margin-left: 50px;
+    flex-wrap: wrap;
 }
 
 .ad-user-left{
     flex-basis: 15%;
+    position: sticky;
+    
+    float: none;
+    position: sticky;
+    top: 10%;
+    max-height: 100vh;
+    
 }
 
 .ad-user-right{
