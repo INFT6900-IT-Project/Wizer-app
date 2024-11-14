@@ -21,7 +21,7 @@ function UserHome() {
                 <div>
                     <h2>Recently Viewed Courses</h2>
 
-                    <div className='ad-cards-wrap'>
+                    <div className='ad-user-cards-wrap'>
                         <UserHomeCard
                             src={coding}
                             text='Introduction to Coding: HTML, CSS, and JavaScript Basics'

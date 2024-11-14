@@ -2,7 +2,7 @@
 .ad-user-screen-wrap{
     display: flex;
     padding: 70px;
-    margin-left: 50px;
+    gap: 20px;
 }
 
 .ad-user-left{

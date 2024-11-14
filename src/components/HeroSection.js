@@ -222,7 +222,7 @@ function HeroSection() {
 
         <div className='ad-student-feedback'>
           <h1><i class="fa-regular fa-comments" style={{ color: '#d67a3d' }}></i> What People Say About Wizer </h1>
-
+        
           <div className='ad-feedback-container'>
             <div className='ad-feedback-content'>
               <p><i>"Wizer has transformed how we approach our studies! The platform’s structured
@@ -267,6 +267,7 @@ function HeroSection() {
             </div>
 
           </div>
+          
         </div>
 
       </div>

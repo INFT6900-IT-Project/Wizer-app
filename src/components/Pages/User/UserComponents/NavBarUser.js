@@ -49,8 +49,8 @@ function NavBarUser() {
                     </Link>
                 </li>
                 <li className='nav-item'>
-                    <Link to='/user-learning' className='nav-links' onClick={closeMobileMenu}>
-                    My Learning
+                    <Link to='/courses' className='nav-links' onClick={closeMobileMenu}>
+                    My Courses
                     </Link>
                 </li>
                 <li className='nav-item'>
