@@ -107,7 +107,7 @@ async def accept_register_user(user: UserCreate, db: Session = Depends(get_db)):
     return create_user(db=db, user_data=user)
 
 # Authenticate the user
-async def authenticate_user(username: str, password: str, db: Session):
+def authenticate_user(username: str, password: str, db: Session):
     user = db.query(User).filter(User.username == username).first()
     if not user:
         return False
@@ -117,7 +117,7 @@ async def authenticate_user(username: str, password: str, db: Session):
 
 
 @router.post("/auth/login", tags=["Auth"])
-async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
+def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
     user = authenticate_user(form_data.username, form_data.password, db)
     if not user:
         raise HTTPException(
@@ -127,8 +127,7 @@ async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(
         )
     access_token_expires = timedelta(minutes=int(Configs.ACCESS_TOKEN_EXPIRE_MINUTES))
     access_token = create_access_token(
-        data={"sub": user.username}, expires_delta=access_token_expires
-    )
+        data={"sub": user.username}, expires_delta= access_token_expires )
     return {"access_token": access_token, "token_type": "bearer"}
 
 
