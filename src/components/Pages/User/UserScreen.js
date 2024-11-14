@@ -10,7 +10,7 @@ import UserSavedCourses from './UserComponents/UserSavedCourses';
 import UserProgress from './UserComponents/UserProgress';
 import UserAccountSettings from './UserComponents/UserAccountSettings';
 import UserHelpCenter from './UserComponents/UserHelpCenter';
-
+import MyLearning from './UserComponents/MyLearning';
 
 function UserScreen() {
   return (

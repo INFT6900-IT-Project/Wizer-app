@@ -67,6 +67,7 @@ function UserAccountSettings() {
   const handleSubmit2fa=()=>{
     setMfaRequest(false)
     setmfaRegistered(true)
+    alert("Multi-Factor Authorization Registered!")
   }
   useEffect(() => {
     const token = localStorage.getItem("token")
