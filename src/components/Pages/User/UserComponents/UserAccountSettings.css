@@ -1,0 +1,214 @@
+/* General Page Styling */
+.el-user-management {
+    max-width: 480px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background-color: #ffffff;
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
+  
+  /* Header Styling */
+  .el-user-management h2 {
+    text-align: center;
+    font-size: 24px;
+    color: #444;
+    margin-bottom: 24px;
+    font-weight: 600;
+  }
+  
+  /* User Information Section */
+  .el-user-info {
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f7f8fc;
+    border: 1px solid #e4e9f0;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+  
+  .el-user-info p {
+    font-size: 16px;
+    margin: 12px 0;
+    color: #555;
+  }
+  
+  /* Button Section */
+  .el-user-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .el-button {
+    padding: 12px 0;
+    font-size: 16px;
+    font-weight: 500;
+    color: #ffffff;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Primary Action Button - Register MFA */
+  .el-button.primary {
+    background-color: #007bff;
+  }
+  
+  .el-button.primary:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Secondary Action Button - Change Password */
+  .el-button.secondary {
+    background-color: #28a745;
+  }
+  
+  .el-button.secondary:hover {
+    background-color: #218838;
+  }
+  
+  /* Disabled Button Styling */
+  .el-button:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+    opacity: 0.8;
+  }
+  
+  /* Responsive Styling */
+  @media (max-width: 480px) {
+    .el-user-management {
+      padding: 20px;
+      margin: 20px auto;
+    }
+  
+    .el-user-management h2 {
+      font-size: 20px;
+    }
+  
+    .el-user-info p {
+      font-size: 14px;
+    }
+  
+    .el-button {
+      font-size: 15px;
+      padding: 10px 0;
+    }
+  }
+
+
+
+  .el-password-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.el-password-form label {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.el-password-form input {
+  padding: 12px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 1px solid #e4e9f0;
+  font-size: 16px;
+  color: #333;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Button Styling */
+.el-button {
+  padding: 12px 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: #ffffff;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+/* Primary Action Button - Change Password */
+.el-button.primary {
+  background-color: #007bff;
+}
+
+.el-button.primary:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive Styling */
+@media (max-width: 480px) {
+  .el-change-password {
+    padding: 20px;
+    margin: 20px auto;
+  }
+
+  .el-change-password h2 {
+    font-size: 20px;
+  }
+
+  .el-password-form label {
+    font-size: 14px;
+  }
+
+  .el-password-form input {
+    font-size: 15px;
+    padding: 10px;
+  }
+
+  .el-button {
+    font-size: 15px;
+    padding: 10px 0;
+  }
+}
+
+
+
+.el-change-password h2 {
+    text-align: center;
+    font-size: 24px;
+    color: #444;
+    margin-bottom: 24px;
+    font-weight: 600;
+  }
+  
+  /* Form Fields */
+  .el-password-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .el-password-form label {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 8px;
+  }
+  
+  .el-password-form input {
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid #e4e9f0;
+    font-size: 16px;
+    color: #333;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+
+
+  .fa-arrow-left{
+    cursor: pointer;
+    font-size: 120%;
+  }
+.el-input-form{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
