@@ -24,7 +24,7 @@ class NotificationCreate(BaseModel):
 
 
 @router.post("/notifications", tags=["Notifications"])
-def create_notification(notification: NotificationCreate, db: Session = Depends(get_db)):
+async def create_notification(notification: NotificationCreate, db: Session = Depends(get_db)):
     db_notification = Notifications(userid=notification.userid, message=notification.message, isread=False,
                                     createdat=notification.createdat)
     db.add(db_notification)
@@ -37,7 +37,7 @@ class NotificationUpdate(BaseModel):
 
 
 @router.put("/notifications/{notification_id}", tags=["Notifications"])
-def update_notification(notification_id: int, notification: NotificationUpdate, db: Session = Depends(get_db)):
+async def update_notification(notification_id: int, notification: NotificationUpdate, db: Session = Depends(get_db)):
     db_notification = db.query(Notifications).filter(Notifications.notificationid == notification_id).first()
     if not db_notification:
         raise HTTPException(
@@ -59,13 +59,13 @@ class NotificationGet(BaseModel):
 
 
 @router.get("/notifications/user/{user_id}", tags=["Notifications"])
-def get_user_notifications(user_id: int, db: Session = Depends(get_db)):
+async def get_user_notifications(user_id: int, db: Session = Depends(get_db)):
     notifications = db.query(Notifications).filter(Notifications.userid == user_id).all()
     return notifications
 
 
 @router.delete("/notifications/user/{user_id}", tags=["Notifications"])
-def delete_notifications(notification_id: int, db: Session = Depends(get_db)):
+async def delete_notifications(notification_id: int, db: Session = Depends(get_db)):
     db_notification = db.query(Notifications).filter(Notifications.notificationid == notification_id).first()
     if db_notification is None:
         raise HTTPException(

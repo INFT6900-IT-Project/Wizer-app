@@ -22,7 +22,7 @@ class TestResponseCreate(BaseModel):
 
 
 @router.post("/testresponses", tags=["TestResponse"])
-def create_test_response(response: TestResponseCreate, db: Session = Depends(get_db)):
+async def create_test_response(response: TestResponseCreate, db: Session = Depends(get_db)):
     db_test_response = TestResponses(attemptid=response.attemptid, questionid=response.questionid,
                                      answerid=response.answerid)
     db.add(db_test_response)
@@ -38,6 +38,6 @@ class TestResponseGet(BaseModel):
 
 
 @router.get("/testattempts/{attempt_id}/responses", tags=["TestResponse"])
-def get_test_attempt_responses(attempt_id: int, db: Session = Depends(get_db)):
+async def get_test_attempt_responses(attempt_id: int, db: Session = Depends(get_db)):
     responses = db.query(TestResponses).filter(TestResponses.attemptid == attempt_id).all()
     return responses

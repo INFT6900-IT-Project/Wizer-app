@@ -53,7 +53,7 @@ class UserCreate(BaseModel):
     email: str
     phone_number: str
     role: str
- 
+
 
 
 class MFACreate(BaseModel):
@@ -96,18 +96,18 @@ def create_user(db: Session, user_data: UserCreate):
 
 
 @router.post("/auth/register", tags=["Auth"])
-def register_user(user: UserCreate, db: Session = Depends(get_db)):
+async def register_user(user: UserCreate, db: Session = Depends(get_db)):
     db_user = get_user_by_username(db, username=user.username)
     if db_user:
         raise HTTPException(status_code=400, detail="Username already registered")
     return "Register certified. User is not in system"
 
 @router.post("/auth/register-accept",tags=["Auth"])
-def accept_register_user(user: UserCreate, db: Session = Depends(get_db)):
+async def accept_register_user(user: UserCreate, db: Session = Depends(get_db)):
     return create_user(db=db, user_data=user)
 
 # Authenticate the user
-def authenticate_user(username: str, password: str, db: Session):
+async def authenticate_user(username: str, password: str, db: Session):
     user = db.query(User).filter(User.username == username).first()
     if not user:
         return False
@@ -117,7 +117,7 @@ def authenticate_user(username: str, password: str, db: Session):
 
 
 @router.post("/auth/login", tags=["Auth"])
-def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
+async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
     user = authenticate_user(form_data.username, form_data.password, db)
     if not user:
         raise HTTPException(
@@ -212,7 +212,7 @@ def verify_password(old_password, hashed_password):
 
 
 @router.post("/change_password", tags=["Auth"])
-def change_password(request: UserChangePassword, db: Session = Depends(get_db)):
+async def change_password(request: UserChangePassword, db: Session = Depends(get_db)):
     try:
         user = db.query(User).filter(User.username == request.username).first()
         if user is None:
@@ -358,7 +358,7 @@ async def validate_totp(totp_details: TOTPValidation, db: Session = Depends(get_
 
 #Verify email address:
 @router.get("/auth/otp/{email}", tags=["Auth"])
-def send_otp(email:str):
+async def send_otp(email:str):
     otp = generate_otp()
     send_gmail_otp(otp,email)
     return {"otp":otp}
