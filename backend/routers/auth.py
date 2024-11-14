@@ -117,7 +117,7 @@ def authenticate_user(username: str, password: str, db: Session):
 
 
 @router.post("/auth/login", tags=["Auth"])
-def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
+async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
     user = authenticate_user(form_data.username, form_data.password, db)
     if not user:
         raise HTTPException(
@@ -231,63 +231,6 @@ async def change_password(request: UserChangePassword, db: Session = Depends(get
 
 
 
-
-
-
-#
-# def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
-#     credentials_exception = HTTPException(
-#         status_code=status.HTTP_401_UNAUTHORIZED,
-#         detail="Invalid authentication credentials",
-#         headers={"WWW-Authenticate": "Bearer"},
-#     )
-#     try:
-#         payload = jwt.decode(token, Configs.SECRET_KEY, algorithms=[Configs.ALGORITHM])
-#         username: str = payload.get("sub")
-#         if username is None:
-#             raise credentials_exception
-#         user = db.query(User).filter(User.username == username).first()
-#         if user is None:
-#             raise credentials_exception
-#         return user
-#     except JWTError:
-#         raise credentials_exception
-#
-# # Route to retrieve the current user profile details
-# @router.get("/users/{username}", tags=['User'])
-# def get_user_profile(current_user: User = Depends(get_current_user)):
-#     return {
-#         "userid": current_user.userid,
-#         "username": current_user.username,
-#         "firstname": current_user.firstname,
-#         "lastname": current_user.lastname,
-#         "email": current_user.email,
-#         "phonenumber": current_user.phonenumber,
-#         "role": current_user.role,
-#         "istwofactorenabled": current_user.istwofactorenabled
-#     }
-
-
-# @router.get("/auth/validate-token")
-# def validate_token(token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
-#     credentials_exception = HTTPException(
-#         status_code=status.HTTP_401_UNAUTHORIZED,
-#         detail="Could not validate credentials",
-#         headers={"WWW-Authenticate": "Bearer"},
-#     )
-#     try:
-#         payload = jwt.decode(token, Configs.SECRET_KEY, algorithms=[Configs.ALGORITHM])
-#         username: str = payload.get("sub")
-#         if username is None:
-#             raise credentials_exception
-#     except JWTError:
-#         raise credentials_exception
-#     user = get_user(db, username=username)
-#     if user is None:
-#         raise credentials_exception
-#     return {"username": user.username}
-
-
 def add_2fa_to_user(db: Session, user_data: User):
     try:
         user = db.query(User).filter(User.username == user_data.username).first()
@@ -335,24 +278,6 @@ async def validate_totp(totp_details: TOTPValidation, db: Session = Depends(get_
 
     return {"message": "OTP is valid"}
 
-# def get_user(db: Session = Depends(get_db), username: str = Depends(validate_token)):
-#     user = db.query(User).filter(User.username == username.username).first()
-#     if not user:
-#         raise HTTPException(status_code=404, detail="User not found")
-#     return {
-#         "userid": user.userid,
-#         "username": user.username,
-#         "firstname": user.firstname,
-#         "lastname": user.lastname,
-#         "email": user.email,
-#         "phonenumber": user.phonenumber,
-#         "role": user.role,
-#         "istwofactorenabled": user.istwofactorenabled
-#     }
-
-# @router.get("/user/{username}")
-# async def read_users_me(current_user: User = Depends(get_current_user)):
-#     return current_user
 
 
 #Verify email address:
