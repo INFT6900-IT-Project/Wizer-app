@@ -1,0 +1,40 @@
+.ad-reminder-wrap{
+    margin-top: 20px;
+    padding: 30px 30px 180px;
+    background-color: rgba(243, 232, 201, 0.228);
+}
+
+
+.ad-reminder-row{
+    border-bottom: 1px solid rgb(230, 217, 217);
+    line-height: 1.5;
+    padding: 20px 0px;
+    cursor: pointer;
+}
+
+.ad-reminder-row:hover {
+    background-color: rgba(235, 165, 100, 0.082);
+}
+
+.ad-reminder-row p{
+    color: gray;
+}
+
+.ad-reminder-row h3{
+    font-size: 20px;
+    color: rgb(92, 92, 92);
+}
+
+
+.ad-reminder-row h1{
+    font-size: 25px;
+    
+}
+
+.ad-reminder-row p, .ad-reminder-row h1{
+    padding-left: 35px;
+}
+
+.fa-paper-plane, .fa-cube{
+    margin-right: 10px;
+}
