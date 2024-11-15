@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './UserAccountSettings.css'
 import axios from 'axios';
+import { toastError, toastSuccess } from '../../../../helpers/toast';
 
 function UserAccountSettings() {
   const [username, setUsername] = useState(); // Replace with dynamic data
@@ -31,8 +32,8 @@ function UserAccountSettings() {
 
   const handlesubmitChangePassword = async (e) => {
     e.preventDefault()
-    if (newPassword !== confirmPassword) {
-      alert("New password does not match")
+    if (newPassword != confirmPassword) {
+      toastError("New password does not match")
     } else {
       const changePassList = {
         "username": username,
@@ -40,12 +41,12 @@ function UserAccountSettings() {
         "new_password": newPassword
       }
       try {
-        await axios.post('http://127.0.0.1:8000/change_password', changePassList)
-        alert('Password has been changed successfully.')
+        const response = await axios.post('http://127.0.0.1:8000/change_password', changePassList)
+        toastSuccess('Password has been changed successfully.')
         setPassChangeForm(false)
       } catch (error) {
         console.log(error)
-        alert('Wrong old password')
+        toastError('Wrong old password')
       }
     }
     // Placeholder for change password logic

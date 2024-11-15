@@ -3,6 +3,7 @@ import { useState } from 'react';
 import './signIn.css'
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { toastError } from '../../../helpers/toast';
 function SignIn() {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false)
@@ -22,7 +23,7 @@ function SignIn() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true)
+    setLoading(true);
     try {
       const response = await axios.post('http://127.0.0.1:8000/auth/login', new URLSearchParams({
         'username': signInInfo.username,
@@ -43,10 +44,10 @@ function SignIn() {
 
     } catch (error) {
       if ((error.response && error.response.status === 500) || error.code === 'ERR_NETWORK') {
-        alert("An error has been occured while processing you request. Please try again!")
+        toastError("An error has been occured while processing you request. Please try again!")
       } else {
         console.error(error)
-        console.log(error.code)
+        toastError(error.message)
         setwrongID(true)
       }
 
@@ -90,18 +91,15 @@ function SignIn() {
         </div>
         <div className="input-group">
           <input
-            type={showPassword ? 'text' : 'password'}
+            type={showPassword ? "text" : "password"}
             id="password"
             name="password"
             onChange={handleChange}
             value={signInInfo.password}
-            placeholder='Password'
+            placeholder="Password"
             required
           />
-          <span
-            className="toggle-password"
-            onClick={togglePasswordVisibility}
-          >
+          <span className="toggle-password" onClick={togglePasswordVisibility}>
             👁
           </span>
         </div>
@@ -137,4 +135,4 @@ function SignIn() {
   );
 }
 
-export default SignIn
+export default SignIn;
