@@ -37,4 +37,4 @@ app.include_router(testresponse_handling.router)
 app.include_router(usermodules_handling.router)
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="localhost", port=3000, reload=True)
+    uvicorn.run(app, host="localhost", port=8000, reload=True)

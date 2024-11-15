@@ -9,40 +9,11 @@ function UserSideBar() {
   return (
     <div className="sidebar">
       <div className="ad-user-sidebar-wrap">
-        <Link to="/user-screen/achievement" style={{ textDecoration: "none" }}>
-          <p>
-            <i className="fa-solid fa-trophy"></i> Achievements
-          </p>
-        </Link>
+        
 
-        <Link to="/user-screen/reminder" style={{ textDecoration: "none" }}>
-          <p>
-            <i className="fa-solid fa-bell"></i> Reminder
-          </p>
-        </Link>
-
-        <Link
-          to="/user-screen/saved-courses"
-          style={{ textDecoration: "none" }}
-        >
-          <p>
-            <i className="fa-solid fa-bookmark"></i> Saved Courses
-          </p>
-        </Link>
-
-        <Link to="/user-screen/progress" style={{ textDecoration: "none" }}>
-          <p>
-            <i className="fa-solid fa-chart-line"></i> Progress
-          </p>
-        </Link>
-
-        <Link to="/user-screen/help-center" style={{ textDecoration: "none" }}>
-          <p>
-            <i className="fa-regular fa-circle-question"></i> Help Center
-          </p>
-        </Link>
-
-        <Link
+        {/* Conditionally render Admin Dashboard link if user has Admin permission */}
+        {(permissions == "Admin")?(<div>
+          <Link
           to="/user-screen/account-settings"
           style={{ textDecoration: "none" }}
         >
@@ -51,20 +22,56 @@ function UserSideBar() {
           </p>
         </Link>
 
-        {/* Conditionally render Admin Dashboard link if user has Admin permission */}
-        {(permissions && permissions === "Admin")?" ":(
-          
-          
-
-          
           <Link
-            to="/user-screen/admin-dashboard"
+            to="/user-screen"
             style={{ textDecoration: "none" }}
           >
             <p>
               <i className="fa-solid fa-user-shield"></i> Admin Dashboard
             </p>
+          </Link></div>):(
+          <div>
+          <Link to="/user-screen/achievement" style={{ textDecoration: "none" }}>
+            <p>
+              <i className="fa-solid fa-trophy"></i> Achievements
+            </p>
           </Link>
+  
+          <Link to="/user-screen/reminder" style={{ textDecoration: "none" }}>
+            <p>
+              <i className="fa-solid fa-bell"></i> Reminder
+            </p>
+          </Link>
+  
+          <Link
+            to="/user-screen/saved-courses"
+            style={{ textDecoration: "none" }}
+          >
+            <p>
+              <i className="fa-solid fa-bookmark"></i> Saved Courses
+            </p>
+          </Link>
+  
+          <Link to="/user-screen/progress" style={{ textDecoration: "none" }}>
+            <p>
+              <i className="fa-solid fa-chart-line"></i> Progress
+            </p>
+          </Link>
+  
+          <Link to="/user-screen/help-center" style={{ textDecoration: "none" }}>
+            <p>
+              <i className="fa-regular fa-circle-question"></i> Help Center
+            </p>
+          </Link>
+  
+          <Link
+            to="/user-screen/account-settings"
+            style={{ textDecoration: "none" }}
+          >
+            <p>
+              <i className="fa-solid fa-gear"></i> Account Settings
+            </p>
+          </Link></div>
 
         )}
       </div>

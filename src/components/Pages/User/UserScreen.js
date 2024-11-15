@@ -11,14 +11,12 @@ import UserProgress from './UserComponents/UserProgress';
 import UserAccountSettings from './UserComponents/UserAccountSettings';
 import UserHelpCenter from './UserComponents/UserHelpCenter';
 import MyLearning from './UserComponents/MyLearning';
-
+import AdminDashboard from '../AdminPortal/AdminDashboard';
 import { useAuth } from '../../../context/AuthContext';
 function UserScreen() {
 
-  
   const {user}= useAuth()
  
-  
 
   if (user) {
     return (
@@ -29,6 +27,8 @@ function UserScreen() {
           </div>
           <div className='ad-user-right'>
             <Routes>
+            {(user.role=="Admin")&&<Route path="" element={<AdminDashboard />} />
+            }
               <Route exact path='/' element={<UserHome userData={user} />} />
               <Route exact path='user-courses' element={<Courses />} />
               <Route exact path='my-learning' element={<MyLearning />} />
@@ -38,7 +38,7 @@ function UserScreen() {
               <Route path='progress' element={<UserProgress />} />
               <Route path='help-center' element={<UserHelpCenter />} />
               <Route path='account-settings' element={<UserAccountSettings userData={user} />} />
-  
+             
             </Routes>
           </div>
         </div>

@@ -1,4 +1,4 @@
-.dashboard-container {
+.a-dashboard-container {
   padding: 20px;
   background-color: #f4f6f8;
   display: flex;
@@ -7,7 +7,7 @@
   justify-content: center;
 }
 
-h2 {
+.a-dashboard-container h2 {
   color: rgb(224, 109, 63);
   letter-spacing: 0.3rem;
   align-self: flex-start;
@@ -16,14 +16,14 @@ h2 {
   margin-bottom: 20px;
 }
 
-.chart-container {
+.a-chart-container {
   width: 100%;
   display: flex;
   justify-content: center;
   margin-bottom: 30px;
 }
 
-.chart {
+.a-chart {
   width: 100%;
   max-width: 800px;
   background: white;
@@ -32,7 +32,7 @@ h2 {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.table-card {
+.a-table-card {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -45,31 +45,31 @@ h2 {
   width: 100%;
 }
 
-.table-wrapper {
+.a-table-wrapper {
   overflow-x: auto;
   width: 100%;
 }
 
-table {
+.a-table-wrapper table {
   width: 100%;
   border-collapse: collapse;
   min-width: 800px;
 }
 
-th, td {
+.a-table-wrapper th,  .a-checkmark td {
   border: 1px solid #ddd;
   padding: 8px;
   text-align: left;
 }
-td:first-child {
+.a-table-wrapper td:first-child {
   padding: 0px;
 }
 
-th {
+.a-table-wrapper th {
   background-color: #f4f4f4;
 }
 
-.table-header {
+.a-table-header {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -77,7 +77,7 @@ th {
   width: 100%;
 }
 
-.delete-button {
+.a-delete-button {
   align-self: flex-end;
   background-color: #ff4d4d;
   color: white;
@@ -87,16 +87,16 @@ th {
   cursor: pointer;
 }
 
-.delete-button:disabled {
+.a-delete-button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
 }
 
-.delete-button:hover:enabled {
+.a-delete-button:hover:enabled {
   background-color: #cc0000;
 }
 
-.modal-overlay {
+.a-modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -108,7 +108,7 @@ th {
   justify-content: center;
 }
 
-.modal {
+.a-modal {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -122,7 +122,7 @@ th {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.modal-buttons button {
+.a-modal-buttons button {
   margin: 5px;
   padding: 9px 13px;
   border: none;
@@ -130,24 +130,24 @@ th {
   cursor: pointer;
 }
 
-.modal-buttons button:first-child {
+.a-modal-buttons button:first-child {
   background: #ccc;
   color: black;
 }
-.modal-buttons button:first-child:hover {
+.a-modal-buttons button:first-child:hover {
   background: #959595;
   color: black;
 }
-.modal-buttons button:last-child {
+.a-modal-buttons button:last-child {
   background: #ff4d4d;
   color: white;
 }
 
-.modal-buttons button:last-child:hover {
+.a-modal-buttons button:last-child:hover {
   background: #cc0000;
 }
 /* Hide the default checkbox */
-.container input {
+.a-container input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
@@ -155,7 +155,7 @@ th {
   width: 0;
 }
 
-.container {
+.a-container {
   display: flex;
   justify-content: center;
   gap: 10px;
@@ -163,7 +163,7 @@ th {
 
 
 /* Create a custom checkbox */
-.checkmark {
+.a-checkmark {
   position: relative;
   box-shadow: rgb(255, 84, 0) 0px 0px 0px 2px;
   background-color: white;
@@ -180,7 +180,7 @@ th {
   box-sizing: border-box;
 }
 
-.container input:checked ~ .checkmark {
+.a-container input:checked ~ .checkmark {
   box-shadow: rgb(255, 84, 0) 0px 0px 0px 2px;
   background-color: rgba(245, 24, 24, 0.5);
   height: 20px;
@@ -197,18 +197,18 @@ th {
   box-sizing: border-box;
 }
 
-.checkmark:after {
+.a-checkmark:after {
   content: "";
   position: absolute;
   display: none;
 }
 
-.container input:checked ~ .checkmark:after {
+.a-container input:checked ~ .checkmark:after {
   display: block;
 }
 
 /* Style the checkmark/indicator */
-.container .checkmark:after {
+.a-container .a-checkmark:after {
   left: 0.45em;
   top: 0.25em;
   width: 0.25em;
@@ -219,16 +219,16 @@ th {
   transition: all 500ms ease-in-out;
 }
 
-.load-container {
+.a-load-container {
   height: 1000px;
 }
 
 @media screen and (max-width: 800px) {
-  .table-wrapper {
+  .a-table-wrapper {
     overflow-x: auto;
   }
 
-  .table-card {
+  .a-table-card {
     padding: 10px;
   }
 }

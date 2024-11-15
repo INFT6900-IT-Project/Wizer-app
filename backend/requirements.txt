@@ -14,3 +14,4 @@ pyotp
 Pillow
 azure-storage-blob
 qrcode
+fastapi[standard]

@@ -78,11 +78,11 @@ const AdminDashboard = () => {
   };
 
   return (
-    <div className="dashboard-container">
+    <div className="a-dashboard-container">
       <h2>Admin Dashboard</h2>
       {loading === "loading" && (
-        <div className="load-container">
-          <div className="loading">
+        <div className="a-load-container">
+          <div className="a-loading">
             <i class="fa-solid fa-spinner fa-spin"></i>
           </div>
         </div>
@@ -90,8 +90,8 @@ const AdminDashboard = () => {
       {loading === "failed" && <p>Error: {error}</p>}
       {loading === "succeeded" && (
         <>
-          <div className="chart-container">
-            <div className="chart">
+          <div className="a-chart-container">
+            <div className="a-chart">
               <h2>User Distribution by Role </h2>
               <Bar
                 data={barData}
@@ -107,18 +107,18 @@ const AdminDashboard = () => {
             </div>
           </div>
           {/* Table Section */}
-          <div className="table-card">
+          <div className="a-table-card">
             <h2>User Information</h2>
-            <div className="table-header">
+            <div className="a-table-header">
               <button
-                className="delete-button"
+                className="a-delete-button"
                 onClick={handleDeleteClick}
                 disabled={selectedUsers.length === 0}
               >
                 Delete
               </button>
             </div>
-            <div className="table-wrapper">
+            <div className="a-table-wrapper">
               <table>
                 <thead>
                   <tr>
@@ -138,13 +138,13 @@ const AdminDashboard = () => {
                     data?.map((user) => (
                       <tr key={user.userid}>
                         <td>
-                          <label class="container">
+                          <label class="a-container">
                             <input
                               type="checkbox"
                               checked={selectedUsers.includes(user.userid)}
                               onChange={() => handleCheckboxChange(user.userid)}
                             />
-                            <div class="checkmark"></div>
+                            <div class="a-checkmark"></div>
                           </label>
                         </td>
                         <td>{user.userid}</td>
@@ -164,11 +164,11 @@ const AdminDashboard = () => {
         </>
       )}
       {showModal && (
-        <div className="modal-overlay">
-          <div className="modal">
+        <div className="a-modal-overlay">
+          <div className="a-modal">
             <h3>Confirm Deletion</h3>
             <p>Are you sure you want to delete this user?</p>
-            <div className="modal-buttons">
+            <div className="a-modal-buttons">
               <button onClick={() => setShowModal(false)}>Cancel</button>
               <button onClick={confirmDelete}>Confirm</button>
             </div>
