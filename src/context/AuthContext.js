@@ -1,6 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import client from "../api/client";
-import { useLocation } from "react-router-dom";
 import verifyToken from "../api/verifyToken";
 import { jwtDecode } from "jwt-decode";
 

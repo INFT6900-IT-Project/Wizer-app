@@ -74,22 +74,22 @@ const radarData = {
 
 const AdminDashboard = () => {
   return (
-    <div className="dashboard-container">
+    <div className="ad-dashboard-container">
       <h2>Admin Dashboard</h2>
-      <div className="chart-container">
-        <div className="chart">
+      <div className="ad-chart-container">
+        <div className="ad-chart">
           <h2>Monthly Sales (Line Chart)</h2>
           <Line data={lineData} />
         </div>
-        <div className="chart">
+        <div className="ad-chart">
           <h2>Sales per Product (Bar Chart)</h2>
           <Bar data={barData} />
         </div>
-        <div className="chart">
+        <div className="ad-chart">
           <h2>User Distribution by Category (Pie Chart)</h2>
           <Pie data={pieData} />
         </div>
-        <div className="chart">
+        <div className="ad-chart">
           <h2>Market Segments (Rada Chart)</h2>
           <Radar data={radarData} />
         </div>

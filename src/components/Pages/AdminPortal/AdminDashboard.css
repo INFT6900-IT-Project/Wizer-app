@@ -1,22 +1,22 @@
-.dashboard-container {
+.ad-dashboard-container {
   padding: 20px;
   background-color: #f4f6f8;
 }
 
-h2 {
+.ad-dashboard-container h2 {
   margin-left: 10px;
   margin-top: 20px;  
   margin-bottom: 20px;
 }
 
-.chart-container {
+.ad-chart-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   gap: 20px;
 }
 
-.chart {
+.ad-chart {
   width: 100%;
   max-width: 400px;
   background: white;

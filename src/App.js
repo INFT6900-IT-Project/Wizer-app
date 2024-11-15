@@ -54,7 +54,7 @@ function App() {
   return (
     <div>
       <AuthProvider>
-      <ToastContainer stacked/>
+        <ToastContainer stacked />
         {auth ? (
           <Router>
             <ScrollToTop>
@@ -90,6 +90,7 @@ function App() {
                 {/* <protectedRoute path="/lesson-detail/hiragana" element={<LessonDetail />} />
         <protectedRoute path="/lesson-detail/katakana" element={<KatakanaLesson />} /> */}
                 {/* <Route path="/courses" element={<Courses />} /> */}
+
                 <Route
                   path="/lesson-detail/hiragana"
                   element={<LessonDetail />}
