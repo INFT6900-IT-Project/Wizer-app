@@ -13,10 +13,10 @@ import UserCertificate from './UserCertificate';
 import { Link } from 'react-router-dom';
 
 
-function UserHome() {
+function UserHome({userData}) {
     return (
         <div>
-            <h1 className='ad-user-home-welcome'>Welcome back, Cua! <span>Time to dive back in</span></h1>
+            <h1 className='ad-user-home-welcome'>Welcome back, {userData.username} <span>Time to dive back in</span></h1>
             <div className='ad-user-home'>
                 <div>
                     <h2>Recently Viewed Courses</h2>

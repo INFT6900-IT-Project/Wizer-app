@@ -121,7 +121,9 @@ const inProgressCourses = [
     title: 'Basic Japanese',
     head: 'Course | Wizer Project Network',
     alert: "Don't stop now! Keep the momentum going, success is just ahead!",
-    path: '/course-detail/1'
+    path: '/course-detail/1',
+    lessons: 12,
+    completedLessons: 10, 
   },
   {
     image: courseImage2,
@@ -129,7 +131,9 @@ const inProgressCourses = [
     title: 'Introduction to Business',
     head: 'Course | Duke Univerisity',
     alert: "It looks like you missed some important deadlines. Reset your deadlines and get started today.",
-    path: '/course-detail/2'
+    path: '/course-detail/2',
+    lessons: 12,
+    completedLessons: 10,
   },
   {
     image: courseImage3,
@@ -137,21 +141,27 @@ const inProgressCourses = [
     title: 'Learn Photography',
     head: 'Training | Wizer Professional Skill Training',
     alert: "It looks like you missed some important deadlines. Reset your deadlines and get started today.",
-    path: '/course-detail/3'
+    path: '/course-detail/3',
+    lessons: 12,
+    completedLessons: 10,
   },
   {
     image: inProgressCourse1,
     category: 'Communication',
     title: 'Take Your English Communication Skills to the Next Level',
     head: 'Course | Georgia Institute of Technology',
-    alert: 'It looks like you missed some important deadlines. Reset your deadlines and get started today.'
+    alert: 'It looks like you missed some important deadlines. Reset your deadlines and get started today.',
+    lessons: 12,
+    completedLessons: 10,
   },
   {
     image: inProgressCourse2,
     category: 'Data',
     title: 'Custom Reports in Google Analytics',
     head: 'Project | Wizer Project Network',
-    alert: 'It looks like you missed some important deadlines. Reset your deadlines and get started today.'
+    alert: 'It looks like you missed some important deadlines. Reset your deadlines and get started today.',
+    lessons: 12,
+    completedLessons: 10,
   }
 ];
 

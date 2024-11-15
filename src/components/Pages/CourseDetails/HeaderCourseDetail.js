@@ -8,7 +8,8 @@ import "./CourseDetail.css";
 
   const HeaderCourseDetail = ({ course }) => {
     if (!course) {
-      return <p>Loading course details...</p>; // Fallback if course data isn't available yet
+      
+      return <p></p>; // Fallback if course data isn't available yet
     }
 
   return (
