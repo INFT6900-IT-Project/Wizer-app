@@ -3,12 +3,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Home from './components/Pages/Home';
 import Courses from './components/Pages/CourseDetails/Courses';
 import CourseDetail from './components/Pages/CourseDetails/CourseDetail';
 import CourseDetail1 from './components/Pages/CourseDetails/CourseDetail1';
 import CourseDetail2 from './components/Pages/CourseDetails/CourseDetail2';
-import Features from './components/Pages/Features';
 import LessonDetail from './components/Pages/CourseDetails/LessonDetail';
 import KatakanaLesson from './components/Pages/CourseDetails/KatakanaLesson';
 import BasicGreetingsLesson from './components/Pages/CourseDetails/BasicGreetingsLesson';
