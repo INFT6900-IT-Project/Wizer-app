@@ -12,6 +12,7 @@ import LessonDetail from './components/Pages/CourseDetails/LessonDetail';
 import KatakanaLesson from './components/Pages/CourseDetails/KatakanaLesson';
 import BasicGreetingsLesson from './components/Pages/CourseDetails/BasicGreetingsLesson';
 import NumbersAndCountingLesson from './components/Pages/CourseDetails/NumbersAndCountingLesson';
+
 import './App.css';
 import Home from './components/Pages/Home';
 import Features from './components/Pages/Features';
@@ -25,6 +26,8 @@ import Payment from './components/Pages/Payment';
 import { useState,useEffect } from 'react';
 import verifyToken from './api/verifyToken';
 import SignOut from './components/Pages/SignUpIn/SignOut';
+
+
 import UserScreen from './components/Pages/User/UserScreen';
 import UserHome from './components/Pages/User/UserComponents/UserHome';
 import NavBarUser from './components/Pages/User/UserComponents/NavBarUser';
@@ -84,16 +87,17 @@ function App() {
                   <Route path='progress' element={<UserProgress/>}/>
                   <Route path='help-center' element={<UserHelpCenter />} />
                   <Route path='account-settings' element={<UserAccountSettings/>}/>
- {/*Owner */}  
-            <Route path='/management-course' element={<ManagementCourse />} />
+                  
+            </Route>
+
+{/*Owner */}  
+<Route path='/management-course' element={<ManagementCourse />} />
               <Route path='/dashboard' element={<Dashboard />} />
               <Route path='/course-management' element={<CourseManagement />} />
               <Route path='/learner-management' element={<LearnerManagement />} />
               <Route path='/message' element={<Message />} />
               <Route path='/settings' element={<Settings />} />
-                  
-            </Route>
-
+             
             {/* <Route path='/user-dash-board' element={<UserDashboard />} /> */}
             
 

@@ -10,11 +10,13 @@
     border-right: 1px solid #ddd;
   }
   
-  .sidebar h2 {
+  
+  .ad-module-owner-title{
     color: #ff6f61;
     font-size: 1.5em;
+    margin: 20px 0px;
   }
-  
+
   .sidebar nav ul {
     list-style: none;
     padding: 0;

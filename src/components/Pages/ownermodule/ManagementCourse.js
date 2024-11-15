@@ -75,7 +75,7 @@ function ManagementCourse() {
   return (
     <div className="management-container">
       <aside className="sidebar">
-        <h2>Course Management</h2>
+        <h2 className="ad-module-owner-title">Course Management</h2>
         <nav>
           <ul>
             <li>Dashboard</li>
