@@ -11,13 +11,15 @@ import project_mana from '../../../../ImageVideo/project-mana.jpg';
 import UserHomeCard from './UserHomeCard';
 import UserCertificate from './UserCertificate';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../../../../context/AuthContext';
 
 
 function UserHome() {
+    const {user} = useAuth()
     return (
         <div>
-            <h1 className='ad-user-home-welcome'>Welcome back, Cua! <span>Time to dive back in</span></h1>
             <div className='ad-user-home'>
+            <h1 className='ad-user-home-welcome'>Welcome back, {user?.firstname || user?.username || ""} <span>Time to dive back in</span></h1>
                 <div>
                     <h2>Recently Viewed Courses</h2>
 
