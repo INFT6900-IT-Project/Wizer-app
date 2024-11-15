@@ -188,6 +188,16 @@ def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(
     except JWTError:
         raise credentials_exception
 
+@router.post("/mfa/disable/", tags=["Auth/MFA"])
+async def disable_mfa(user_data: MFACreate, db: Session = Depends(get_db)):
+    user = db.query(User).filter(User.username == user_data.username).first()
+    if not user:
+        raise HTTPException(status_code=400, detail="User not registered")
+    user.twofactorsecret = None
+    user.istwofactorenabled = False
+    db.commit()
+    db.refresh(user)
+    return {"message": "MFA disabled successfully"}
 
 @router.get("/auth/verify-token/{token}", tags=["Auth"])
 async def verify_user_token(token: str):
@@ -262,7 +272,18 @@ async def mfa_otp_register(user_data: MFACreate, db: Session = Depends(get_db)):
     buf = add_2fa_to_user(db, user)
     return StreamingResponse(buf, media_type="image/png")
 
-
+@router.get("/users/all-users", tags=["Auth"])
+async def get_all_users(db: Session = Depends(get_db)):
+    users = db.query(User).all()
+    output = [{"userid": user.userid,
+            "username": user.username,
+            "firstname": user.firstname,
+            "lastname": user.lastname,
+            "email": user.email,
+            "phonenumber": user.phonenumber,
+            "role": user.role,
+            "istwofactorenabled": user.istwofactorenabled} for user in users]
+    return output
 
 @router.delete("/mfa/cancel/{username}", tags=["Auth/MFA"])
 async def cancel_mfa(username:str,db: Session = Depends(get_db)):
@@ -317,7 +338,20 @@ def send_gmail_otp(otp,email):
     server.sendmail("wizer920@gmail.com",email,message)
     server.quit()
 
-
+#Admin bulk delete account
+class UsersDelete(BaseModel):
+    user_ids: str
+    
+@router.delete("/admin/delete_users", tags=["Admin"])
+async def delete_users_by_list(user_list: UsersDelete, db:Session = Depends(get_db)):
+    ids = [int(x) for x in user_list.user_ids.split(",")]
+    try:
+        db.query(User).filter(User.userid.in_(ids)).delete(synchronize_session=False)
+        db.commit()
+        return {"detail": "Users have been deleted successfully"}
+    except Exception as e:
+        db.rollback()
+        raise HTTPException(status_code=500, detail=str(e))
 
 #Admin delete account
 @router.delete("/admin/{username}", tags=["Admin"])

@@ -24,7 +24,7 @@ const UseGetRequest = (url, param, options = {}) => {
 
   useEffect(() => {
     fetchData();
-  }, [param]);
+  }, []);
 
   return {
     data,
