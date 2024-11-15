@@ -59,7 +59,7 @@ class ModuleContentUpdate(BaseModel):
     contenturl: Optional[HttpUrl] = None
 
 
-@router.post("/content/{content_id}", tags=['ModuleContent'])
+@router.put("/content/{content_id}", tags=['ModuleContent'])
 async def update_module_content(content_id: int, modulecontent: ModuleContentUpdate, db: Session = Depends(get_db)):
     db_modulecontent = db.query(ModuleContent).filter(ModuleContent.contentid == content_id).first()
     if not db_modulecontent:
@@ -78,7 +78,7 @@ async def update_module_content(content_id: int, modulecontent: ModuleContentUpd
 
 # Get module content by contentID
 @router.get("/content/{content_id}", tags=['ModuleContent'])
-def get_module_content(content_id: int, db: Session = Depends(get_db)):
+async def get_module_content(content_id: int, db: Session = Depends(get_db)):
     db_modulecontent = db.query(ModuleContent).filter(ModuleContent.contentid == content_id).first()
     if not db_modulecontent:
         raise HTTPException(
@@ -89,7 +89,7 @@ def get_module_content(content_id: int, db: Session = Depends(get_db)):
 
 
 @router.delete("/content/{content_id}", tags=['ModuleContent'])
-def delete_module_content(content_id: int, db: Session = Depends(get_db)):
+async def delete_module_content(content_id: int, db: Session = Depends(get_db)):
     db_modulecontent = db.query(ModuleContent).filter(ModuleContent.contentid == content_id).first()
     if db_modulecontent is None:
         raise HTTPException(

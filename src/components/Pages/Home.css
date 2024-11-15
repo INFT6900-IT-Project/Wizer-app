@@ -1,0 +1,11 @@
+* {
+    box-sizing: border-box;
+    font-family: 'PT Sans', sans-serif;
+  }
+
+.home {
+    background-image:  linear-gradient(rgba(255, 219, 208, 0.185), rgba(255,255,255,0.6)), url('../../ImageVideo/background.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }

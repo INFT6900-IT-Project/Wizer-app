@@ -1,0 +1,305 @@
+
+.plan-card ul {
+    list-style-type: none;
+    margin-top: 20px;
+  }
+
+  .plan-card li {
+    margin: 15px 0px;
+    display:flex;
+  }
+  
+.pric-header{
+    margin: 50px;
+    text-align: center;
+    font-size: 27px;
+    font-weight: 700;
+}
+
+.pric-plans-wrap{
+    background-color: #ebd05657;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 60px;
+}
+
+.plan-card{
+    width: 500px;
+    background-color: white;
+    padding: 50px;
+    margin: 30px;
+    border-radius: 40px;
+    box-shadow: 10px 10px 10px -6px #b85a2e62, 
+    3px 3px 10px -1px rgba(255,255,255,0.7);
+    position: relative;
+}
+
+.plan-card h2{
+    color: rgba(221, 101, 82, 0.904);
+    margin-bottom: 5px;
+    font-size: 27px;
+}
+
+.plan-card h1{
+    font-size: 50px;
+}
+
+.plan-card p{
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.plan-card a{
+    margin-bottom: 40px;
+    margin-top: 30px;
+    display: block;
+    height: 50px;
+    line-height: 45px;
+    text-align: center;
+    text-decoration: none;
+    border : 2.5px solid rgba(26, 18, 15, 0.658);
+    color: black;
+}
+
+.plan-card a:hover{
+    background-color: #eb8556be;
+    color: white;
+    transform: scale(1.02);
+    transition: transform 200ms ease-in-out;
+    border : 0px;
+
+}
+
+.pric-plan-header{
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.fa-check, .fa-xmark{
+    margin-right: 10px;
+}
+
+.fa-bell{
+    margin-right: 20px;
+}
+
+.best-value {
+    box-sizing: border-box;
+    margin: 0;
+    min-width: 0;
+    font-size: 0.87rem;
+    line-height: 1.5;
+    margin-top: 0;
+    color: rgb(26, 25, 23);
+    background-color: #abe684a5;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    display: inline-block;
+    font-weight: 600;
+    position: absolute;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    right: 0px;
+    top: 50px;
+}
+
+.pric-compare-wrap{
+    margin: 70px 30px;
+    
+
+   
+}
+
+.wrap-title{
+    margin-bottom: 40px; 
+    text-align: center;
+    padding: 19px;
+    border-bottom: 2px solid #bd9e495e;
+    color: #d67a3d;
+    
+}
+
+.plan-table{
+    border-collapse: separate;
+    width: 85%;
+    line-height: 1.5rem;
+    
+    
+}
+
+.ad-table-wrap{
+    display: flex;
+    justify-content: center;
+}
+
+.plan-table-header{
+    box-sizing: border-box;
+    margin: 0;
+    min-width: 0;
+    top: 59px;
+    z-index: 20;
+}
+
+.ad-table-header{
+    box-sizing: border-box;
+    min-width: 0;
+    color: #05192D;
+    font-size: 25px;
+    line-height: 1.5;
+}
+
+.plan-table-header h1{
+    font-size: 23px;
+    
+}
+
+.plan-table-header p{
+    font-size: 12px;
+    font-weight: 100;
+    margin: 7px 0px;
+}
+
+.plan-table-header a{
+    margin-top: 20px;
+    display: block;
+    height: 40px;
+    line-height: 35px;
+    text-align: center;
+    text-decoration: none;
+    border : 1.7px solid #d67a3d;
+    color: black;
+    font-size: 13px;
+    
+}
+
+.plan-table-header a:hover{
+    background-color: #eb8556be;
+    color: white;
+    transform: scale(1.02);
+    transition: transform 200ms ease-in-out;
+    border : 0px;
+}
+
+
+/* Align the first column to the left */
+table td:first-child, table th:first-child {
+    text-align: left;
+    width: auto;
+}
+
+
+/* Center-align all other columns */
+table td:not(:first-child), table th:not(:first-child) {
+    text-align: center;
+    width: 230px; 
+    padding: 23px;
+}
+
+.ad-feature-head{
+    font-weight: 700;
+    font-size: 18px;
+    height: 59px;
+}
+
+.ad-shift-back{
+    padding-left: 20px;
+    font-size: 14.6px;
+}
+
+.ad-row-color{
+    background-color: #ffe57223;
+}
+
+
+.ad-reflect{
+    margin-top: 60px;
+    display: flex;
+    
+}
+
+.ad-reflect-left{
+    flex-basis: 70%;
+    background-color: #eb80568f;
+    padding: 60px;
+    line-height: 3rem;
+}
+
+.ad-reflect-left span{
+    font-size: 40px;
+    color: rgb(248, 248, 240);
+    
+}
+
+.ad-reflect-right{
+    flex-basis: 30%;
+    background-color: #0a0a09c4;
+    padding: 30px;
+    color: white;
+}
+
+.ad-reflect-right h1{
+    color: rgba(230, 230, 58, 0.877);
+}
+
+.ad-rr-1 p{
+    margin-bottom: 30px;
+}
+
+.ad-feedback{
+    padding: 70px 200px;
+    display: flex;
+}
+.ad-circle-image {
+    flex-basis:20%;
+}
+
+.ad-circle-comment{
+    flex-basis: 80%;
+    
+}
+
+.ad-circle-comment h2{
+    margin: 60px;
+    font-size: 24px;
+    font-weight: 200;
+    line-height: 1.5;
+    font-style: italic;
+    color: rgb(92, 91, 91);
+}
+
+.ad-circle-comment p{
+    font-size: 20px;
+    font-weight: 200;
+    margin-left: 60px;
+    margin-bottom: 17px;
+}
+.ad-circle-comment p1{
+    font-size: 18px;
+    font-weight: 200;
+    margin-left: 60px;
+}
+
+.fa-quote-right, .fa-quote-left{
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 30px;
+}
+
+
+.ad-circle-image img{
+    width: 200px; /* Ensure the image fills the entire circle */
+    height: 200px; /* Make sure it also takes up the full height */
+    margin-left: 0px;
+    object-fit: cover; /* Ensures the image maintains aspect ratio while covering the circle */
+    overflow: hidden;
+    border-radius: 50%;
+    display:inline-block;
+    position: relative;
+    margin-left: 60px;
+    margin-right: 90px;
+    margin-top: 100px;
+    border: 4px solid #e5c4b2d0; /* Optional: Adds a border to the circular frame */
+}

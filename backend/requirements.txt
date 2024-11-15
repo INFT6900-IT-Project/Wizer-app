@@ -1,5 +1,4 @@
 # pip install -r requirements.txt
-
 bcrypt
 cryptography
 fastapi
@@ -15,3 +14,4 @@ pyotp
 Pillow
 azure-storage-blob
 qrcode
+fastapi[standard]

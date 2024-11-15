@@ -1,0 +1,102 @@
+.registration-form {
+    padding: 20px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    width: 60%;
+    max-width: 600px;
+    font-family: Arial, sans-serif;
+    color: #333;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.registration-form h2 {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.registration-form label {
+    font-size: 16px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    color: #555;
+}
+
+.registration-form input {
+    font-size: 16px;
+    margin-top: 5px;
+    padding: 8px;
+    border: none;
+    border-bottom: 1px solid gray;
+    width: 100%;
+}
+
+.registration-form input:focus {
+    outline: none;
+    border-bottom: 1px solid #333;
+}
+
+.sale-course-price {
+    margin: 20px 0;
+    font-size: 18px;
+    color: #555;
+}
+
+.sale-price-form {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    gap: 10px;
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: #999;
+    margin-right: 8px;
+}
+
+.discount-price {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+.payment-logo {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.payment-logo span {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.payment-logo span:hover {
+    transform: scale(1.1);
+}
+
+.payment-logo img {
+    width: 80px;
+    height: 80px;
+}
+
+.submit-btn {
+    background-color: #ff6f00;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.submit-btn:hover {
+    background-color: #e65c00;
+}

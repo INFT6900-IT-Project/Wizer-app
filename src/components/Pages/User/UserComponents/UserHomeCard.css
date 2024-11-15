@@ -1,0 +1,95 @@
+
+
+.ad-user-cards-wrap{
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin: 30px 10px;
+    align-items: center;
+    
+    
+}
+.ad-user-card-item{
+    display: flex;
+    flex: 1;
+    margin: 15px;
+    border-radius: 10px;
+    width: 310px;  /* width and height of the card*/
+    height: 350px;
+}
+
+.ad-card-item-content {
+    width: 100%;
+    display: inline-block;
+}
+
+.ad-card-item-content img {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    transition: all 0.2s linear;
+}
+
+.ad-user-card-item:hover .ad-card-item-content img {
+    transform: scale(1.1);
+}
+
+
+.ad-card-item-link {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
+    -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
+    filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
+    border-radius: 30px;
+    overflow: hidden;
+    text-decoration: none;
+  }
+
+.ad-card-item-link h5, .ad-card-item-link p, .ad-card-item-link p1, .ad-card-item-link p3{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.ad-card-item-link h5{
+    color: #383a3f;
+    font-size: 15px;
+    line-height: 1.2rem;
+    margin-bottom: 20px;
+    
+}
+
+.ad-card-item-link p{
+    color: #5f5d5d;
+    font-size: 14px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+} 
+
+.ad-card-item-link p1{
+    color: #5f5d5d;
+    font-size: 14px;
+
+} 
+
+.ad-card-underline{  /*the line under duration and student*/
+    margin-top: 10px;
+    border-bottom: 1px solid #adaba35e;
+}
+
+.ad-card-item-link p3{
+    color: #181715;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 15px;
+} 
+
+.fa-user-group{
+    margin-left: 20px;
+}

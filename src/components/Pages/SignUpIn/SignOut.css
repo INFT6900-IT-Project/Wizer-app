@@ -1,0 +1,64 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; /* Ensure it appears on top */
+}
+
+/* Dialog box styling */
+.dialog-box {
+    background-color: white;
+    padding: 25px 30px;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 400px;
+    width: 90%; /* Responsive width */
+}
+
+.dialog-box p {
+    margin: 10px 0px 20px;
+    font-size: 1.2em;
+}
+
+.dialog-box button:first-of-type {
+    background-color: #82d484; /* Yes button color */
+    color: white;
+}
+
+.dialog-box button:first-of-type:hover {
+    background-color: #78b479; 
+}
+
+.dialog-box button:last-of-type {
+    background-color: #db564dec; /* No button color */
+    color: white;
+}
+
+.dialog-box button:last-of-type:hover {
+    background-color: #c0534bf6; 
+}
+
+.signout-btn-wrap{
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 20px;
+}
+
+.signout-btn-wrap button {
+    margin: 10px;
+    padding: 14px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 15px;
+    width: 50%;
+    font-weight: 540;
+    font-size: 16px;
+  }

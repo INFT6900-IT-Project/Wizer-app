@@ -1,0 +1,96 @@
+.instructor-card {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+    width: 100%;
+    max-width: 600px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+}
+
+.instructor-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.instructor-logo {
+    width: 50%;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.instructor-info{
+    margin-left: 20px;
+    line-height: 2;
+}
+
+.instructor-info h2 {
+    margin: 0;
+    font-size: 20px;
+    color: #333;
+}
+
+.instructor-info p {
+    width: 100%;
+    margin: 5px 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.instructor-meta {
+    display: flex;
+    gap: 35px;
+    margin-top: 40px;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #666;
+}
+
+.meta-item img {
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+}
+
+.instructor-description {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+    margin: 10px 0;
+}
+
+.instructor-social {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.instructor-social span {
+    font-size: 14px;
+    color: #666;
+    margin-right: 5px;
+}
+
+.instructor-social a {
+    color: #333;
+    font-size: 20px;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.instructor-social a img {
+    width: 20px;
+    height: 20px;
+}
+
+.instructor-social a:hover {
+    transform: scale(1.1);
+}
