@@ -12,7 +12,7 @@
   letter-spacing: 0.3rem;
   align-self: flex-start;
   margin-left: 10px;
-  margin-top: 20px;  
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 
@@ -56,13 +56,15 @@
   min-width: 800px;
 }
 
-.a-table-wrapper th,  .a-checkmark td {
+.a-table-wrapper th,
+.a-checkmark td {
   border: 1px solid #ddd;
   padding: 8px;
   text-align: left;
 }
 .a-table-wrapper td:first-child {
-  padding: 0px;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 .a-table-wrapper th {
@@ -160,7 +162,6 @@
   justify-content: center;
   gap: 10px;
 }
-
 
 /* Create a custom checkbox */
 .a-checkmark {

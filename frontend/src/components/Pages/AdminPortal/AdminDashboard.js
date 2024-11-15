@@ -122,6 +122,7 @@ const AdminDashboard = () => {
               <table>
                 <thead>
                   <tr>
+                    <th></th>
                     <th>User ID</th>
                     <th>Username</th>
                     <th>First Name</th>
@@ -130,7 +131,6 @@ const AdminDashboard = () => {
                     <th>Phone Number</th>
                     <th>Role</th>
                     <th>2FA Enabled</th>
-                    <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
