@@ -1,5 +1,6 @@
 import React from 'react';
 import './UserAchievement.css';
+import { Link } from 'react-router-dom';
 import achievement from '../../../../ImageVideo/achievement.png';
 import Badge from './Badge';
 import badge1 from '../../../../ImageVideo/badge1.jpg';
@@ -15,20 +16,25 @@ import badge8 from '../../../../ImageVideo/badge8.jpg';
 function UserAchievement() {
     return (
         <div>
-            <h1 className='ad-user-pages-title'>My Achievements</h1>
+            <h1 className='ad-user-pages-title'>My Achievements & Badges</h1>
             <div className='ad-achieve-wrap'>
                 <div className='ad-achieve-header'>
                     <div className='ad-achieve-header-left'>
                         <p>Where you can track your progress, reflect on the milestones you've reached, and celebrate your hard-earned success. Whether you’re completing courses, acing quizzes, or engaging with the community, each achievement represents a unique accomplishment that brings you closer to mastering new skills.</p>
                         <p>As you progress, you'll <span>unlock badges</span> that showcase your dedication, consistency, and growth. These badges are not just symbols—they’re proof of your commitment to learning, problem-solving, and personal development. Every achievement is a reflection of your passion for growth and your drive to succeed</p>
-                        <a href='/user-screen/my-learning'>Gain badges</a>
+                        <Link to='/user-screen/my-learning' className='ad-gain-badge'>Gain badges</Link>
+                        
                     </div>
                     <div className='ad-achieve-header-right'>
                         <img src={achievement} />
                     </div>
                 </div>
+                
+
+
                 <div className='ad-achieve-content'>
-                    <h2><i class="fa-solid fa-shield-halved"></i> YOUR BADGES <i class="fa-solid fa-shield-halved"></i></h2>
+                    <h3 className='ad-achieve-certi-head'><i class="fa-solid fa-graduation-cap"></i></h3>
+                    <h2> YOUR BADGES</h2>
                     <div className='ad-badge-container'>
                         <Badge
                             src={badge1}
@@ -66,7 +72,6 @@ function UserAchievement() {
 
                     </div>
                 </div>
-
             </div>
         </div>
     )
