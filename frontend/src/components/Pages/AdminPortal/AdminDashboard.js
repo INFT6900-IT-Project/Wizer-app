@@ -122,7 +122,7 @@ const AdminDashboard = () => {
               <table>
                 <thead>
                   <tr>
-                    <th></th>
+                    <th>Check Box</th>
                     <th>User ID</th>
                     <th>Username</th>
                     <th>First Name</th>

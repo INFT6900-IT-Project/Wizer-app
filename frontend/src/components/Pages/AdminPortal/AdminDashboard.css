@@ -181,7 +181,7 @@
   box-sizing: border-box;
 }
 
-.a-container input:checked ~ .checkmark {
+.a-container input:checked ~ .a-checkmark {
   box-shadow: rgb(255, 84, 0) 0px 0px 0px 2px;
   background-color: rgba(245, 24, 24, 0.5);
   height: 20px;
@@ -204,7 +204,7 @@
   display: none;
 }
 
-.a-container input:checked ~ .checkmark:after {
+.a-container input:checked ~ .a-checkmark:after {
   display: block;
 }
 
