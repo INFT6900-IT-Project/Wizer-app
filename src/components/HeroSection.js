@@ -127,7 +127,7 @@ function HeroSection() {
               student=' 16 students'
               price={<span style={{ textDecoration: 'line-through', color: 'gray' }}>$29.99</span>}
               newPrice={<span style={{ color: '#18a52b' }}> Free</span>}
-              path=''
+              path='/course-detail/2'
             />
             <HomeCourseCard
               src={data}
@@ -145,7 +145,7 @@ function HeroSection() {
               duration=' 7 weeks'
               student=' 3 students'
               price='$82.00'
-              path=''
+              path='course-detail/3'
             />
 
             <HomeCourseCard
@@ -187,7 +187,7 @@ function HeroSection() {
               student=' 35 students'
               price={<span style={{ textDecoration: 'line-through', color: 'gray' }}>$45.00</span>}
               newPrice={<span style={{ color: '#18a52b' }}> Free</span>}
-              path=''
+              path='/course-detail/7'
             />
             <HomeCourseCard
               src={art}
@@ -196,7 +196,7 @@ function HeroSection() {
               duration=' 8 weeks'
               student=' 5 students'
               price='$49.00'
-              path=''
+              path='/course-detail/6'
             />
           </div>
         </div>

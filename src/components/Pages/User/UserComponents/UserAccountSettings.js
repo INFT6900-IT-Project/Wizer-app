@@ -6,18 +6,25 @@ import { toastError, toastSuccess } from '../../../../helpers/toast';
 function UserAccountSettings() {
   const [username, setUsername] = useState(); // Replace with dynamic data
   const [email, setEmail] = useState(); // Replace with dynamic data
-  const [mfaEnabled, setMfaEnabled] = useState(false); // Track MFA status
+  const [mfaRequest, setMfaRequest] = useState(false);
+  const [qrCode, setqrCode] =useState();
   const [passChangeForm, setPassChangeForm] = useState(false)
   const [currentPassword, setCurrentPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [mfaRegistered, setmfaRegistered] =useState(false)
 
 
-
-  const handleRegisterMFA = () => {
+  const handleRegisterMFA = async(e) => {
     // Placeholder for MFA registration logic
-    alert("MFA registration process initiated!");
-    setMfaEnabled(true);
+    setMfaRequest(true);
+    try {
+      const response = await axios.post(`http://127.0.0.1:8000/mfa/otp-register`, {"username":username},{ responseType: 'blob' })
+      const imageUrl =URL.createObjectURL(response.data)
+      setqrCode(imageUrl)
+    } catch (error) {
+      console.log(error)
+    }
   };
   const handleChangePassword = () => {
     setPassChangeForm(true)
@@ -47,6 +54,22 @@ function UserAccountSettings() {
     ;
   };
 
+  const cancel2fa=async(e)=>{
+    setMfaRequest(false)
+    try {
+      await axios.delete(`http://127.0.0.1:8000/mfa/cancel/${username}`)
+      setmfaRegistered(false)
+      alert("Canceled MFA register!")
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  const handleSubmit2fa=()=>{
+    setMfaRequest(false)
+    setmfaRegistered(true)
+    alert("Multi-Factor Authorization Registered!")
+  }
   useEffect(() => {
     const token = localStorage.getItem("token")
 
@@ -57,6 +80,7 @@ function UserAccountSettings() {
         console.log(response)
         setEmail(response.data.email)
         setUsername(response.data.username)
+        setmfaRegistered(response.data.istwofactorenabled)
       } catch (error) {
 
       }
@@ -70,7 +94,7 @@ function UserAccountSettings() {
     <div className="el-user-management">
       {passChangeForm ?
 
-        <>
+        (<>
           <i onClick={() => setPassChangeForm(false)} class="fa-solid fa-arrow-left"></i>
           <h2>Change Password</h2>
           <div className="el-password-form">
@@ -105,9 +129,20 @@ function UserAccountSettings() {
               Change Password
             </button>
           </div>
-        </>
-        :
-        <div><h2>User Profile Management</h2>
+        </>)
+        : mfaRequest?
+        
+        (<><i onClick={cancel2fa} class="fa-solid fa-arrow-left"></i>
+        <h2>Please scan the qr code below using your Google or Microsoft authenticator APP </h2>
+        <img src={qrCode}></img>
+        <button className="el-button primary" onClick={handleSubmit2fa}>
+              Submit
+            </button>
+        </>)
+
+       :
+       (<div>
+          <h2>User Profile Management</h2>
 
           <div className="el-user-info">
             <p><strong>Username:</strong> {username}</p>
@@ -115,12 +150,18 @@ function UserAccountSettings() {
           </div>
 
           <div className="el-user-actions">
-            <button className="el-button primary" onClick={handleRegisterMFA} disabled={mfaEnabled}>
-              {mfaEnabled ? "MFA Registered" : "Register for MFA"}
+            {mfaRegistered? 
+            <button className="el-button primary" onClick={cancel2fa} >
+              Cancel MFA
             </button>
-
+            :
+            <button className="el-button primary" onClick={handleRegisterMFA} >
+              Register for MFA
+            </button>}
             <button className="el-button secondary" onClick={handleChangePassword}>Change Password</button>
-          </div></div>}
+          </div>
+        </div>)
+        }
     </div>
   );
 }

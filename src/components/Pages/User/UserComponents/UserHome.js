@@ -1,6 +1,5 @@
 import React from 'react';
 import './UserHome.css';
-import HomeCourseCard from './UserHomeCard';
 import communication from '../../../../ImageVideo/communication.jpg';
 import data from '../../../../ImageVideo/data.jpg';
 import powerbi from '../../../../ImageVideo/powerbi.jpg';
@@ -17,6 +16,7 @@ import { Link } from 'react-router-dom';
 function UserHome() {
     return (
         <div>
+            <h1 className='ad-user-home-welcome'>Welcome back, Cua! <span>Time to dive back in</span></h1>
             <div className='ad-user-home'>
                 <div>
                     <h2>Recently Viewed Courses</h2>

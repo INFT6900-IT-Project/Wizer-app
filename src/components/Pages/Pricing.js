@@ -55,7 +55,7 @@ function Pricing() {
                     <th>
                             <h1>Team</h1>
                             <p>5-125 users</p>
-                            <a href='#'>Get Started</a>                   
+                            <a href='/'>Get Started</a>                   
                     </th>
                     <th>
                         <div>
