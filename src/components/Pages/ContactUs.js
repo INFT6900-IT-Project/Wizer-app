@@ -7,6 +7,9 @@ import '../CardItem.css';
 import img1 from '../../ImageVideo/img1.jpg';
 import adoria from '../../ImageVideo/adoria.png';
 import elias from '../../ImageVideo/elias.jpg';
+import danny from '../../ImageVideo/Danny.png';
+import quang from '../../ImageVideo/quang.png';
+import gemma from '../../ImageVideo/gemma.png';
 
 
 function ContactUs() {
@@ -91,22 +94,22 @@ function ContactUs() {
 
           <div className='cards-wrap'>
             <CardItem
-              src={img1}
+              src={gemma}
               text='Gemma Nguyen'
               description='Contact '
-              path='https://www.linkedin.com/in/thi-bao-ngoc-duong-5947491b7/'
+              path='https://www.linkedin.com/in/thanhtuyencs163/'
             />
             <CardItem
-              src={img1}
+              src={danny}
               text='Danny Aburto'
               description='Contact '
-              path='https://www.linkedin.com/in/thi-bao-ngoc-duong-5947491b7/'
+              path='https://www.linkedin.com/in/danny-banda-9b2b3722/'
             />
             <CardItem
-              src={img1}
+              src={quang}
               text='Quang Hoang'
               description='Contact'
-              path='https://www.linkedin.com/in/thi-bao-ngoc-duong-5947491b7/'
+              path='https://www.linkedin.com/in/quanghoang01/'
             />
 
 

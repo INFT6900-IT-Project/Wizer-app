@@ -2,7 +2,12 @@
 .ad-user-home-welcome span{
     font-size: 25px;
     font-weight: 200;
+    margin-left: 20px;
     color: rgb(119, 161, 201);
+}
+
+.ad-user-home-welcome{
+    padding-top: 30px;
 }
 
 .ad-user-home{
