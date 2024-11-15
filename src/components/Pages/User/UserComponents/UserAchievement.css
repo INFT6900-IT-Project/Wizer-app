@@ -11,6 +11,15 @@
     background-color: rgba(243, 232, 201, 0.228);
 }
 
+.ad-achieve-certi-head{
+    border-top: 1px solid rgba(168, 146, 146, 0.466);
+    text-align: center;
+    padding-top: 40px;
+    margin: 20px 20px;
+    font-size: 35px;
+    color: rgb(111, 142, 207);
+}
+
 .ad-achieve-header{
     display: flex;
     justify-content: space-between;
@@ -35,7 +44,7 @@
 
 
 
-.ad-achieve-header-left a{
+.ad-gain-badge{
     color: rgb(224, 109, 63);
     font-weight: 600;
     font-size: 17px;
@@ -45,7 +54,7 @@
     text-decoration: none;
 }
 
-.ad-achieve-header-left a:hover{
+.ad-gain-badge:hover{
     color: rgb(255, 255, 255);
     background-color: rgba(224, 109, 63, 0.836);
     border:none;
