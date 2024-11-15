@@ -35,9 +35,13 @@ import UserSavedCourses from './components/Pages/User/UserComponents/UserSavedCo
 import UserProgress from './components/Pages/User/UserComponents/UserProgress';
 import UserAccountSettings from './components/Pages/User/UserComponents/UserAccountSettings';
 import UserHelpCenter from './components/Pages/User/UserComponents/UserHelpCenter';
+import ManagementCourse from './components/Pages/ownermodule/ManagementCourse';
 
-
-
+import Dashboard from './components/Pages/ownermodule/Dashboard';
+import CourseManagement from './components/Pages/ownermodule/CourseManagement';
+import LearnerManagement from '././components/Pages/ownermodule/LearnerManagement';
+import Message from '././components/Pages/ownermodule/Message';
+import Settings from '././components/Pages/ownermodule/Settings';
 
 function App() {
   const [auth, setAuth] = useState(null); // Use null initially to indicate loading state
@@ -80,8 +84,13 @@ function App() {
                   <Route path='progress' element={<UserProgress/>}/>
                   <Route path='help-center' element={<UserHelpCenter />} />
                   <Route path='account-settings' element={<UserAccountSettings/>}/>
-
-
+ {/*Owner */}  
+            <Route path='/management-course' element={<ManagementCourse />} />
+              <Route path='/dashboard' element={<Dashboard />} />
+              <Route path='/course-management' element={<CourseManagement />} />
+              <Route path='/learner-management' element={<LearnerManagement />} />
+              <Route path='/message' element={<Message />} />
+              <Route path='/settings' element={<Settings />} />
                   
             </Route>
 
@@ -103,6 +112,7 @@ function App() {
             <Route path="/course-detail/:id" element={<CourseDetail />} />        //Básico de Japonés
             <Route path="/course-detail/3" element={<CourseDetail2 />} /> //Learn Photography
             <Route path="/course-detail/2" element={<CourseDetail1 />} /> //Introduction to Business
+           
 
 
           </Routes>

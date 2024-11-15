@@ -1,0 +1,132 @@
+/* Overall layout */
+.management-container {
+    display: flex;
+  }
+  
+  .sidebar {
+    width: 200px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-right: 1px solid #ddd;
+  }
+  
+  .sidebar h2 {
+    color: #ff6f61;
+    font-size: 1.5em;
+  }
+  
+  .sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0;
+  }
+  
+  .sidebar nav ul li {
+    padding: 10px 0;
+    font-weight: 500;
+    color: #555;
+  }
+  
+  .main-content {
+    padding: 20px;
+    flex-grow: 1;
+  }
+  
+  .title {
+    font-size: 1.8em;
+    color: #333;
+  }
+  
+  .search-bar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .search-bar input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+  }
+  
+  .action-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .btn-show-all, .btn-add-course {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .btn-show-all {
+    background-color: #eee;
+    color: #333;
+  }
+  
+  .btn-add-course {
+    background-color: #ff6f61;
+    color: #fff;
+  }
+  
+  .course-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .course-table th, .course-table td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .course-table th {
+    color: #777;
+    font-weight: bold;
+  }
+  
+  .highlighted-id {
+    color: #ff6f61;
+  }
+  
+  .btn-edit, .btn-delete {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+  }
+  
+  .btn-edit {
+    background-color: #ff6f61;
+    color: #fff;
+  }
+  
+  .btn-delete {
+    background-color: #ddd;
+    color: #333;
+  }
+  
+  .modal {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 10;
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    width: 300px;
+  }
+  
+  .modal h2 {
+    margin-bottom: 20px;
+  }
+  
