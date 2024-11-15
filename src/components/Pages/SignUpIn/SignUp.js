@@ -65,7 +65,9 @@ function SignUp() {
     }
   };
 
-  const handleCancelOTP = () => {};
+  const handleCancelOTP = () => {
+    setverifyEmail(false)
+  };
 
   const handleOTP = async (e) => {
     if (otp == inputOtp) {
@@ -189,13 +191,18 @@ function SignUp() {
               Please enter the OTP sent to email address: {signUpInfo.email}{" "}
             </h3>
             {wrongOtp && <i>*Wrong OTP</i>}
-            <input
+            
+            <input className="ad-otp-input-box"
               type="number"
               value={inputOtp}
               onChange={(e) => setInputOtp(e.target.value)}
             ></input>
-            <button onClick={handleOTP}>Submit</button>
-            <button onClick={handleCancelOTP}>Cancel</button>
+            <div className="ad-otp-buttons">
+            <button className="ad-otp-submit-button" onClick={handleOTP}>Submit</button>
+            <button className="ad-otp-cancel-button" onClick={handleCancelOTP}>Cancel</button>
+
+            </div>
+            
           </div>
         </div>
       )}
