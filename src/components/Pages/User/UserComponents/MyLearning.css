@@ -199,3 +199,31 @@
 .ad-my-learning-switch:hover{
     color: #465dc0e9;
 }
+
+
+
+.ad-course-progress-bar-wrap {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: 20px 0px; /* Space between progress bar and alert/feedback */
+  }
+  
+  .ad-course-progress-bar-bg {
+    width: 100%;
+    background-color: #e0e0e0;
+    height: 8px;
+    border-radius: 4px;
+    margin-right: 10px;
+  }
+  
+  .ad-course-progress-bar {
+    background-color: #4caf50;
+    height: 100%;
+    border-radius: 4px;
+  }
+  
+  .ad-course-progress-text {
+    font-size: 14px;
+    color: #4b49499f;
+  }
