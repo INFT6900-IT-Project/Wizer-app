@@ -59,7 +59,7 @@ function UserAccountSettings({ userData }) {
     try {
       await axios.delete(`http://127.0.0.1:8000/mfa/cancel/${username}`)
       setmfaRegistered(false)
-      alert("Canceled MFA register!")
+      toastSuccess("Multi-factor authorization has been canceled!")
     } catch (error) {
       console.error(error)
     }
@@ -68,7 +68,7 @@ function UserAccountSettings({ userData }) {
   const handleSubmit2fa = () => {
     setMfaRequest(false)
     setmfaRegistered(true)
-    alert("Multi-Factor Authorization Registered!")
+    toastSuccess("Multi-Factor Authorization  has been registered!")
   }
   useEffect(() => {
 
