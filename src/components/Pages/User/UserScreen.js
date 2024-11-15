@@ -11,25 +11,14 @@ import UserProgress from './UserComponents/UserProgress';
 import UserAccountSettings from './UserComponents/UserAccountSettings';
 import UserHelpCenter from './UserComponents/UserHelpCenter';
 import MyLearning from './UserComponents/MyLearning';
-import axios from 'axios';
+
+import { useAuth } from '../../../context/AuthContext';
 function UserScreen() {
 
-  const [user,setUser]=useState()
-
-  useEffect(() => {
-    const token = localStorage.getItem("token")
-
-    async function fetchUserData() {
-
-      try {
-        const response = await axios.get(`http://127.0.0.1:8000/users/me?token=${token}`)
-        setUser(response.data)
-        console.log(user)
-      } catch (error) {
-      }
-    }
-    fetchUserData()
-  }, [])
+  
+  const {user}= useAuth()
+ 
+  
 
   if (user) {
     return (

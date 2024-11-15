@@ -35,31 +35,21 @@ import UserSavedCourses from "./components/Pages/User/UserComponents/UserSavedCo
 import UserProgress from "./components/Pages/User/UserComponents/UserProgress";
 import UserAccountSettings from "./components/Pages/User/UserComponents/UserAccountSettings";
 import UserHelpCenter from "./components/Pages/User/UserComponents/UserHelpCenter";
-import { AuthProvider } from "./context/AuthContext";
 import AdminDashboard from "./components/Pages/AdminPortal/AdminDashboard";
-import { ToastContainer } from "react-toastify";
+
+import { useAuth } from "./context/AuthContext";
 
 function App() {
-  const [auth, setAuth] = useState(null); // Use null initially to indicate loading state
-
-  useEffect(() => {
-    const checkAuth = async () => {
-      const isAuthenticated = await verifyToken();
-      setAuth(isAuthenticated);
-    };
-
-    checkAuth();
-  }, []);
-
+  const {user}=useAuth()
+  
   return (
     <div>
-      <AuthProvider>
-        <ToastContainer stacked />
-        {auth ? (
+        {user ? (
           <Router>
             <ScrollToTop>
               <NavBarUser />
               <Routes>
+               
                 <Route exact path="/" element={<Home />} />
                 <Route path="/home" element={<Home />} />
                 <Route exact path="/sign-out" element={<SignOut />} />
@@ -77,11 +67,11 @@ function App() {
                   <Route path="saved-courses" element={<UserSavedCourses />} />
                   <Route path="progress" element={<UserProgress />} />
                   <Route path="help-center" element={<UserHelpCenter />} />
-                  <Route path="admin-dashboard" element={<AdminDashboard />} />
                   <Route
                     path="account-settings"
                     element={<UserAccountSettings />}
                   />
+                  {(user.role=="Admin")&&<Route path="admin-dashboard" element={<AdminDashboard />} />}
                 </Route>
                 {/* <Route path='/user-dash-board' element={<UserDashboard />} /> */}
                 {/* Elias */}
@@ -146,7 +136,7 @@ function App() {
             <Footer />
           </Router>
         )}
-      </AuthProvider>
+    
     </div>
   );
 }

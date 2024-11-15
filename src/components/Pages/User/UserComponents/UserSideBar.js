@@ -52,7 +52,11 @@ function UserSideBar() {
         </Link>
 
         {/* Conditionally render Admin Dashboard link if user has Admin permission */}
-        {permissions && permissions === "Admin" && (
+        {(permissions && permissions === "Admin")?" ":(
+          
+          
+
+          
           <Link
             to="/user-screen/admin-dashboard"
             style={{ textDecoration: "none" }}
@@ -61,6 +65,7 @@ function UserSideBar() {
               <i className="fa-solid fa-user-shield"></i> Admin Dashboard
             </p>
           </Link>
+
         )}
       </div>
     </div>
