@@ -22,60 +22,72 @@ import "./CourseDetail.css";
 // fetchCourseData(2)
 
 const coursesData = [
-  {
-    id: 1,
-    image: 'path/to/courseImage1.png',
-    category: 'Language',
-    title: 'Basic Japanese',
-    duration: '2 Weeks',
-    students: 25,
-    level: 'Basic',
-    price: '$25',
-    sale: 'Discounted Price',
-    overview: "This 2-week beginner's course introduces students to the basics of the Japanese language...",
-
-  },
-
-];
-
-const CourseDetail = () => {
-  const location = useLocation();
-  const { id } = useParams();
-  const [selectedCourse, setSelectedCourse] = useState(location.state?.course);
-  const [reviewsData, setReviewsData] = useState([]);
-  const [showRegistrationForm, setShowRegistrationForm] = useState(false);
-  const registrationFormRef = useRef(null);
-
-
-  useEffect(() => {
-    if (!selectedCourse) {
-      console.log("Fetching course data for ID:", id);
-      const fetchedCourse = coursesData.find(course => course.id === parseInt(id));
-      setSelectedCourse(fetchedCourse);
-    } else {
-      console.log("Course data:", selectedCourse);
-    }
-  }, [id, selectedCourse]);
-
-
-
-  useEffect(() => {
-    const savedComments = JSON.parse(localStorage.getItem("comments")) || [];
-    setReviewsData(savedComments);
-  }, []);
-
-  const addComment = (newReview) => {
-    setReviewsData((prevReviews) => [...prevReviews, newReview]);
-    localStorage.setItem("comments", JSON.stringify([...reviewsData, newReview]));
-  };
-
-  const handleGetNowClick = () => {
-    setShowRegistrationForm(true);
-    setTimeout(() => {
-      registrationFormRef.current.scrollIntoView({ behavior: "smooth" });
-    }, 100);
-  };
-
+    {
+      id: 1,
+      image: 'path/to/courseImage1.png',
+      category: 'Language',
+      title: 'Basic Japanese',
+      duration: '2 Weeks',
+      students: 25,
+      level: 'Basic',
+      price: '25$',
+      sale: 'Discounted Price',
+      overview: "This 2-week beginner's course introduces students to the basics of the Japanese language...",
+  
+    },
+    {
+      id: 2,
+      image: 'path/to/courseImage2.png',
+      category: 'Business',
+      title: 'Introduction to Business',
+      duration: '2 Weeks',
+      students: 25,
+      level: 'Basic',
+      price: '25$',
+      sale: 'Free (0$)',
+      overview: "TThis 2-week course introduces students to the basics of business concepts, organizational structures, marketing fundamentals, and management principles.",
+  
+    },
+  ];
+  
+  const CourseDetail = () => {
+    const location = useLocation();
+    const { id } = useParams();
+    const [selectedCourse, setSelectedCourse] = useState(location.state?.course);
+    const [reviewsData, setReviewsData] = useState([]);
+    const [showRegistrationForm, setShowRegistrationForm] = useState(false);
+    const registrationFormRef = useRef(null);
+  
+    
+    useEffect(() => {
+      if (!selectedCourse) {
+        console.log("Fetching course data for ID:", id);
+        const fetchedCourse = coursesData.find(course => course.id === parseInt(id));
+        setSelectedCourse(fetchedCourse);
+      } else {
+        console.log("Course data:", selectedCourse); 
+      }
+    }, [id, selectedCourse]);
+  
+  
+  
+      useEffect(() => {
+        const savedComments = JSON.parse(localStorage.getItem("comments")) || [];
+        setReviewsData(savedComments);
+      }, []);
+    
+      const addComment = (newReview) => {
+        setReviewsData((prevReviews) => [...prevReviews, newReview]);
+        localStorage.setItem("comments", JSON.stringify([...reviewsData, newReview]));
+      };
+    
+      const handleGetNowClick = () => {
+        setShowRegistrationForm(true);
+        setTimeout(() => {
+          registrationFormRef.current.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      };
+    
 
   return (
     <>

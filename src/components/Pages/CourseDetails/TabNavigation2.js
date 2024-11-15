@@ -68,20 +68,20 @@ const curriculumData = [
                 name: "Understanding Natural and Artificial Light", 
                 content: "Overview of light sources (natural vs. artificial), qualities of light (hard, soft), and how to position the subject relative to the light." 
             },
-            { 
-                name: "Golden Hour and Blue Hour Photography", 
-                content: "Explanation of golden and blue hours, why they are ideal for outdoor photography, how to make the most of these times." 
-            },
-            { 
-                name: "Using Shadows and Contrast", 
-                content: "How shadows and contrast can add depth and drama to images, techniques to control shadows." 
-            },
+            // { 
+            //     name: "Golden Hour and Blue Hour Photography", 
+            //     content: "Explanation of golden and blue hours, why they are ideal for outdoor photography, how to make the most of these times." 
+            // },
+            // { 
+            //     name: "Using Shadows and Contrast", 
+            //     content: "How shadows and contrast can add depth and drama to images, techniques to control shadows." 
+            // },
             { 
                 name: "Practical Assignment – Composition and Lighting", 
                 content: "Assignment to capture three photos that emphasize different composition techniques and lighting styles." 
             },
         ],
-        totalLessons: 6,
+        totalLessons:4,
         quizzes: [
             {
                 title: "Quiz: Composition and Lighting",
@@ -98,7 +98,7 @@ const curriculumData = [
 ];
 
 
-// Define the Overview component inline within TabNavigation1
+
 const Overview = () => (
     <div>
         <p>

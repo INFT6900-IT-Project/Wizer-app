@@ -1,10 +1,12 @@
+//Introduction to Business
+
 import React, { useState } from 'react';
 import Curriculum from './Curriculum';
 import Instructor from './Instructor';
 import Reviews from './Reviews';
 import FAQs from './FAQs';
 import './TabNavigation.css';
-
+import LessonWhatIsBusiness from './LessonWhatIsBusiness';
 const curriculumData = [
     {
         title: "Module 1: Business Fundamentals",
@@ -36,10 +38,9 @@ const curriculumData = [
             { name: "The 4 Ps of Marketing", content: "Product, Price, Place, Promotion." },
             { name: "Target Market", content: "Identifying and segmenting target audiences." },
             { name: "Importance of Finance in Business", content: "Role of finance in business operations and growth." },
-            { name: "Basic Financial Statements", content: "Income statement, balance sheet, and cash flow statement." },
-            { name: "Role of Human Resources (HR)", content: "HR's role in recruitment, training, and management." }
+    
         ],
-        totalLessons: 6,
+        totalLessons: 4,
         quizzes: [
             {
                 title: "Quiz: Business Fundamentals 2 – Marketing, Finance, and HR",
@@ -103,7 +104,12 @@ const TabNavigation1 = ({ reviewsData }) => {
         </div>
     );
 };
-
+console.log("Curriculum:", Curriculum); 
+console.log("Overview:", Overview);
+console.log("Instructor:", Instructor);
+console.log("Reviews:", Reviews);
+console.log("FAQs:", FAQs);
+console.log("LessonWhatIsBusiness:", LessonWhatIsBusiness);
 export default TabNavigation1;
 
 

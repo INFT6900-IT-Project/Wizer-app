@@ -60,5 +60,5 @@ const Instructor = () => {
     </div>
   );
 };
-
+console.log("Instructor:", Instructor);
 export default Instructor;
