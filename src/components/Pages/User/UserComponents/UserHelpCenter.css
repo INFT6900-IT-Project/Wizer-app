@@ -1,0 +1,37 @@
+.ad-user-help-center-wrap {
+    margin-top: 20px;
+    /* padding: 30px 30px 180px; */
+    padding-bottom: 190px;
+    background-color: rgba(243, 237, 201, 0.228);
+}
+
+.ad-help-center-header {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px;
+    gap: 20px;
+    background-color: rgba(187, 214, 226, 0.815);
+}
+
+.ad-help-center-header h2 {
+    margin-top: 20px;
+    font-size: 29px;
+}
+
+
+.ad-user-help-search {
+    width: 500px;
+    padding: 10px;
+    font-size: 1.2em;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.ad-user-help-card-container{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 40px;
+}

@@ -33,7 +33,7 @@
 .ad-course-btn:first-of-type:hover{
     background-color: rgba(114, 185, 34, 0.555);
     color: white;
-    border: 1px solid rgb(161, 160, 160);
+    border: 1px solid rgb(241, 241, 241);
     
 }
 
@@ -43,8 +43,8 @@
 }
 
 .ad-course-btn:last-of-type:hover{
-    background-color: rgba(114, 185, 34, 0.151);
-    color: rgb(102, 93, 40);
+    background-color: rgba(114, 185, 34, 0.534);
+    color: rgb(255, 255, 255);
     border: 1px solid rgb(161, 160, 160);
 }
 
